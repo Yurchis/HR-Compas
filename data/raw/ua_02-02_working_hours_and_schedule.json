@@ -1,0 +1,21 @@
+{
+  "id": "2-2",
+  "title": "Working Hours and Schedule",
+  "section": {
+    "number": 2,
+    "title": "Operation Policies"
+  },
+  "category": "schedule",
+  "country": "UA",
+  "sub_company": [
+    "IT-Product"
+  ],
+  "applies_to": [
+    "all"
+  ],
+  "eligibility": null,
+  "paid_status": "not_applicable",
+  "source": "Handbook",
+  "text": "It Company Ukraine Office normally is open for business from 11.00 am to 8.00 pm, Monday through Friday.\nEmployees will be assigned a work schedule and will be expected to begin and end work according to the schedule. To accommodate the needs of the business, at some point It Company may need to change individual work schedules on either a short-term or long-term basis.\nEmployees will be provided meal and rest periods as required by law. A supervisor will provide further details.",
+  "word_count": 82
+}

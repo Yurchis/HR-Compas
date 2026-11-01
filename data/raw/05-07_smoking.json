@@ -1,0 +1,22 @@
+{
+  "id": "5-7",
+  "title": "Smoking",
+  "section": {
+    "number": 5,
+    "title": "General Standards Of Conduct"
+  },
+  "category": "conduct",
+  "country": "USA",
+  "sub_company": [
+    "IT-Outsourcing",
+    "IT-Product"
+  ],
+  "applies_to": [
+    "all"
+  ],
+  "eligibility": null,
+  "paid_status": "not_applicable",
+  "source": "Handbook",
+  "text": "Smoking, including the use of e-cigarettes, is prohibited on Company premises and in all Company vehicles.",
+  "word_count": 16
+}

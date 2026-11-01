@@ -1,0 +1,22 @@
+{
+  "id": "2-9",
+  "title": "Direct Deposit",
+  "section": {
+    "number": 2,
+    "title": "Operational Policies"
+  },
+  "category": "pay",
+  "country": "USA",
+  "sub_company": [
+    "IT-Outsourcing",
+    "IT-Product"
+  ],
+  "applies_to": [
+    "all"
+  ],
+  "eligibility": null,
+  "paid_status": "not_applicable",
+  "source": "Handbook",
+  "text": "It Company strongly encourages employees to use direct deposit. Authorization for direct deposit payments is available on BambooHR. It Company does not permit advances on paychecks or against accrued paid time off.",
+  "word_count": 32
+}

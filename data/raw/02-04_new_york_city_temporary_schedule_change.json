@@ -1,0 +1,28 @@
+{
+  "id": "2-4",
+  "title": "New York City Temporary Schedule Change",
+  "section": {
+    "number": 2,
+    "title": "Operational Policies"
+  },
+  "category": "schedule",
+  "country": "USA",
+  "sub_company": [
+    "IT-Outsourcing",
+    "IT-Product"
+  ],
+  "applies_to": [
+    "nyc_employees"
+  ],
+  "eligibility": {
+    "who": "Employees who work 80 or more hours in New York City in a calendar year",
+    "min_tenure": {
+      "value": 120,
+      "unit": "days"
+    }
+  },
+  "paid_status": "not_specified",
+  "source": "Handbook",
+  "text": "Employees who work 80 or more hours in New York City in a calendar year and have been employed by It Company for 120 or more days are eligible for two (2) temporary changes to their work schedules each calendar year for certain \"personal events.\"\nPersonal Events\nA \"personal event\" includes the following:\nthe need to care for a child under the age of 18 for whom the employee provides direct and ongoing care. the need to care for an individual (\"care recipient\") with a disability who is a family member or who resides in the caregiver's household for whom the employee provides direct and ongoing care to meet the needs of daily living. the need to attend a legal proceeding or hearing for public benefits to which the employee, a family member or the employee's minor child or care recipient is a party; or any other reason for which the employee may use leave under New York City's Paid Safe and Sick Leave law.\nFor purposes of this policy a \"family member\" includes: a child (biological, adopted, or foster child, legal ward, child of the employee standing in loco parentis); a grandchild; a spouse (current or former regardless of whether they reside together); a domestic partner (current or former regardless of whether they reside together); a parent; a grandparent; a child or parent of the employee's spouse or domestic partner; a sibling (including a half-, adopted or step-sibling); any other individual related by blood to the employee; and any individual whose close association with the employee is the equivalent of family.\nTemporary Schedule Change\nA temporary schedule change may last up to one (1) business day on two (2) separate occasions or up to two (2) business days on one (1) occasion each calendar year. A business day is any 24-hour period during which the employee is required to work any amount of time.\nA temporary change means an adjustment to the employee's usual schedule including in the hours, times or locations the employee is expected to work. The change can include:\nusing short-term unpaid leave; using paid time off; working remotely; or swapping or shifting working hours with a co-worker.\nThe Company has the option of granting unpaid leave in lieu of the temporary change requested by the employee.\nRequest for Schedule Change\nRequests for a temporary schedule change must be made orally or in writing to the Company or to the employee's direct supervisor as soon as practicable after the employee becomes aware of the need for the change. The request should include:\nthe date of the temporary schedule change; that the change is due to a personal event; and proposed type of temporary schedule change (unless the employee would like to use leave without pay).\nThe Company will respond immediately to such requests. Assuming the employee has not exceeded the number of allowable requests and the request is for a qualifying reason, the Company will either approve the proposed type of temporary schedule change or provide leave without pay. The Company also may offer employees the ability to use paid time off. Employees will not be required to use leave under New York City's Paid Safe and Sick Leave law for a temporary schedule change.\nIf the employee requested the schedule change in person or by phone, the employee must submit a written request no later than the second business day after the employee returns to work. The employee should include in the written request the date of the temporary schedule change and that the change was due to a personal event.\nThe Company will provide a written response to any written request for a temporary schedule change within 14 days. The response will include:\nif the request was granted or denied. how the request was accommodated (if granted) or the reason for denial (if denied); number of requests the employee has made for temporary schedule changes; and how many days the employee has left in the year for temporary schedule changes.\nEmployees have the right to temporary schedule changes and may file a complaint for alleged violations of this policy and applicable law with the New York City Department of Consumer Affairs. The Company prohibits retaliation or the threat of retaliation against the employee for exercising or attempting to exercise any right provided in this policy and applicable law, or interference with any investigation, proceeding or hearing related to or arising out of employees' rights pursuant to this policy and applicable law.\nEmployees with questions concerning this policy should contact the Head of Human Resources.",
+  "word_count": 760
+}

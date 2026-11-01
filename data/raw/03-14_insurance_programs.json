@@ -1,0 +1,25 @@
+{
+  "id": "3-14",
+  "title": "Insurance Programs",
+  "section": {
+    "number": 3,
+    "title": "Benefits"
+  },
+  "category": "benefits",
+  "country": "USA",
+  "sub_company": [
+    "IT-Outsourcing",
+    "IT-Product"
+  ],
+  "applies_to": [
+    "full_time"
+  ],
+  "eligibility": {
+    "who": "Full-time employees",
+    "min_tenure": null
+  },
+  "paid_status": "not_applicable",
+  "source": "Handbook",
+  "text": "Full-time employees may participate in It Company's insurance programs. Under these plans, eligible employees will receive comprehensive health and other insurance coverage for themselves and their families, as well as other benefits.\nUpon becoming eligible to participate in these plans, employees will receive summary plan descriptions (SPDs) describing the benefits in greater detail. Please refer to the SPDs for detailed plan information. Of course, feel free to contact the Head of Human Resources with any further questions.",
+  "word_count": 77
+}

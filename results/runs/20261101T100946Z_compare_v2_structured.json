@@ -1,0 +1,65 @@
+[
+  {
+    "model": "nvidia/nemotron-3.5-super-vl:free",
+    "prompt": "v2_structured",
+    "generation": {
+      "temperature": 0.0,
+      "top_p": 1.0,
+      "max_tokens": 1024
+    },
+    "price": [
+      0.0,
+      0.0
+    ],
+    "rerank": null,
+    "run_dir": "C:\\mine\\HR_Compass\\results\\runs\\20261101T100937Z_nvidia-nemotron-3.5-super-vl-free_v2_structured",
+    "summary": {
+      "total": 10,
+      "succeeded": 10,
+      "failed": 0,
+      "fallback_used": 0,
+      "answered_by": {
+        "nvidia/nemotron-3.5-super-vl:free": 10
+      },
+      "keyword_checked": 10,
+      "keyword_passed": 10,
+      "accuracy_pct": 100.0,
+      "latency_mean_s": 5.409,
+      "latency_p50_s": 5.316,
+      "latency_p95_s": 7.836,
+      "prompt_tokens": 274731,
+      "completion_tokens": 4712,
+      "cost_usd": 0.0
+    }
+  },
+  {
+    "model": "anthropic/claude-haiku-5.5",
+    "prompt": "v2_structured",
+    "generation": {
+      "temperature": 0.0,
+      "top_p": 1.0,
+      "max_tokens": 1024
+    },
+    "price": null,
+    "rerank": null,
+    "run_dir": "C:\\mine\\HR_Compass\\results\\runs\\20261101T100946Z_anthropic-claude-haiku-5.5_v2_structured",
+    "summary": {
+      "total": 10,
+      "succeeded": 10,
+      "failed": 0,
+      "fallback_used": 0,
+      "answered_by": {
+        "anthropic/claude-haiku-5.5": 10
+      },
+      "keyword_checked": 10,
+      "keyword_passed": 9,
+      "accuracy_pct": 90.0,
+      "latency_mean_s": 2.873,
+      "latency_p50_s": 2.901,
+      "latency_p95_s": 4.459,
+      "prompt_tokens": 426644,
+      "completion_tokens": 2514,
+      "cost_usd": 0.043921
+    }
+  }
+]

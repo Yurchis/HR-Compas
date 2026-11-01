@@ -1,0 +1,25 @@
+{
+  "id": "2-6",
+  "title": "Overtime",
+  "section": {
+    "number": 2,
+    "title": "Operational Policies"
+  },
+  "category": "pay",
+  "country": "USA",
+  "sub_company": [
+    "IT-Outsourcing",
+    "IT-Product"
+  ],
+  "applies_to": [
+    "non_exempt"
+  ],
+  "eligibility": {
+    "who": "Non-exempt employees working over 40 hours a week with prior management authorization",
+    "min_tenure": null
+  },
+  "paid_status": "paid",
+  "source": "Handbook",
+  "text": "Like most companies in our industry, It Company experiences periods of extremely high activity. During these busy periods, additional work is required from all of us. Supervisors are responsible for monitoring business activity and requesting overtime work if necessary. Effort will be made to provide employees with adequate advance notice in such situations.\nAny non-exempt employee who works overtime will be compensated at the rate of one and one-half times (1.5) their normal hourly wage for all time worked in excess of 40 hours each week, unless otherwise required by law.\nEmployees may work overtime only with prior management authorization.\nFor purposes of calculating overtime for non-exempt employees, the workweek begins at 12 a.m. on Wednesday and ends 168 hours later at 12 a.m. on the following Wednesday.",
+  "word_count": 128
+}

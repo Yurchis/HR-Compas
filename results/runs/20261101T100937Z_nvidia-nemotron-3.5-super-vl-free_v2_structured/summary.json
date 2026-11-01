@@ -1,0 +1,30 @@
+{
+  "timestamp": "20261101T100937Z",
+  "model": "nvidia/nemotron-3.5-super-vl:free",
+  "prompt": "v2_structured",
+  "samples": "data\\golden_set.jsonl",
+  "rerank": null,
+  "generation": {
+    "temperature": 0.0,
+    "top_p": 1.0,
+    "max_tokens": 1024
+  },
+  "summary": {
+    "total": 10,
+    "succeeded": 10,
+    "failed": 0,
+    "fallback_used": 0,
+    "answered_by": {
+      "nvidia/nemotron-3.5-super-vl:free": 10
+    },
+    "keyword_checked": 10,
+    "keyword_passed": 10,
+    "accuracy_pct": 100.0,
+    "latency_mean_s": 5.409,
+    "latency_p50_s": 5.316,
+    "latency_p95_s": 7.836,
+    "prompt_tokens": 274731,
+    "completion_tokens": 4712,
+    "cost_usd": 0.0
+  }
+}

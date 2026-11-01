@@ -1,0 +1,25 @@
+{
+  "id": "3-7",
+  "title": "New York City Lactation Room",
+  "section": {
+    "number": 3,
+    "title": "Benefits"
+  },
+  "category": "benefits",
+  "country": "USA",
+  "sub_company": [
+    "IT-Outsourcing",
+    "IT-Product"
+  ],
+  "applies_to": [
+    "nyc_employees"
+  ],
+  "eligibility": {
+    "who": "Employees who need to express breast milk",
+    "min_tenure": null
+  },
+  "paid_status": "not_applicable",
+  "source": "Handbook",
+  "text": "Pursuant to New York City law, employees needing to express breast milk have a right to request access to a lactation room. It Company will provide a lactation room, unless doing so would impose an undue hardship on the Company. If doing so poses an undue hardship, the Company will engage in a cooperative dialogue with employees to discuss reasonable alternatives in an attempt to accommodate their needs.\nFor purposes of this policy, the term \"lactation room\" means a sanitary place, other than a restroom, that can be used to express breast milk shielded from view and free from intrusion and that includes at minimum an electrical outlet, a chair, a surface on which to place a breast pump and other personal items and nearby access to running water. Unless doing so poses an undue hardship, the Company will provide a lactation room in reasonable proximity to the employee's work area and a refrigerator suitable for breast milk storage also in reasonable proximity to the work area. If the room designated to serve as a lactation room is also used for another purpose, the sole function of the room will be as a lactation room while the employee is using the room to express breast milk. While the room is being used to express milk, notice will be provided that the room is given preference for use as a lactation room.\nEmployees will have access to a refrigerator to store their expressed milk. If a refrigerator is not available, employees should coordinate with their supervisor for alternative storage methods.\nEmployees may submit a request for a lactation room by contacting the Head of Human Resources and/or the Employee's Manager. The Company will respond to such requests within five (5) business days.\nIf two (2) or more employees need to use the lactation room at the same time, they should contact the Head of Human Resources and/or the Employee's Manager so that arrangements can be made to ensure all individual have access to the lactation room amenities. Employees should contact the Head of Human Resources and/or the Employee's Manager with any follow-up questions.\nThe Company will not tolerate discrimination or harassment based on the request for or usage of lactation accommodations. Any discrimination, harassment, or other violations of this policy can be reported to the Head of Human Resources and/or the Employee's Manager.\nEmployees can contact the Head of Human Resources and/or the Employee's Manager with questions regarding this policy.",
+  "word_count": 409
+}

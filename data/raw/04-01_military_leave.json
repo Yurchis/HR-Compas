@@ -1,0 +1,25 @@
+{
+  "id": "4-1",
+  "title": "Military Leave",
+  "section": {
+    "number": 4,
+    "title": "Leaves Of Absence"
+  },
+  "category": "leave_of_absence",
+  "country": "USA",
+  "sub_company": [
+    "IT-Outsourcing",
+    "IT-Product"
+  ],
+  "applies_to": [
+    "all"
+  ],
+  "eligibility": {
+    "who": "Employees called into active military service, enlisted, or attending Reserves / National Guard duty",
+    "min_tenure": null
+  },
+  "paid_status": "unpaid",
+  "source": "Handbook",
+  "text": "If employees are called into active military service or enlist in the uniformed services, they will be eligible to receive an unpaid military leave of absence. To be eligible for military leave, employees must provide management with advance notice of service obligations unless they are prevented from providing such notice by military necessity or it is otherwise impossible or unreasonable to provide such notice. Provided the absence does not exceed applicable statutory limitations, employees will retain reemployment rights and accrue seniority and benefits in accordance with applicable federal and state laws. Employees should ask management for further information about eligibility for Military Leave.\nIf employees are required to attend yearly Reserves or National Guard duty, they can apply for an unpaid temporary military leave of absence not to exceed the number of days allowed by law (including travel). They should give management as much advance notice of their need for military leave as possible so that It Company can maintain proper coverage while employees are away.",
+  "word_count": 166
+}

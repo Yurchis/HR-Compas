@@ -1,0 +1,22 @@
+{
+  "id": "1-6",
+  "title": "Harassment Complaint",
+  "section": {
+    "number": 1,
+    "title": "Governing Principles Of Employment"
+  },
+  "category": "anti_discrimination",
+  "country": "USA",
+  "sub_company": [
+    "IT-Outsourcing",
+    "IT-Product"
+  ],
+  "applies_to": [
+    "all"
+  ],
+  "eligibility": null,
+  "paid_status": "not_applicable",
+  "source": "Handbook",
+  "text": "If you believe that you have been subjected to any form of harassment, including sexual harassment, you are encouraged to submit your complaint in writing to the Head of Human Resources or CEO. If you are more comfortable reporting orally or in another manner, you may do so and can follow the guidelines set forth in the non-Harassment policy. You will not be retaliated against for filing a complaint. Once a complaint is received, It Company will follow the investigation process described in the nonHarassment policy.",
+  "word_count": 86
+}

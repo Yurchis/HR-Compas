@@ -1,0 +1,24 @@
+{
+  "id": "3-5",
+  "title": "Paternity Leave",
+  "section": {
+    "number": 3,
+    "title": "Benefits"
+  },
+  "category": "leave_of_absence",
+  "country": "Costa Rica",
+  "sub_company": [
+    "IT-Outsourcing"
+  ],
+  "applies_to": [
+    "all"
+  ],
+  "eligibility": {
+    "who": "Fathers: 8 days of paid leave for the birth of a child; may take over the mother's maternity leave if she returned to work",
+    "min_tenure": null
+  },
+  "paid_status": "paid",
+  "source": "Handbook",
+  "text": "Fathers are entitled to eight (8) days of paid leave for the birth of a child. Fathers can also acquire leave from the mothers’ maternity leave if she has returned to work. In order to do this, a father must submit a request to Head of Representative Office and provide a copy of the child’s birth certificate, a document confirming family ties, and a certificate from the mothers’ place of employment confirming her return to work.",
+  "word_count": 76
+}

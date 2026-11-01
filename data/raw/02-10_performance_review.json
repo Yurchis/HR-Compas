@@ -1,0 +1,22 @@
+{
+  "id": "2-10",
+  "title": "Performance Review",
+  "section": {
+    "number": 2,
+    "title": "Operational Policies"
+  },
+  "category": "employment",
+  "country": "USA",
+  "sub_company": [
+    "IT-Outsourcing",
+    "IT-Product"
+  ],
+  "applies_to": [
+    "all"
+  ],
+  "eligibility": null,
+  "paid_status": "not_applicable",
+  "source": "Handbook",
+  "text": "Depending on the employee's position and classification, It Company endeavors to review performance every quarter. However, a positive performance evaluation does not guarantee an increase in salary, a promotion or continued employment. Compensation increases and the terms and conditions of employment, including job assignments, transfers, promotions, and demotions, are determined by and at the discretion of management.\nIn addition to these formal performance evaluations, the Company encourages employees and supervisors to discuss job performance on a frequent and ongoing basis.",
+  "word_count": 80
+}

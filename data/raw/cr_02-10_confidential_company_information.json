@@ -1,0 +1,21 @@
+{
+  "id": "2-10",
+  "title": "Confidential Company Information",
+  "section": {
+    "number": 2,
+    "title": "Operation Policies"
+  },
+  "category": "conduct",
+  "country": "Costa Rica",
+  "sub_company": [
+    "IT-Outsourcing"
+  ],
+  "applies_to": [
+    "all"
+  ],
+  "eligibility": null,
+  "paid_status": "not_applicable",
+  "source": "Handbook",
+  "text": "During the course of work, employees may become aware of confidential information about It Company's business, including but not limited to information regarding Company finances, pricing, products and new product development, software and computer programs, marketing strategies, suppliers and customers and potential customers.\nEmployees also may become aware of similar confidential information belonging to the Company's clients.\nIt is extremely important that all such information remain confidential, and particularly not be disclosed to It Company's competitors. Any employee who improperly copies, removes (whether physically or electronically), uses or discloses confidential information to anyone outside of the Company may be subject to disciplinary action up to and including termination. Employees may be required to sign an agreement reiterating these obligations.",
+  "word_count": 119
+}

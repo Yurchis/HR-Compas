@@ -1,0 +1,25 @@
+{
+  "id": "3-12",
+  "title": "Bereavement Leave",
+  "section": {
+    "number": 3,
+    "title": "Benefits"
+  },
+  "category": "time_off",
+  "country": "USA",
+  "sub_company": [
+    "IT-Outsourcing",
+    "IT-Product"
+  ],
+  "applies_to": [
+    "full_time"
+  ],
+  "eligibility": {
+    "who": "Full-time employees who lose an immediate family member (up to 3 days)",
+    "min_tenure": null
+  },
+  "paid_status": "paid",
+  "source": "Handbook",
+  "text": "The death of an immediate family member is a time when employees wish to be with their families. If the employee is full-time and loses an immediate family member, the employee will be allowed paid time off for up to 3 days to assist in attending to obligations and commitments. For the purposes of this policy, an immediate family member includes a spouse, domestic/civil union partner, child/stepchild, parent/step-parent, parent-in-law, grandparent, and sibling/step-sibling. Paid leave days only may be taken on regularly scheduled, consecutive workdays following the day of death. Employees must inform their supervisor prior to commencing bereavement leave. In administering this policy, It Company may require verification of death.",
+  "word_count": 110
+}

@@ -1,0 +1,25 @@
+{
+  "id": "3-5",
+  "title": "Prenatal Personal Leave",
+  "section": {
+    "number": 3,
+    "title": "Benefits"
+  },
+  "category": "time_off",
+  "country": "USA",
+  "sub_company": [
+    "IT-Outsourcing",
+    "IT-Product"
+  ],
+  "applies_to": [
+    "all"
+  ],
+  "eligibility": {
+    "who": "Pregnant employees who work in New York State; 20 hours per 52 weeks",
+    "min_tenure": null
+  },
+  "paid_status": "paid",
+  "source": "Handbook",
+  "text": "New York City Safe and Sick Leave (Includes The New York Paid Sick Leave Law)\nEligibility\nIt Company provides paid prenatal personal leave to pregnant employees who work in New York State.\nGrant\nEligible employees receive a grant of 20 hours of paid prenatal personal leave per 52-weeks.\nUsage\nPrenatal personal leave may be used in a minimum increment of four (4) hours.\nEmployees may use paid prenatal personal leave for absences specifically for health care services related to pregnancy, including physical examinations, medical procedures, monitoring and testing, and discussions with a health care provider.\nNotice and Documentation\nEmployees may make requests to use prenatal personal leave time via BambooHR payroll system. Employees must provide reasonable advance notice of the need to use paid prenatal personal leave to their manager.\nPayment\nPrenatal Personal Leave will be paid at the same rate as the employee earns at the time the employee uses such time. Use of prenatal personal leave time is not considered hours worked for purposes of calculating overtime.\nCarryover and Payout\nEmployees may carry over any unused sick and safe leave to the following calendar year. However, employees only may use up to 40 hours in each calendar year. Unused safe and sick time will not be paid at separation.\nEnforcement and Retaliation\nEligible employees have the right to request and use prenatal personal leave and may file a complaint for alleged violations of this policy with the New York City Department of Consumer and Workforce Protection or the New York State Department of Labor. The Company prohibits retaliation or the threat of retaliation against employees for exercising or attempting to exercise any right provided in this policy or interference with any investigation, proceeding or hearing related to or arising out of employee rights pursuant to this policy and applicable law.\nEmployees with questions concerning this policy should contact the Director of Human Resources.",
+  "word_count": 315
+}

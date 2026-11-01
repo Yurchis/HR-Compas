@@ -1,0 +1,22 @@
+{
+  "id": "5-15",
+  "title": "Business Expense Reimbursement",
+  "section": {
+    "number": 5,
+    "title": "General Standards Of Conduct"
+  },
+  "category": "pay",
+  "country": "USA",
+  "sub_company": [
+    "IT-Outsourcing",
+    "IT-Product"
+  ],
+  "applies_to": [
+    "all"
+  ],
+  "eligibility": null,
+  "paid_status": "not_applicable",
+  "source": "Handbook",
+  "text": "Employees will be reimbursed for reasonable approved expenses incurred in the course of business. These expenses must be approved by the employee's Supervisor, and may include air travel, hotels, motels, meals, cab fare, rental vehicles, or gas and car mileage for personal vehicles. All expenses incurred should be submitted to CEO along with the receipts in a timely manner.\nEmployees are expected to exercise restraint and good judgment when incurring expenses. Employees should contact their Supervisor in advance if they have any questions about whether an expense will be reimbursed.",
+  "word_count": 90
+}

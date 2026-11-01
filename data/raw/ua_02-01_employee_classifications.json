@@ -1,0 +1,21 @@
+{
+  "id": "2-1",
+  "title": "Employee Classifications",
+  "section": {
+    "number": 2,
+    "title": "Operation Policies"
+  },
+  "category": "employment",
+  "country": "UA",
+  "sub_company": [
+    "IT-Product"
+  ],
+  "applies_to": [
+    "all"
+  ],
+  "eligibility": null,
+  "paid_status": "not_applicable",
+  "source": "Handbook",
+  "text": "For purposes of this handbook, all It Company employees in Ukraine fall within one of the classifications below.\nFull-Time Employees - Employees who regularly work at least 30 hours per week who were not hired on a short-term basis.\nPart-Time Employees - Employees who regularly work fewer than 30 hours per week who were not hired on a short-term basis.\nShort-Term Employees - Employees who were hired for a specific short-term project, or on a short-term freelance, per diem or temporary basis. Short-Term employees generally are not eligible for Company benefits but are eligible to receive statutory benefits.\nThe employee will be informed of these classifications upon hire and informed of any subsequent changes to the classifications.",
+  "word_count": 117
+}

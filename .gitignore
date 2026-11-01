@@ -1,0 +1,28 @@
+# Секрети
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+*.egg-info/
+
+# IDE / OS
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Тимчасове
+*.log
+results/tmp/
+
+# Вихідні PDF-довідники: справжня назва компанії й ім'я CEO (у data/raw/ — анонімізовано).
+# Потрібні лише локально для scripts/split_handbook.py.
+data/*.pdf

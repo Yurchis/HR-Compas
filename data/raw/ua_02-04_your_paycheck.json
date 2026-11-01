@@ -1,0 +1,21 @@
+{
+  "id": "2-4",
+  "title": "Your Paycheck",
+  "section": {
+    "number": 2,
+    "title": "Operation Policies"
+  },
+  "category": "pay",
+  "country": "UA",
+  "sub_company": [
+    "IT-Product"
+  ],
+  "applies_to": [
+    "all"
+  ],
+  "eligibility": null,
+  "paid_status": "not_applicable",
+  "source": "Handbook",
+  "text": "Employees will be paid twice a month: on 15th day of each month for the first half of the month and on the last business day of the month for the second half. If the 15th day of the month is a holiday then the payment will be made on the next business day.\nIf there is an error in any employee's pay, the employee should bring the matter to the attention of the Head of Representative Office immediately so the Company can resolve the matter quickly and amicably.",
+  "word_count": 89
+}

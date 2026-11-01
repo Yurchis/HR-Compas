@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "HR handbook chunk (one file in data/raw/)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "title", "section", "category", "country", "sub_company", "applies_to", "eligibility", "paid_status", "source", "text", "word_count"],
+  "properties": {
+    "id": { "type": "string", "pattern": "^\\d-\\d+$", "description": "Handbook subsection number, e.g. 3-3" },
+    "title": { "type": "string" },
+    "section": {
+      "type": "object",
+      "required": ["number", "title"],
+      "properties": {
+        "number": { "type": "integer" },
+        "title": { "type": "string" }
+      }
+    },
+    "category": {
+      "enum": [
+        "company", "anti_discrimination", "health_safety", "employment", "schedule",
+        "pay", "time_off", "benefits", "leave_of_absence", "conduct", "separation"
+      ]
+    },
+    "country": {
+      "enum": ["USA", "UA", "Costa Rica"],
+      "description": "Country where the rule applies"
+    },
+    "sub_company": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "enum": ["IT-Outsourcing", "IT-Product"] },
+      "description": "It Company subsidiaries where the rule applies"
+    },
+    "applies_to": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "enum": ["all", "full_time", "part_time", "exempt", "non_exempt", "nyc_employees"]
+      }
+    },
+    "eligibility": {
+      "type": ["object", "null"],
+      "description": "Who is eligible for the rule; null if there are no eligibility conditions",
+      "required": ["who", "min_tenure"],
+      "additionalProperties": false,
+      "properties": {
+        "who": { "type": "string" },
+        "min_tenure": {
+          "type": ["object", "null"],
+          "description": "Minimum length of service; null if not specified",
+          "required": ["value", "unit"],
+          "additionalProperties": false,
+          "properties": {
+            "value": { "type": "integer", "minimum": 0 },
+            "unit": { "enum": ["days", "weeks", "years"] }
+          }
+        }
+      }
+    },
+    "paid_status": {
+      "enum": ["paid", "unpaid", "partially_paid", "not_specified", "not_applicable"],
+      "description": "Whether the time off / absence is paid; not_applicable if the rule is not about paid time"
+    },
+    "source": {
+      "enum": ["Handbook", "Bamboo"],
+      "description": "Document source: Employee Handbook or BambooHR"
+    },
+    "text": { "type": "string" },
+    "word_count": { "type": "integer" }
+  }
+}

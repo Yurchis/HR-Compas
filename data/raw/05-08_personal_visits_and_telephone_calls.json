@@ -1,0 +1,22 @@
+{
+  "id": "5-8",
+  "title": "Personal Visits and Telephone Calls",
+  "section": {
+    "number": 5,
+    "title": "General Standards Of Conduct"
+  },
+  "category": "conduct",
+  "country": "USA",
+  "sub_company": [
+    "IT-Outsourcing",
+    "IT-Product"
+  ],
+  "applies_to": [
+    "all"
+  ],
+  "eligibility": null,
+  "paid_status": "not_applicable",
+  "source": "Handbook",
+  "text": "Disruptions during work time can lead to errors and delays. Therefore, personal telephone calls must be kept to a minimum, and only be made or received after working time, or during lunch or break time.",
+  "word_count": 35
+}

@@ -1,0 +1,25 @@
+{
+  "id": "3-10",
+  "title": "Jury Duty Leave",
+  "section": {
+    "number": 3,
+    "title": "Benefits"
+  },
+  "category": "time_off",
+  "country": "USA",
+  "sub_company": [
+    "IT-Outsourcing",
+    "IT-Product"
+  ],
+  "applies_to": [
+    "all"
+  ],
+  "eligibility": {
+    "who": "All employees summoned for jury duty",
+    "min_tenure": null
+  },
+  "paid_status": "partially_paid",
+  "source": "Handbook",
+  "text": "It is the obligation of all U.S. citizens to serve on a jury when summoned to do so. All employees will be allowed time off to perform such civic service as required by law. Employees are expected, however, to provide proper notice of a request to perform jury duty and verification of their service, including fees received for jury duty service.\nEmployees also are expected to keep management informed of the expected length of jury duty service and to report to work for the major portion of the day if excused by the court. If the required absence presents a serious conflict for management, employees may be asked to try to postpone jury duty.\nThe Company will compensate the juror with a fee of $40 or the juror's regular wage (whichever is lower) for the first three (3) days of jury service. Exempt employees will be paid their full salary less jury duty fees for any week in which they performed work for the Company and missed work due to jury service.",
+  "word_count": 172
+}

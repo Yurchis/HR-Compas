@@ -1,0 +1,24 @@
+{
+  "id": "3-1",
+  "title": "Paid Holidays",
+  "section": {
+    "number": 3,
+    "title": "Benefits"
+  },
+  "category": "time_off",
+  "country": "Costa Rica",
+  "sub_company": [
+    "IT-Outsourcing"
+  ],
+  "applies_to": [
+    "all"
+  ],
+  "eligibility": {
+    "who": "All employees: 6 Costa Rican public holidays plus 7 floating days; no more than 1 paid holiday per 30 days; 4 days' notice",
+    "min_tenure": null
+  },
+  "paid_status": "paid",
+  "source": "Handbook",
+  "text": "It Company observes the following Costa Rican public holidays:\n- New Year's Day (January 1)\n- Juan Santamaría Day (April 11)\n- Labour Day (May 1)\n- Guanacaste Day (July 25)\n- Independence Day (September 15)\n- Christmas Day (December 25)\nIf employee is required/wishes to work on a paid holiday, they will have an option to take another paid day off.\nFloating Holidays\nEmployees will also have 7 (seven) additional floating holidays that can be requested to celebrate any other public or personal holiday on employee's discretion.\nNo more than 1 paid holiday days off can be taken in 30-days period.\nFour (4) days’ notice is required before working on a paid holiday/taking paid days off.\nIf the Holiday falls on Saturday or Sunday, it will be observed the following Monday.\nIf a holiday falls within an eligible employee's approved vacation period, employee will be paid for the holiday (at the regular straight-time rate) in addition to the vacation day.",
+  "word_count": 161
+}

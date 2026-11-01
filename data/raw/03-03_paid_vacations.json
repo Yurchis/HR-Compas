@@ -1,0 +1,29 @@
+{
+  "id": "3-3",
+  "title": "Paid Vacations",
+  "section": {
+    "number": 3,
+    "title": "Benefits"
+  },
+  "category": "time_off",
+  "country": "USA",
+  "sub_company": [
+    "IT-Outsourcing",
+    "IT-Product"
+  ],
+  "applies_to": [
+    "full_time",
+    "part_time"
+  ],
+  "eligibility": {
+    "who": "Full-time: 80 hours (0-3 years), 120 hours (3-5 years), 160 hours (5+ years); part-time: 40 hours",
+    "min_tenure": {
+      "value": 60,
+      "unit": "days"
+    }
+  },
+  "paid_status": "paid",
+  "source": "Handbook",
+  "text": "It Company appreciates how hard employees work and recognizes the importance of providing time for rest and relaxation. It Company fully encourages employees to get this rest by taking vacation time. Employees are eligible for paid vacation time as follows:\n- 0 - 3 years - 80 hours\n- 3 - 5 years - 120 hours\n- 5+ years - 160 hours\n- Part-time employees - 40 hours\nVacation hours will be front loaded on an employee's anniversary date and should be taken during the year accrued, unless otherwise required by law. Unused vacation doesn't roll over from one year to another.\nNew employees become eligible for to use vacation time following 60 days of employment.\nEvery effort will be made to grant employees' vacation preference, consistent with operating schedules. However, if too many people request the same period of time off, the Company reserves the right to choose who may take vacation during that period. Employees with the longest length of service generally will be given preference. Vacation requests must be submitted on-line via BambooHR payroll system to managers at least two (2) weeks in advance of the requested vacation dates.\nVacations may be used in minimum 4-hour increments.\nAccrued, unused vacation is not paid out upon separation.",
+  "word_count": 209
+}

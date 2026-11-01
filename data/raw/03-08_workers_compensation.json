@@ -1,0 +1,25 @@
+{
+  "id": "3-8",
+  "title": "Workers' Compensation",
+  "section": {
+    "number": 3,
+    "title": "Benefits"
+  },
+  "category": "benefits",
+  "country": "USA",
+  "sub_company": [
+    "IT-Outsourcing",
+    "IT-Product"
+  ],
+  "applies_to": [
+    "all"
+  ],
+  "eligibility": {
+    "who": "All employees with an injury or illness arising out of the course and scope of employment",
+    "min_tenure": null
+  },
+  "paid_status": "not_specified",
+  "source": "Handbook",
+  "text": "It Company provides workers' compensation insurance benefits to all employees who experience an injury or illness that arises out of the course and scope of employment. Workers' compensation insurance provides six basic benefits: medical care, temporary disability benefits, permanent disability benefits, supplemental job displacement benefits or vocational rehabilitation, and death benefits.\nEntitlement to workers' compensation benefits is controlled by applicable law, and as detailed in the company's Work- Related Accident and Injury Policy, employees are required to immediately report all work-related accidents, injuries and illnesses.\nEligibility\nThis policy applies to all employees who experience an injury or illness that arises out of the course and scope of employment.\nProcedures\nAs detailed in the company's Work-Related Accidents and Injuries Policy all work-related accidents, injuries or illnesses involving employees, even those that are not serious, must be immediately reported to their supervisors/human resources. Employees who experience a work-related accident, illness or injury will be required to complete the appropriate forms and cooperate with the company in complying with its recording, reporting and investigation obligations.\nIf a work-related accident, injury, or illness results in the employee being placed on a leave of absence, the company's various leave policies will apply to that absence. The company strives to bring employees back to work as soon as possible following a work-related accident, injury, or illness. Thus, while employees are on a leave of absence, they should stay in contact with their supervisors/human resources regarding their expected return to work.\nPursuant to the company's Disability Accommodation Policy, when requested, the company will provide reasonable accommodation for any known physical or mental disability of a qualified individual, provided the requested accommodation does not create an undue hardship for the company or pose a direct threat to the health or safety of others in the workplace or of the requesting employee. Once the company is aware of the need for accommodation, the company will engage with the employee in an interactive process to identify possible accommodations.",
+  "word_count": 328
+}

@@ -1,0 +1,27 @@
+{
+  "id": "3-2",
+  "title": "Paid Vacation",
+  "section": {
+    "number": 3,
+    "title": "Benefits"
+  },
+  "category": "time_off",
+  "country": "Costa Rica",
+  "sub_company": [
+    "IT-Outsourcing"
+  ],
+  "applies_to": [
+    "all"
+  ],
+  "eligibility": {
+    "who": "All employees: 18 calendar days a year after 50 weeks of continuous employment, pro-rated before that; some categories get the full leave earlier",
+    "min_tenure": {
+      "value": 50,
+      "unit": "weeks"
+    }
+  },
+  "paid_status": "paid",
+  "source": "Handbook",
+  "text": "Employees are entitled to 18 calendar days of paid annual leave after completing at least 50 weeks of continuous employment. During first 50 weeks of employment, employees are entitled to a vacation pro-rated for the duration of employment.\nFor the purpose of the minimizing administrative load, It Company Costa Rica office employees accrue vacation based on a calendar year. Vacation earned but not taken before the end of the year will be paid out. Starting January 1st vacation entitlement will re-set to 18 calendar days; and will be available for employees to use based on the hire date eligibility.\nEmployees are required to provide their supervisor with their provisional annual leave schedule by January 30th.\nAnnual leave at the request of the employee may be divided into parts, provided that the main continuous part of it will be at least 14 calendar days. Second part of the vacation can be requested in minimum 3 days increments.\nTwo (2) weeks’ notice is required prior to taking vacation leave.\nIn order to prevent the loss of working time, the employer may not agree to divide the leave as the employee wishes but may also offer its terms of separation of annual leave or not divide it at all.\nExceptions: Employees that belong to certain categories listed below are entitled to annual leave of full duration before the 50-week period of continuous employment in the work year:\n- Female employees before and after pregnancy and childbirth, as well as these who have two or more children under the age of 15 or a child with disabilities.\n- Employees with disabilities.\n- Employees whose wives are on maternity leave.\n- Employees hired following military service.\n- Employees who are studying in educational institutions and who wish to use their leave for passing exams, working on their thesis, etc.\nIn case of termination of employment:\n- Vacation that was used, but not accrued based on the hire date eligibility will be deducted from employee final paycheck\n- Earned but unused part of the annual leave will be paid out",
+  "word_count": 344
+}

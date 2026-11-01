@@ -1,0 +1,22 @@
+{
+  "id": "2-8",
+  "title": "Your Paycheck",
+  "section": {
+    "number": 2,
+    "title": "Operational Policies"
+  },
+  "category": "pay",
+  "country": "USA",
+  "sub_company": [
+    "IT-Outsourcing",
+    "IT-Product"
+  ],
+  "applies_to": [
+    "all"
+  ],
+  "eligibility": null,
+  "paid_status": "not_applicable",
+  "source": "Handbook",
+  "text": "Employees will be paid weekly for all the time worked during the past pay period.\nPayroll stubs itemized deductions made from gross earnings. By law, It Company is required to make deductions for Social Security, federal income tax and any other appropriate taxes. These required deductions also may include any court-ordered garnishments. Payroll stubs also will differentiate between regular pay received and overtime pay received.\nIf there is an error in any employee's pay, the employee should bring the matter to the attention of the CEO immediately so the Company can resolve the matter quickly and amicably.\nPaychecks will be given only to the employee, unless the employee requests that they be mailed or authorizes in writing that another person may accept the check.",
+  "word_count": 124
+}

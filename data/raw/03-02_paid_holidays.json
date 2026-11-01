@@ -1,0 +1,26 @@
+{
+  "id": "3-2",
+  "title": "Paid Holidays",
+  "section": {
+    "number": 3,
+    "title": "Benefits"
+  },
+  "category": "time_off",
+  "country": "USA",
+  "sub_company": [
+    "IT-Outsourcing",
+    "IT-Product"
+  ],
+  "applies_to": [
+    "full_time",
+    "part_time"
+  ],
+  "eligibility": {
+    "who": "Full-time (1 day's pay) and part-time (4 hours' pay) employees present on the last scheduled day before and the first scheduled day after the holiday",
+    "min_tenure": null
+  },
+  "paid_status": "paid",
+  "source": "Handbook",
+  "text": "It Company recognizes the following holidays:\n- New Year's Day\n- Memorial Day\n- Independence Day\n- Labor Day\n- Thanksgiving Day\n- Christmas Day\nWhen holidays fall or are celebrated on a regular workday, eligible full-time employees will receive one (1) day's pay at their regular straight-time rate; part-time employees will receive four (4) hours pay at their regular straight-time rate, Eligible employees who are called in to work on a holiday will receive an additional day off at the option of the Company.\nIf a holiday falls within an eligible employee's approved vacation period, the eligible employee will be paid for the holiday (at the regular straight-time rate) in addition to the vacation day.\nIf a holiday falls within a jury duty or bereavement leave, the eligible employee will be paid for the holiday (at the regular straight-time rate) in addition to the leave day, or the eligible employee will receive an additional day off at the option of the Company.\n- Holidays will not be paid to employees on any type of unpaid leave.\n- An employee must be present at work on his or her last scheduled day prior to the holiday and the first scheduled day after the holiday to receive holiday pay.\n- Part-time employees will receive pro-rated holiday pay of 4 hours.",
+  "word_count": 219
+}

@@ -1,0 +1,25 @@
+{
+  "id": "3-11",
+  "title": "Witness Leave",
+  "section": {
+    "number": 3,
+    "title": "Benefits"
+  },
+  "category": "time_off",
+  "country": "USA",
+  "sub_company": [
+    "IT-Outsourcing",
+    "IT-Product"
+  ],
+  "applies_to": [
+    "all"
+  ],
+  "eligibility": {
+    "who": "Employees called to serve as a witness in a judicial proceeding",
+    "min_tenure": null
+  },
+  "paid_status": "unpaid",
+  "source": "Handbook",
+  "text": "Employees called to serve as a witness in a judicial proceeding must notify their supervisor as soon as possible.\nEmployees will not be compensated for time away from work to participate in a court case but may use available vacation to cover the period of absence.\nEmployees that appear in court to testify as a witness or victim, or to consult with a district attorney or obtain an order of protection, will not be disciplined or discharged for their absence.",
+  "word_count": 80
+}

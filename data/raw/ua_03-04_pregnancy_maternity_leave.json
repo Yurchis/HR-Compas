@@ -1,0 +1,24 @@
+{
+  "id": "3-4",
+  "title": "Pregnancy/Maternity Leave",
+  "section": {
+    "number": 3,
+    "title": "Benefits"
+  },
+  "category": "leave_of_absence",
+  "country": "UA",
+  "sub_company": [
+    "IT-Product"
+  ],
+  "applies_to": [
+    "all"
+  ],
+  "eligibility": {
+    "who": "Pregnant employees: 126 paid calendar days (70 before the due date, 56 after), 100% of average salary from the Social Insurance Fund",
+    "min_tenure": null
+  },
+  "paid_status": "paid",
+  "source": "Handbook",
+  "text": "The maternity leave entitlement in Ukraine allows an employee 126 paid calendar days of leave, 70 of which must be taken before the estimated due date of the child and 56 after the birth.\nSocial Insurance Fund compensates maternity leave at 100.00% of the employees’ average salary.",
+  "word_count": 47
+}

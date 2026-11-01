@@ -1,0 +1,24 @@
+{
+  "id": "3-3",
+  "title": "Paid Sick Leave",
+  "section": {
+    "number": 3,
+    "title": "Benefits"
+  },
+  "category": "time_off",
+  "country": "UA",
+  "sub_company": [
+    "IT-Product"
+  ],
+  "applies_to": [
+    "all"
+  ],
+  "eligibility": {
+    "who": "Employees with illness or injury confirmed by a medical sick leave certificate; up to 4 months, first 5 days paid by the employer, the rest by the Social Insurance Fund (50-100% by seniority)",
+    "min_tenure": null
+  },
+  "paid_status": "paid",
+  "source": "Handbook",
+  "text": "Employees are entitled to four (4) months paid sick leave in the case of illness or injury, provided that the illness or injury is confirmed by a sick leave certificate (or other standard form document) from a medical institution. The employer compensates the first five days of sick leave, and the rest is compensated by the Social Insurance Fund.\nThe amount the Social Insurance Fund compensates an employee is dependent on the seniority of the employee:\n- Less than six months of employment: payment based on minimum wage\n- 0-3 years of employment: 50.00% of the employees’ average salary\n- 3-5 years of employment: 60.00% of the employees’ average salary\n- 5-8 years of employment: 70.00% of the employee’s average salary\n- 8+ years of employment: 100.00% of the employee’s average salary",
+  "word_count": 132
+}

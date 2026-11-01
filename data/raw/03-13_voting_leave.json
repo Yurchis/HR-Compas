@@ -1,0 +1,25 @@
+{
+  "id": "3-13",
+  "title": "Voting Leave",
+  "section": {
+    "number": 3,
+    "title": "Benefits"
+  },
+  "category": "time_off",
+  "country": "USA",
+  "sub_company": [
+    "IT-Outsourcing",
+    "IT-Product"
+  ],
+  "applies_to": [
+    "all"
+  ],
+  "eligibility": {
+    "who": "Eligible voters without 4 consecutive free hours before or after work while polls are open (up to 2 hours)",
+    "min_tenure": null
+  },
+  "paid_status": "paid",
+  "source": "Handbook",
+  "text": "Employees who are eligible to vote in an election and who do not have at least four (4) consecutive hours before or after work while polls are open may request up to two (2) hours with pay to be used at the beginning or the end of their normally scheduled workday as designated by the employer to enable them to vote.\nEmployees must notify It Company of their intention to take time off to vote at least two (2) working days prior to Election Day.",
+  "word_count": 85
+}

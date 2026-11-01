@@ -1,0 +1,24 @@
+{
+  "id": "3-4",
+  "title": "Pregnancy/Maternity Leave",
+  "section": {
+    "number": 3,
+    "title": "Benefits"
+  },
+  "category": "leave_of_absence",
+  "country": "Costa Rica",
+  "sub_company": [
+    "IT-Outsourcing"
+  ],
+  "applies_to": [
+    "all"
+  ],
+  "eligibility": {
+    "who": "Pregnant employees: 4 months of paid leave (1 month before the due date, 3 months after), 100% of salary paid 50/50 by the employer and the CCSS",
+    "min_tenure": null
+  },
+  "paid_status": "paid",
+  "source": "Handbook",
+  "text": "The maternity leave entitlement in Costa Rica allows an employee 4 months of paid leave: 1 month before the estimated due date of the child and 3 months after the birth.\nMaternity leave is paid at 100% of the employee's salary: 50% by the employer and 50% by the CCSS (Caja Costarricense de Seguro Social).",
+  "word_count": 55
+}

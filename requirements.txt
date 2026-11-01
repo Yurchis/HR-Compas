@@ -1,0 +1,7 @@
+﻿python-dotenv>=1.0
+httpx>=0.27
+truststore>=0.9
+pydantic>=2.6
+pytest>=8.0
+pypdf>=5.0                # лише для scripts/split_handbook.py (нарізка PDF-довідника на чанки)
+# TODO: клієнт для локальної моделі (напр. ollama)

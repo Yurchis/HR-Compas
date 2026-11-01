@@ -1,0 +1,26 @@
+{
+  "id": "3-9",
+  "title": "Education Time Off",
+  "section": {
+    "number": 3,
+    "title": "Benefits"
+  },
+  "category": "time_off",
+  "country": "USA",
+  "sub_company": [
+    "IT-Outsourcing",
+    "IT-Product"
+  ],
+  "applies_to": [
+    "full_time",
+    "part_time"
+  ],
+  "eligibility": {
+    "who": "Full-time employees (up to 16 hours a year) and part-time employees (up to 8 hours a year), with manager approval",
+    "min_tenure": null
+  },
+  "paid_status": "paid",
+  "source": "Handbook",
+  "text": "It Company is committed to employees' training and development to ensure our continuous readiness to the challenges of a rapidly changing business and regulatory environment.\nFull-time employees can request up to 16 hours of paid education leave per calendar year to attend training courses/webinars/conferences. Part-time employees can request up to 8 hours of paid education leave per calendar year. Education time off can be requested in minimum increments of 4 hours and must be approved by the manager. Employees will be required to provide confirmation of the training event attendance.\nFollowing the completion of the training course/seminar, etc. employees may be required to deliver a brief presentation to the team to share the highlights of the training event. Unused Education Time off will not carry over to the next calendar year and will not be paid out in case of employee leaving the company.",
+  "word_count": 144
+}

@@ -1,0 +1,22 @@
+{
+  "id": "2-2",
+  "title": "Your Employment Records",
+  "section": {
+    "number": 2,
+    "title": "Operational Policies"
+  },
+  "category": "employment",
+  "country": "USA",
+  "sub_company": [
+    "IT-Outsourcing",
+    "IT-Product"
+  ],
+  "applies_to": [
+    "all"
+  ],
+  "eligibility": null,
+  "paid_status": "not_applicable",
+  "source": "Handbook",
+  "text": "To obtain their position, employees have provided personal information, such as home address, telephone number, and personal email address. This information is contained in their personnel file.\nEmployees should keep their personnel file up to date by informing the Head of Human Resources of any changes or updating their profile on BambooHR. Employees also should inform the Head of Human Resources of any specialized training or skills they acquire. Unreported changes of address, marital status, etc. can affect withholding tax and benefit coverage. Further, an \"out of date\" emergency contact or an inability to reach employees in a crisis could cause a severe health or safety risk or other significant problem.",
+  "word_count": 111
+}

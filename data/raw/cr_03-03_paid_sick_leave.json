@@ -1,0 +1,24 @@
+{
+  "id": "3-3",
+  "title": "Paid Sick Leave",
+  "section": {
+    "number": 3,
+    "title": "Benefits"
+  },
+  "category": "time_off",
+  "country": "Costa Rica",
+  "sub_company": [
+    "IT-Outsourcing"
+  ],
+  "applies_to": [
+    "all"
+  ],
+  "eligibility": {
+    "who": "Employees with illness or injury confirmed by a medical certificate; up to 4 months; first 3 days 50% paid by the employer, from day 4 the CCSS pays 60%",
+    "min_tenure": null
+  },
+  "paid_status": "paid",
+  "source": "Handbook",
+  "text": "Employees are entitled to four (4) months paid sick leave in the case of illness or injury, provided that the illness or injury is confirmed by a sick leave certificate (or other standard form document) from the CCSS (Caja Costarricense de Seguro Social) or another medical institution. For the first three (3) days of sick leave the employer pays 50% of the employee's salary; from the fourth day the CCSS pays 60% of the employee's average salary.",
+  "word_count": 77
+}

@@ -1,0 +1,25 @@
+{
+  "id": "3-6",
+  "title": "Lactation Breaks",
+  "section": {
+    "number": 3,
+    "title": "Benefits"
+  },
+  "category": "benefits",
+  "country": "USA",
+  "sub_company": [
+    "IT-Outsourcing",
+    "IT-Product"
+  ],
+  "applies_to": [
+    "all"
+  ],
+  "eligibility": {
+    "who": "Nursing employees, up to 3 years after the birth of a child",
+    "min_tenure": null
+  },
+  "paid_status": "not_specified",
+  "source": "Handbook",
+  "text": "This policy establishes guidelines to support breastfeeding employees in accordance with Section 206c of the New York State Labor Law. It Company provides employees who are nursing with break time to express breast milk for up to three (3) years after the birth of a child. The frequency and duration of lactation breaks may vary based on the employee's needs. Employees will not be discriminated against or retaliated against for exercising their rights under this policy, and reasonable efforts will be made to provide a private room or location in close proximity to the work area for this purpose.",
+  "word_count": 99
+}

@@ -1,0 +1,24 @@
+{
+  "id": "3-5",
+  "title": "Paternity Leave",
+  "section": {
+    "number": 3,
+    "title": "Benefits"
+  },
+  "category": "leave_of_absence",
+  "country": "UA",
+  "sub_company": [
+    "IT-Product"
+  ],
+  "applies_to": [
+    "all"
+  ],
+  "eligibility": {
+    "who": "Fathers: 2 weeks of unpaid leave for the birth of a child; may take over the mother's maternity leave if she returned to work",
+    "min_tenure": null
+  },
+  "paid_status": "unpaid",
+  "source": "Handbook",
+  "text": "Fathers can take two weeks of unpaid leave for the birth of a child. Fathers can also acquire leave from the mothers’ maternity leave if she has returned to work. In order to do this, a father must submit a request to Head of Representative Office and provide a copy of the child’s birth certificate, a document confirming family ties, and a certificate from the mothers’ place of employment confirming her return to work.",
+  "word_count": 74
+}

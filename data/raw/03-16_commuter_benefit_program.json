@@ -1,0 +1,28 @@
+{
+  "id": "3-16",
+  "title": "Commuter Benefit Program",
+  "section": {
+    "number": 3,
+    "title": "Benefits"
+  },
+  "category": "benefits",
+  "country": "USA",
+  "sub_company": [
+    "IT-Outsourcing",
+    "IT-Product"
+  ],
+  "applies_to": [
+    "all"
+  ],
+  "eligibility": {
+    "who": "All employees, immediately upon hire",
+    "min_tenure": {
+      "value": 0,
+      "unit": "days"
+    }
+  },
+  "paid_status": "not_applicable",
+  "source": "Handbook",
+  "text": "It Company provides a Commuter Benefit Program which allows all employees to pay for eligible transportation expenses with pre-tax income. Employees are eligible to participate immediately upon hire. The program works similarly to a Flexible Benefits Program, in which employees elect to have a portion of pre-tax income transferred to an account for future reimbursement for transportation expenses.\nThe Company will contribute either $132 towards transit benefits or $132 toward parking benefits per month. Employees participating in the program will have to choose one benefit to apply the company funds to. The amount of contributions is subject to IRS limits which generally change every year. Upon becoming eligible to participate in this plan, employees will receive a Summary Plan Document (SPD) describing the benefit in greater detail. Employees should refer to the SPD for detailed plan information. Of course, employees also should feel free to speak to the Head of Human Resources if they have any further questions.",
+  "word_count": 158
+}

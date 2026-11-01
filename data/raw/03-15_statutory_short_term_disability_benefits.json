@@ -1,0 +1,25 @@
+{
+  "id": "3-15",
+  "title": "Statutory Short-Term Disability Benefits",
+  "section": {
+    "number": 3,
+    "title": "Benefits"
+  },
+  "category": "benefits",
+  "country": "USA",
+  "sub_company": [
+    "IT-Outsourcing",
+    "IT-Product"
+  ],
+  "applies_to": [
+    "all"
+  ],
+  "eligibility": {
+    "who": "Employees injured or ill while not on the job, including pregnancy; claim must be filed within 30 days",
+    "min_tenure": null
+  },
+  "paid_status": "partially_paid",
+  "source": "Handbook",
+  "text": "It Company also provides statutory short-term disability insurance.\nIf you are injured or you become ill while not on the job, you may be eligible for New York State short- term disability benefits under its Disability Benefits Law (DBL). Additionally, pregnancy is covered under short- term disability.\nIt is very important to note that if you become disabled and qualify for short-term disability insurance, you must file your claim within 30 days of becoming disabled.\nShort-term disability claim form (DB-450) can be obtained by contacting Human Resources.\nCompleted DB-450 form should be sent to: NYSIF Disability Benefits Claims; 15 Computer Drive West; Albany, NY12205. Medical evidence regarding your disability may be required for the entire period you are requesting benefits.\nDisability benefits will pay 50% of your average wages (calculated over the prior eight weeks) up to a maximum of $170 per week.\nBenefits will begin on your eight consecutive day out of work; the first seven days is an unpaid waiting period. You can receive benefits for a maximum of 26 weeks in a 52-week period. You will receive payment every two weeks.\nFor pregnancy, women are covered for six weeks after a normal pregnancy and eight weeks after a Caesarian section (those these lengths may be extended if there are complications). Employees filing for post-childbirth benefits receive the same payment as those filing for other disabilities.\nMedical costs are not covered by disability insurance.",
+  "word_count": 236
+}

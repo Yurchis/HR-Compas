@@ -1,0 +1,22 @@
+{
+  "id": "2-11",
+  "title": "Record Retention",
+  "section": {
+    "number": 2,
+    "title": "Operational Policies"
+  },
+  "category": "employment",
+  "country": "USA",
+  "sub_company": [
+    "IT-Outsourcing",
+    "IT-Product"
+  ],
+  "applies_to": [
+    "all"
+  ],
+  "eligibility": null,
+  "paid_status": "not_applicable",
+  "source": "Handbook",
+  "text": "It Company acknowledges its responsibility to preserve information relating to litigation, audits and investigations. Failure on the part of employees to follow this policy can result in possible civil and criminal sanctions against the Company and its employees and possible disciplinary action against responsible individuals (up to and including discharge of the employee). Each employee has an obligation to contact the Human Resources Department to inform them of potential or actual litigation, external audit, investigation or similar proceeding involving the Company that may have an impact on record retention protocols.",
+  "word_count": 90
+}

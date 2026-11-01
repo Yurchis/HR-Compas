@@ -1,0 +1,43 @@
+[
+  {
+    "model": "openai/gpt-4o-mini",
+    "prompt": "v3_country_clarification",
+    "intake": "intake_v2_en",
+    "generation": {
+      "temperature": 0.0,
+      "top_p": 1.0,
+      "max_tokens": 1024
+    },
+    "price": [
+      0.15,
+      0.6
+    ],
+    "rerank": null,
+    "run_dir": "C:\\mine\\HR_Compass\\results\\runs\\20261101T121447Z_openai-gpt-4o-mini_v3_country_clarification",
+    "summary": {
+      "total": 40,
+      "succeeded": 40,
+      "failed": 0,
+      "fallback_used": 0,
+      "answered_by": {
+        "openai/gpt-4o-mini": 40
+      },
+      "keyword_checked": 30,
+      "keyword_passed": 25,
+      "accuracy_pct": 83.3,
+      "kinds": {
+        "answer": 39,
+        "clarification": 1
+      },
+      "kind_checked": 40,
+      "kind_passed": 31,
+      "kind_accuracy_pct": 77.5,
+      "latency_mean_s": 2.937,
+      "latency_p50_s": 2.685,
+      "latency_p95_s": 4.112,
+      "prompt_tokens": 963488,
+      "completion_tokens": 4171,
+      "cost_usd": 0.089819
+    }
+  }
+]
