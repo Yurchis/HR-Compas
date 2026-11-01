@@ -1,0 +1,37 @@
+{
+  "timestamp": "20261101T132059Z",
+  "model": "openai/gpt-4o-mini",
+  "prompt": "v2_structured",
+  "samples": "data\\golden_set.jsonl",
+  "rerank": null,
+  "intake": "intake_v2_en",
+  "generation": {
+    "temperature": 0.0,
+    "top_p": 1.0,
+    "max_tokens": 1024
+  },
+  "summary": {
+    "total": 40,
+    "succeeded": 40,
+    "failed": 0,
+    "fallback_used": 0,
+    "answered_by": {
+      "openai/gpt-4o-mini": 40
+    },
+    "keyword_checked": 30,
+    "keyword_passed": 26,
+    "accuracy_pct": 86.7,
+    "kinds": {
+      "answer": 40
+    },
+    "kind_checked": 40,
+    "kind_passed": 30,
+    "kind_accuracy_pct": 75.0,
+    "latency_mean_s": 3.208,
+    "latency_p50_s": 3.143,
+    "latency_p95_s": 4.542,
+    "prompt_tokens": 945758,
+    "completion_tokens": 3866,
+    "cost_usd": 0.097642
+  }
+}

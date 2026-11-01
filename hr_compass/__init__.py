@@ -1,3 +1,3 @@
-"""HR Compass — HR-асистент для співробітників Compass Tech."""
+"""HR Compass — HR assistant for It Company employees."""
 
 __version__ = "0.1.0"

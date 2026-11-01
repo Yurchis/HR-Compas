@@ -174,7 +174,7 @@ def test_main_one_shot_prints_answer_and_sources(monkeypatch, capsys) -> None:
     install_fake_api(monkeypatch, chat, seen)
     assert chat.main(["Скільки", "годин", "відпустки?", "--model", "haiku", "--debug"]) == 0
     out = capsys.readouterr().out
-    assert "40 годин." in out and "[3-3]" in out and "[intake]" in out
+    assert "40 годин." in out and "Sources: [3-3]" in out and "[intake]" in out
     assert [b["model"] for b in seen] == ["anthropic/claude-haiku-5.5"] * 2  # alias resolved, intake + answer
 
 
@@ -195,7 +195,7 @@ def test_interactive_mode_handles_clarification_then_exit(monkeypatch, capsys) -
         if "pre-analysis module" in body["messages"][0]["content"]:
             asked["n"] += 1
             return httpx.Response(200, json=chat_completion(json.dumps(intake)))
-        assert "Уточнення співробітника: full-time" in body["messages"][1]["content"]
+        assert "Employee's clarification: full-time" in body["messages"][1]["content"]
         return httpx.Response(200, json=chat_completion(json.dumps(ANSWER_OK)))
 
     monkeypatch.setattr(chat, "OpenRouterClient", partial(OpenRouterClient, transport=httpx.MockTransport(handler)))
@@ -234,7 +234,7 @@ def test_models_flag_runs_each_model_without_fallback_and_writes_comparison(monk
     compare = next(tmp_path.glob("*_compare_*.md")).read_text(encoding="utf-8")
     assert "anthropic/claude-haiku-5.5" in compare and "vendor/x" in compare and "2/2" in compare
     assert len(list(tmp_path.glob("*_anthropic-claude-haiku-5.5_v2_structured"))) == 1
-    assert "| Модель |" in capsys.readouterr().out
+    assert "| Model |" in capsys.readouterr().out
 
 
 def test_models_flag_rejects_empty_list(monkeypatch, tmp_path) -> None:

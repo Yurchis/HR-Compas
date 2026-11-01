@@ -1,72 +1,73 @@
-# Усі налаштування клієнта OpenRouter. Секрет (OPENROUTER_API_KEY) — лише в .env.
-# Невідомий ключ або некоректне значення = помилка запуску.
+# All OpenRouter client settings. The secret (OPENROUTER_API_KEY) lives only in .env.
+# An unknown key or an invalid value = a startup error.
 
 [openrouter]
 base_url = "https://openrouter.ai/api/v1"
-model = "openai/gpt-4o-mini"        # основна модель
-concurrency = 4                      # паралельних запитів
-app_url = ""                         # необов'язково: HTTP-Referer для рейтингів OpenRouter
+model = "openai/gpt-4o-mini"        # main model
+concurrency = 4                      # parallel requests
+app_url = ""                         # optional: HTTP-Referer for OpenRouter rankings
 app_title = "HR Compass"
 
-# Псевдоніми моделей для `--model` / `--models`. Slug береться з https://openrouter.ai/models
+# Model aliases for `--model` / `--models`. Slugs come from https://openrouter.ai/models
 [models]
-gpt4omini = "openai/gpt-4o-mini"          # 128k ctx, провайдери Azure/OpenAI, підтримує structured_outputs
+gpt4omini = "openai/gpt-4o-mini"          # 128k ctx, Azure/OpenAI providers, supports structured_outputs
 haiku = "anthropic/claude-haiku-5.5"
 deepseek = "deepseek/deepseek-v4.1-flash"
-luna = "openai/gpt-6-luna"                # у каталозі також gpt-6-luna-pro, gpt-5.6-luna (звірено 2026-10-27)
-nemotron = "nvidia/nemotron-3.5-super-vl:free"   # чат-модель NVIDIA, безкоштовна (не плутати з reranker-ом у [rerank])
+luna = "openai/gpt-6-luna"                # the catalog also has gpt-6-luna-pro, gpt-5.6-luna (checked 2026-10-27)
+nemotron = "nvidia/nemotron-3.5-super-vl:free"   # NVIDIA chat model, free (not to be confused with the reranker in [rerank])
 
-# Параметри семплінгу (однакові для intake і відповіді). Для відтворюваної оцінки — temperature = 0.
-# Ціни для звіту: slug -> [вхід, вихід] у $ за 1M токенів (https://openrouter.ai/models).
-# Фактична вартість прогону береться з usage.cost відповіді OpenRouter; ці ціни лише для таблиці порівняння.
-# Ключ у лапках, бо slug містить "/". Немає ціни — у таблиці "—".
+# Sampling parameters (the same for intake and answer). For reproducible evaluation — temperature = 0.
+# Prices for the report: slug -> [input, output] in $ per 1M tokens (https://openrouter.ai/models).
+# The actual run cost is taken from usage.cost of the OpenRouter response; these prices are only for the comparison table.
+# The key is quoted because the slug contains "/". No price — "—" in the table.
 [pricing]
-"openai/gpt-4o-mini" = [0.15, 0.60]   # звірено 2026-10-31: 26554 вх. + 45 вих. = $0.0040101, як у usage.cost
-"anthropic/claude-haiku-5.5" = [0.10, 0.50]    # звірено 2026-11-01 з https://openrouter.ai/api/v1/models
-"anthropic/claude-sonnet-5.5" = [2.00, 10.00]  # звірено 2026-11-01 з https://openrouter.ai/api/v1/models
+"openai/gpt-4o-mini" = [0.15, 0.60]   # checked 2026-10-31: 26554 in + 45 out = $0.0040101, same as usage.cost
+"anthropic/claude-haiku-5.5" = [0.10, 0.50]    # checked 2026-11-01 against https://openrouter.ai/api/v1/models
+"anthropic/claude-sonnet-5.5" = [2.00, 10.00]  # checked 2026-11-01 against https://openrouter.ai/api/v1/models
+"deepseek/deepseek-v4.1-flash" = [0.045, 0.50] # checked 2026-11-01 against https://openrouter.ai/api/v1/models
 "nvidia/llama-nemotron-rerank-vl-1b-v2:free" = [0.0, 0.0]
 "nvidia/nemotron-3.5-super-vl:free" = [0.0, 0.0]
 
 [generation]
-temperature = 0.0                    # [0, 2]: 0 — детерміновано, більше — різноманітніше
-top_p = 1.0                          # (0, 1]: nucleus sampling; 1.0 — вимкнено. Зазвичай змінюють або це, або temperature
+temperature = 0.0                    # [0, 2]: 0 — deterministic, higher — more varied
+top_p = 1.0                          # (0, 1]: nucleus sampling; 1.0 — off. Usually you change either this or temperature
 max_tokens = 1024
 
 # Pattern 1: Timeout
 [timeout]
-connect_s = 5.0                      # встановлення з'єднання
-read_s = 60.0                        # очікування байтів відповіді
+connect_s = 5.0                      # establishing the connection
+read_s = 60.0                        # waiting for response bytes
 write_s = 10.0
 pool_s = 5.0
-attempt_s = 90.0                     # жорсткий дедлайн на одну спробу (від початку до кінця)
+attempt_s = 90.0                     # hard deadline for one attempt (start to finish)
 
-# Pattern 2: Retry з backoff
+# Pattern 2: Retry with backoff
 [retry]
-max_retries = 3                      # додаткових спроб після першої (2–3 для збоїв провайдера)
+max_retries = 3                      # extra attempts after the first one (2–3 for provider failures)
 base_delay_s = 1.0
 multiplier = 2.0                     # delay = min(max_delay_s, base_delay_s * multiplier**attempt)
 max_delay_s = 30.0
-jitter = true                        # full jitter: випадкова пауза в [0, delay]
-respect_retry_after = true           # поважати заголовок Retry-After
-retry_statuses = [408, 429, 500, 502, 503, 504]   # 400/401/403 — ніколи не повторюємо
+jitter = true                        # full jitter: a random pause in [0, delay]
+respect_retry_after = true           # honour the Retry-After header
+retry_statuses = [408, 429, 500, 502, 503, 504]   # 400/401/403 — never retried
 
-# Pattern 3: Structured output + валідація
+# Pattern 3: Structured output + validation
 [structured_output]
-enabled = true                       # потребує промпту, що вимагає JSON (prompts/v2_structured.md)
-strict = true                        # json_schema.strict у запиті
+enabled = true                       # needs a prompt that asks for JSON (prompts/v2_structured.md)
+strict = true                        # json_schema.strict in the request
 schema_name = "hr_answer"
-max_repair_attempts = 1              # скільки разів просити модель виправити невалідну відповідь
+max_repair_attempts = 1              # how many times to ask the model to fix an invalid reply
 
 # Pattern 4: Fallback
 [fallback]
 enabled = true
-models = ["google/gemini-2.5-flash", "anthropic/claude-haiku-4.5"]   # по черзі, якщо основна вичерпала спроби
-skip_statuses = [400, 401, 402, 403] # fallback безглуздий: помилка запиту (400), ключ/доступ/оплата (401-403)
+models = ["google/gemini-2.5-flash", "anthropic/claude-haiku-4.5"]   # in turn, if the main model ran out of attempts
+skip_statuses = [400, 401, 402, 403] # fallback is pointless: request error (400), key/access/payment (401-403)
 
-# Retrieval: reranker відбирає top_n найрелевантніших розділів хендбука під питання (ендпоінт /rerank).
-# Вимкнено = full-context (весь хендбук у промпті). Вмикається тут або прапорцем --rerank.
-# Якщо rerank-запит не вдався — відповідь будується з повним контекстом (деградація, не помилка).
+# Retrieval: the reranker picks the top_n most relevant handbook sections for the question (the /rerank endpoint).
+# Disabled = full context (the whole handbook in the prompt). Enable it here or with the --rerank flag.
+# If the rerank request fails, the answer is built from the full context (degradation, not an error).
 [rerank]
 enabled = false
-model = "nvidia/llama-nemotron-rerank-vl-1b-v2:free"   # безкоштовна; ліміти free-моделей OpenRouter
-top_n = 8                            # скільки розділів потрапляє в промпт
+model = "nvidia/llama-nemotron-rerank-vl-1b-v2:free"   # free; OpenRouter free-model limits apply
+top_n = 8                            # how many sections go into the prompt

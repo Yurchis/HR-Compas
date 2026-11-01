@@ -28,28 +28,28 @@ EXIT_WORDS = {"exit", "quit", "q", "вихід", "выход"}
 
 
 def build_parser() -> argparse.ArgumentParser:
-    p = argparse.ArgumentParser(prog="main.py", description="HR Compass: HR-помічник для співробітників.")
-    p.add_argument("question", nargs="*", help="питання; без нього запускається інтерактивний режим")
+    p = argparse.ArgumentParser(prog="main.py", description="HR Compass: an HR assistant for employees.")
+    p.add_argument("question", nargs="*", help="the question; without it the interactive mode starts")
     p.add_argument("--prompt", type=Path, default=ROOT / "prompts" / "v2_structured.md")
     p.add_argument("--intake-prompt", type=Path, default=ROOT / "prompts" / "intake_v2_en.md")
-    p.add_argument("--no-intake", action="store_true", help="пропустити intake (мова/область/профіль)")
+    p.add_argument("--no-intake", action="store_true", help="skip intake (language/scope/profile)")
     p.add_argument("--knowledge", type=Path, default=ROOT / "data" / "raw")
-    p.add_argument("--config", type=Path, help="файл налаштувань (за замовчуванням config/settings.toml)")
-    p.add_argument("--model", help="модель: псевдонім з [models] або slug OpenRouter")
+    p.add_argument("--config", type=Path, help="settings file (default: config/settings.toml)")
+    p.add_argument("--model", help="model: an alias from [models] or an OpenRouter slug")
     p.add_argument(
         "--rerank",
         action=argparse.BooleanOptionalAction,
-        help="відбирати top-N розділів reranker-ом замість повного контексту (за замовчуванням — [rerank].enabled)",
+        help="pick the top-N sections with the reranker instead of the full context (default: [rerank].enabled)",
     )
-    p.add_argument("--debug", action="store_true", help="показати intake, модель, токени й вартість; лог рівня DEBUG")
-    p.add_argument("--log-file", type=Path, help="файл логу (за замовчуванням logs/hr_compass.log; 'off' — вимкнути)")
+    p.add_argument("--debug", action="store_true", help="show intake, model, tokens and cost; DEBUG-level log")
+    p.add_argument("--log-file", type=Path, help="log file (default: logs/hr_compass.log; 'off' disables it)")
     return p
 
 
 def format_reply(reply: Reply, *, debug: bool) -> str:
     lines = [reply.text]
     if reply.kind == "answer" and reply.sources:
-        lines.append(f"Джерела: {', '.join(f'[{s}]' for s in reply.sources)}")
+        lines.append(f"Sources: {', '.join(f'[{s}]' for s in reply.sources)}")
     if debug:
         if reply.intake:
             lines.append(f"[intake] {reply.intake.model_dump_json()}")
@@ -61,7 +61,7 @@ def format_reply(reply: Reply, *, debug: bool) -> str:
 
 
 async def _interactive(bot: HRCompass, *, debug: bool) -> None:
-    print("HR Compass. Постав питання (вихід: exit).")
+    print("HR Compass. Ask a question (quit: exit).")
     logger.info("interactive session started")
     pending: str | None = None  # the question we asked a clarification for
     loop = asyncio.get_running_loop()
@@ -78,11 +78,11 @@ async def _interactive(bot: HRCompass, *, debug: bool) -> None:
             return
         question, allow_clarification = line, True
         if pending:  # the line is the employee's reply to our clarifying question
-            question, allow_clarification = f"{pending}\n(Уточнення співробітника: {line})", False
+            question, allow_clarification = f"{pending}\n(Employee's clarification: {line})", False
         try:
             reply = await bot.ask(question, allow_clarification=allow_clarification)
         except LLMError as exc:
-            print(f"Помилка моделі: {exc}", file=sys.stderr)
+            print(f"Model error: {exc}", file=sys.stderr)
             pending = None
             continue
         pending = question if reply.kind == "clarification" else None
@@ -106,7 +106,7 @@ async def _run(args: argparse.Namespace) -> int:
             try:
                 reply = await bot.ask(" ".join(args.question), allow_clarification=False)
             except LLMError as exc:
-                print(f"Помилка моделі: {exc}", file=sys.stderr)
+                print(f"Model error: {exc}", file=sys.stderr)
                 return 1
             print(format_reply(reply, debug=args.debug))
         else:
@@ -128,7 +128,7 @@ def main(argv: Sequence[str] | None = None) -> int:
         return asyncio.run(_run(args))
     except (ConfigError, PromptError, IntakeError, KnowledgeError) as exc:
         logger.error("startup failed: %s", exc)
-        print(f"Помилка конфігурації: {exc}", file=sys.stderr)
+        print(f"Configuration error: {exc}", file=sys.stderr)
         return 2
     except KeyboardInterrupt:
         return 130

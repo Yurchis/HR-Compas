@@ -28,6 +28,12 @@ def test_v3_declares_its_schema_and_hides_the_directive_from_the_model() -> None
     assert HRAnswerV3.model_validate_json(example).needs_clarification is False
 
 
+def test_v4_is_the_english_v3_with_the_same_schema() -> None:
+    v4 = PromptTemplate.from_file(ROOT / "prompts" / "v4_country_clarification_en.md")
+    assert v4.output_model is HRAnswerV3 and "schema:" not in v4.template
+    assert "needs_clarification" in v4.template and "SAME language as the employee's question" in v4.template
+
+
 def test_older_prompts_keep_the_v2_schema() -> None:
     for name in ("v1_baseline.md", "v2_structured.md"):
         assert PromptTemplate.from_file(ROOT / "prompts" / name).output_model is HRAnswer

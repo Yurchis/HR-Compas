@@ -407,7 +407,7 @@ def test_load_samples_validates(tmp_path: Path) -> None:
 def test_bundled_data_is_loadable() -> None:
     assert len(load_chunks(ROOT / "data" / "raw")) > 50
     assert len(load_samples(ROOT / "data" / "golden_set.jsonl")) >= 1
-    for name in ("v1_baseline.md", "v2_structured.md", "v3_country_clarification.md"):
+    for name in ("v1_baseline.md", "v2_structured.md", "v3_country_clarification.md", "v4_country_clarification_en.md"):
         PromptTemplate.from_file(ROOT / "prompts" / name)
 
 
@@ -437,7 +437,7 @@ def test_summary_and_table_report_p50_p95_over_successes_only() -> None:
     s = summarize(results)
     assert (s["latency_p50_s"], s["latency_p95_s"]) == (2.0, 4.0)  # the failed 99s sample is excluded
     table = comparison_table([{"model": "m", "summary": s}])
-    assert "| p50, с | p95, с |" in table and "| 2.0 | 4.0 | 4/5 |" in table
+    assert "| p50, s | p95, s |" in table and "| 2.0 | 4.0 | 4/5 |" in table
 
 
 def test_failed_sample_counts_as_wrong_in_accuracy() -> None:
@@ -459,7 +459,7 @@ def test_comparison_table_has_report_columns() -> None:
     }
     header, _, line = comparison_table([row]).splitlines()
     assert header.startswith(
-        "| Модель | Версія промпту | Семплінг | Ціна, $/1M (вх/вих) | Правильні, % | Тип відповіді, % |"
+        "| Model | Prompt version | Sampling | Price, $/1M (in/out) | Correct, % | Reply type, % |"
     )
     assert line.startswith(
         "| openai/gpt-4o-mini | v2_structured | temperature=0.0, top_p=1.0 | 0.15 / 0.6 | 100.0% (1/1) | — "

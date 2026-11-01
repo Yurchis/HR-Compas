@@ -1,0 +1,39 @@
+{
+  "timestamp": "20261101T132154Z",
+  "model": "anthropic/claude-haiku-5.5",
+  "prompt": "v2_structured",
+  "samples": "data\\golden_set.jsonl",
+  "rerank": null,
+  "intake": "intake_v2_en",
+  "generation": {
+    "temperature": 0.0,
+    "top_p": 1.0,
+    "max_tokens": 1024
+  },
+  "summary": {
+    "total": 40,
+    "succeeded": 40,
+    "failed": 0,
+    "fallback_used": 0,
+    "answered_by": {
+      "?": 7,
+      "anthropic/claude-haiku-5.5": 33
+    },
+    "keyword_checked": 30,
+    "keyword_passed": 25,
+    "accuracy_pct": 83.3,
+    "kinds": {
+      "clarification": 7,
+      "answer": 33
+    },
+    "kind_checked": 40,
+    "kind_passed": 35,
+    "kind_accuracy_pct": 87.5,
+    "latency_mean_s": 4.971,
+    "latency_p50_s": 4.557,
+    "latency_p95_s": 7.401,
+    "prompt_tokens": 1169967,
+    "completion_tokens": 21286,
+    "cost_usd": 0.12764
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "timestamp": "20261101T132436Z",
+  "model": "deepseek/deepseek-v4.1-flash",
+  "prompt": "v3_country_clarification",
+  "samples": "data\\golden_set.jsonl",
+  "rerank": null,
+  "intake": "intake_v2_en",
+  "generation": {
+    "temperature": 0.0,
+    "top_p": 1.0,
+    "max_tokens": 1024
+  },
+  "summary": {
+    "total": 40,
+    "succeeded": 40,
+    "failed": 0,
+    "fallback_used": 0,
+    "answered_by": {
+      "?": 6,
+      "deepseek/deepseek-v4.1-flash": 34
+    },
+    "keyword_checked": 30,
+    "keyword_passed": 28,
+    "accuracy_pct": 93.3,
+    "kinds": {
+      "clarification": 12,
+      "answer": 28
+    },
+    "kind_checked": 40,
+    "kind_passed": 38,
+    "kind_accuracy_pct": 95.0,
+    "latency_mean_s": 2.903,
+    "latency_p50_s": 2.737,
+    "latency_p95_s": 4.383,
+    "prompt_tokens": 745715,
+    "completion_tokens": 22563,
+    "cost_usd": 0.045037
+  }
+}

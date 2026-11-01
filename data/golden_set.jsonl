@@ -1,14 +1,18 @@
-# Golden set: по одному JSON-об'єкту на рядок. Обов'язкові: id, question.
-# Необов'язкові: expected_answer, expected_keywords, country, sub_company, expected_kind.
-# country / sub_company — профіль співробітника, відомий боту заздалегідь (як у чаті після уточнення); None = невідомий.
-# expected_kind — очікуваний тип відповіді бота: answer | clarification | out_of_scope (перевіряє evaluate, колонка
-#   «Тип відповіді»). Без поля тип не перевіряється.
-# 10 питань x 3 країни (USA / UA / Costa Rica) = 30, expected_kind = answer. Одне й те саме питання з різним профілем:
-#   id qNN-usa / qNN-ua / qNN-cr. Набір Costa Rica — тестовий (зібраний з довідника UA, змінено 10 параметрів).
-# qNN-any — ті самі 10 питань без профілю: усі правила в довіднику залежать від країни, тож бот має не відповідати,
-#   а спитати країну (expected_kind = clarification, ключових слів немає).
-# expected_keywords — підрядки без урахування регістру; "HR" = очікується відмова з відсиланням до HR (у довіднику
-#   країни відповіді немає).
+# Golden set: one JSON object per line. Required: id, question.
+# Optional: expected_answer, expected_keywords, country, sub_company, expected_kind.
+# country / sub_company — the employee profile known to the bot in advance (as in the chat after a clarification);
+#   missing = unknown.
+# expected_kind — the expected reply type: answer | clarification | out_of_scope (checked by evaluate, the
+#   "Reply type" column). Without the field the type is not checked.
+# 10 questions x 3 countries (USA / UA / Costa Rica) = 30, expected_kind = answer. The same question with a different
+#   profile: ids qNN-usa / qNN-ua / qNN-cr. The Costa Rica set is a test set (built from the UA handbook, 10 parameters
+#   changed).
+# qNN-any — the same 10 questions without a profile: every rule in the handbook depends on the country, so the bot
+#   must not answer but ask for the country (expected_kind = clarification, no keywords).
+# expected_keywords — case-insensitive substrings; "HR" = a refusal referring to HR is expected (the country's
+#   handbook has no answer).
+# q01 and q07 are asked in Ukrainian on purpose (their expected answers are in Ukrainian too): they test that the
+#   bot answers in the language of the question.
 {"id": "q01-usa", "question": "Скільки днів оплачуваної відпустки на рік я маю?", "country": "USA", "sub_company": "IT-Outsourcing", "expected_answer": "Відпустка рахується в годинах: 80 годин (0–3 роки стажу), 120 (3–5 років), 160 (5+ років); part-time — 40 годин.", "expected_keywords": ["80"], "expected_kind": "answer"}
 {"id": "q01-ua", "question": "Скільки днів оплачуваної відпустки на рік я маю?", "country": "UA", "sub_company": "IT-Product", "expected_answer": "24 календарні дні після 6 місяців безперервної роботи; до того — пропорційно відпрацьованому часу.", "expected_keywords": ["24"], "expected_kind": "answer"}
 {"id": "q01-cr", "question": "Скільки днів оплачуваної відпустки на рік я маю?", "country": "Costa Rica", "sub_company": "IT-Outsourcing", "expected_answer": "18 календарних днів після 50 тижнів безперервної роботи; до того — пропорційно відпрацьованому часу.", "expected_keywords": ["18"], "expected_kind": "answer"}

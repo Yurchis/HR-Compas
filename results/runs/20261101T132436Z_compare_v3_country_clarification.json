@@ -1,0 +1,127 @@
+[
+  {
+    "model": "openai/gpt-4o-mini",
+    "prompt": "v3_country_clarification",
+    "intake": "intake_v2_en",
+    "generation": {
+      "temperature": 0.0,
+      "top_p": 1.0,
+      "max_tokens": 1024
+    },
+    "price": [
+      0.15,
+      0.6
+    ],
+    "rerank": null,
+    "run_dir": "C:\\mine\\HR_Compass\\results\\runs\\20261101T132319Z_openai-gpt-4o-mini_v3_country_clarification",
+    "summary": {
+      "total": 40,
+      "succeeded": 40,
+      "failed": 0,
+      "fallback_used": 0,
+      "answered_by": {
+        "openai/gpt-4o-mini": 40
+      },
+      "keyword_checked": 30,
+      "keyword_passed": 25,
+      "accuracy_pct": 83.3,
+      "kinds": {
+        "answer": 39,
+        "clarification": 1
+      },
+      "kind_checked": 40,
+      "kind_passed": 31,
+      "kind_accuracy_pct": 77.5,
+      "latency_mean_s": 3.423,
+      "latency_p50_s": 3.049,
+      "latency_p95_s": 4.529,
+      "prompt_tokens": 964718,
+      "completion_tokens": 4271,
+      "cost_usd": 0.095181
+    }
+  },
+  {
+    "model": "anthropic/claude-haiku-5.5",
+    "prompt": "v3_country_clarification",
+    "intake": "intake_v2_en",
+    "generation": {
+      "temperature": 0.0,
+      "top_p": 1.0,
+      "max_tokens": 1024
+    },
+    "price": [
+      0.1,
+      0.5
+    ],
+    "rerank": null,
+    "run_dir": "C:\\mine\\HR_Compass\\results\\runs\\20261101T132407Z_anthropic-claude-haiku-5.5_v3_country_clarification",
+    "summary": {
+      "total": 40,
+      "succeeded": 40,
+      "failed": 0,
+      "fallback_used": 0,
+      "answered_by": {
+        "?": 7,
+        "anthropic/claude-haiku-5.5": 33
+      },
+      "keyword_checked": 30,
+      "keyword_passed": 29,
+      "accuracy_pct": 96.7,
+      "kinds": {
+        "clarification": 11,
+        "answer": 29
+      },
+      "kind_checked": 40,
+      "kind_passed": 39,
+      "kind_accuracy_pct": 97.5,
+      "latency_mean_s": 4.675,
+      "latency_p50_s": 4.337,
+      "latency_p95_s": 7.659,
+      "prompt_tokens": 1117881,
+      "completion_tokens": 20047,
+      "cost_usd": 0.121812
+    }
+  },
+  {
+    "model": "deepseek/deepseek-v4.1-flash",
+    "prompt": "v3_country_clarification",
+    "intake": "intake_v2_en",
+    "generation": {
+      "temperature": 0.0,
+      "top_p": 1.0,
+      "max_tokens": 1024
+    },
+    "price": [
+      0.045,
+      0.5
+    ],
+    "rerank": null,
+    "run_dir": "C:\\mine\\HR_Compass\\results\\runs\\20261101T132436Z_deepseek-deepseek-v4.1-flash_v3_country_clarification",
+    "summary": {
+      "total": 40,
+      "succeeded": 40,
+      "failed": 0,
+      "fallback_used": 0,
+      "answered_by": {
+        "?": 6,
+        "deepseek/deepseek-v4.1-flash": 34
+      },
+      "keyword_checked": 30,
+      "keyword_passed": 28,
+      "accuracy_pct": 93.3,
+      "kinds": {
+        "clarification": 12,
+        "answer": 28
+      },
+      "kind_checked": 40,
+      "kind_passed": 38,
+      "kind_accuracy_pct": 95.0,
+      "latency_mean_s": 2.903,
+      "latency_p50_s": 2.737,
+      "latency_p95_s": 4.383,
+      "prompt_tokens": 745715,
+      "completion_tokens": 22563,
+      "cost_usd": 0.045037
+    }
+  }
+]

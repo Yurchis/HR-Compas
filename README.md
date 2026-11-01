@@ -1,129 +1,179 @@
 ﻿# HR Compass
 
-HR-бот — помічник для персоналу, що відповідає на питання, пов'язані з компанією.
-Наскрізний проєкт курсу AI Engineer.
+**English** | [Українська](README.uk.md)
 
-## Структура репозиторію
+An HR bot: an assistant for employees that answers questions about the company.
+End-to-end project of the AI Engineer course.
+
+## Repository structure
 
 ```
-main.py           точка входу
-hr_compass/       код сервісу
-prompts/          версії промптів + CHANGELOG.md
-data/             тексти (база знань) та golden set
-results/          виходи моделей
-tests/            тести
-REPORT.md         звіт-порівняння
+main.py           entry point
+hr_compass/       service code
+prompts/          prompt versions + CHANGELOG.md
+data/             texts (knowledge base) and golden set
+scripts/          splitting a PDF handbook into chunks (split_handbook.py)
+results/          model outputs
+tests/            tests
+REPORT.md         comparison report
 ```
 
-## Схема
+## Diagram
 
-_TODO: схема сервісу._
+```mermaid
+flowchart TD
+    subgraph Entry["Entry points"]
+        CLI["main.py → hr_compass/chat.py<br/>interactive / one-shot chat"]
+        EVAL["hr_compass/evaluate.py<br/>golden-set runs"]
+    end
 
-## Що потрібно встановити
+    Q(["Employee question<br/>+ known profile (optional)"])
+    CLI --> Q
+    EVAL -->|"data/golden_set.jsonl: country / sub_company"| Q
+
+    subgraph Pipeline["HRCompass pipeline — hr_compass/pipeline.py"]
+        INTAKE["Intake — prompts/intake_v2_en.md<br/>language · in scope · country · sub-company · clarification"]
+        OOS["Out-of-scope reply<br/>(no answer call)"]
+        CLAR["Clarifying question"]
+        CTX["Context builder — knowledge.py<br/>chunks of the employee's country / sub-company"]
+        RR["Reranker — retrieval.py (optional)<br/>top-N sections via /rerank"]
+        ANS["Answer call<br/>prompt v2 / v3 / v4 + JSON schema"]
+    end
+
+    Q --> INTAKE
+    INTAKE -->|"out of scope"| OOS
+    INTAKE -->|"needs clarification"| CLAR
+    INTAKE -->|"ok"| CTX
+    CTX -->|"rerank on"| RR --> ANS
+    CTX -->|"full context"| ANS
+    ANS -->|"needs_clarification (v3+)"| CLAR
+    ANS --> REPLY(["Answer in the question's language<br/>+ sources [id]"])
+
+    subgraph LLM["Resilient LLM layer"]
+        RES["resilient.py<br/>structured output · validation / repair · model fallback"]
+        ORC["openrouter.py<br/>timeouts · retry with backoff"]
+    end
+    INTAKE -.-> RES
+    ANS -.-> RES
+    RES --> ORC
+    RR -.-> ORC
+    ORC --> API[("OpenRouter API<br/>gpt-4o-mini · haiku · deepseek …")]
+    CFG["config/settings.toml + .env"] -.-> ORC
+
+    PDF["Handbook PDFs (local only)"] -->|"scripts/split_handbook.py"| KB[("data/raw/*.json<br/>108 chunks: USA · UA · Costa Rica")]
+    KB --> CTX
+
+    REPLY -->|"chat: printed"| CLI
+    REPLY -->|"evaluate: scored"| RUNS[("results/runs/<br/>results.jsonl · summary.json · table.md")]
+```
+
+Fallbacks not shown on the diagram: no chunks for the profile → the whole handbook is used; the rerank request
+fails → the full context is used; intake fails → the bot answers without it.
+
+## Requirements
 
 - Python 3.11+
-- _TODO: локальна модель (напр. Ollama) та API-ключ хмарного провайдера_
 
-## Запуск
+## Run
 
 ```bash
 python -m venv .venv
 .venv\Scripts\activate          # Windows; Linux/macOS: source .venv/bin/activate
-pip install -r requirements.txt  # або make install
-cp .env.example .env             # вписати ключі
-python main.py                   # або make run
+pip install -r requirements.txt  # or make install
+cp .env.example .env             # put your keys in
+python main.py                   # or make run
 ```
 
-## Як працює сервіс
+## How the service works
 
 ```
-питання (будь-якою мовою)
-  → intake (prompts/intake_v2_en.md): мова, чи в межах теми, країна/підкомпанія, чи потрібне уточнення
-  → контекст: увесь довідник (data/raw) або, з --rerank, top-N розділів від reranker-а
-  → відповідь: контекст у системному промпті + питання → JSON за схемою
-  → текст відповіді мовою питання + джерела [id]
+question (in any language)
+  → intake (prompts/intake_v2_en.md): language, in scope or not, country/sub-company, whether a clarification is needed
+  → context: the whole handbook (data/raw) or, with --rerank, the top-N sections from the reranker
+  → answer: context in the system prompt + question → JSON by the schema
+  → answer text in the language of the question + sources [id]
 ```
 
-- Поза темою — ввічлива відмова без виклику основної моделі (економія токенів).
-- Потрібне уточнення — бот ставить одне питання; наступна репліка об'єднується з початковим питанням.
-- Якщо в довіднику немає розділів для країни/підкомпанії з intake — береться весь довідник.
-- Якщо intake не спрацював — бот відповідає без нього.
+- Out of scope — a polite refusal without calling the main model (saves tokens).
+- Clarification needed — the bot asks one question; the next message is merged with the original question.
+- If the handbook has no sections for the country/sub-company from intake — the whole handbook is used.
+- If intake fails — the bot answers without it.
 
 ```bash
-python main.py                                  # інтерактивний чат (вихід: exit)
-python main.py "Скільки днів відпустки в part-time?"   # одне питання
-python main.py "..." --model haiku --debug      # модель-псевдонім; intake, токени, вартість
-python main.py "..." --no-intake                # без intake
-python main.py "..." --rerank                   # лише top-N релевантних розділів замість усього довідника
+python main.py                                  # interactive chat (quit: exit)
+python main.py "How many vacation days do part-time employees get?"   # a single question
+python main.py "..." --model haiku --debug      # model alias; intake, tokens, cost
+python main.py "..." --no-intake                # without intake
+python main.py "..." --rerank                   # only the top-N relevant sections instead of the whole handbook
 ```
 
-Моделі задаються псевдонімами в `[models]` файлу `config/settings.toml` (або повним slug OpenRouter).
+Models are set by aliases in `[models]` of `config/settings.toml` (or by a full OpenRouter slug).
 
-### Reranker (секція `[rerank]`)
+### Reranker (`[rerank]` section)
 
-Замість усього довідника (~27k токенів) у промпт потрапляють лише `top_n` розділів, які rerank-модель
-(`nvidia/llama-nemotron-rerank-vl-1b-v2:free` через `POST /rerank` OpenRouter, безкоштовна) вважає найрелевантнішими
-питанню. За замовчуванням вимкнено (`enabled = false`); вмикається в конфігу або прапорцем `--rerank` / `--no-rerank`
-(і в `main.py`, і в `hr_compass.evaluate`). Rerank-запит має ті самі таймаути/повтори, що й основна модель; якщо він
-усе ж не вдався — відповідь будується з повним контекстом. В оцінці прогони з rerank мають суфікс `_rerank` у назві
-папки, а в `results.jsonl` поле `retrieved` містить id відібраних розділів.
+Instead of the whole handbook (~27k tokens), only the `top_n` sections that the rerank model
+(`nvidia/llama-nemotron-rerank-vl-1b-v2:free` via OpenRouter `POST /rerank`, free) considers most relevant to the
+question go into the prompt. Disabled by default (`enabled = false`); enable it in the config or with the `--rerank` /
+`--no-rerank` flag (both in `main.py` and in `hr_compass.evaluate`). The rerank request has the same timeouts/retries as
+the main model; if it still fails, the answer is built from the full context. In evaluation, runs with rerank have the
+`_rerank` suffix in the folder name, and the `retrieved` field in `results.jsonl` holds the ids of the selected sections.
 
 ```bash
-python -m hr_compass.evaluate --prompt prompts/v2_structured.md --rerank   # порівняти з тим самим прогоном без --rerank
+python -m hr_compass.evaluate --prompt prompts/v2_structured.md --rerank   # compare with the same run without --rerank
 ```
 
-## Логування
+## Logging
 
-Лог пишеться у `logs/hr_compass.log` (ротація 1 МБ × 3; `*.log` у `.gitignore`) і в консоль (stderr).
-Консоль для чату показує лише WARNING+, файл — INFO+; `--debug` вмикає DEBUG в обох місцях.
-Шлях змінюється `--log-file <шлях>` або змінною `HR_COMPASS_LOG_FILE`; `off` вимикає файл.
+The log is written to `logs/hr_compass.log` (rotation 1 MB × 3; `*.log` is in `.gitignore`) and to the console (stderr).
+For the chat the console shows only WARNING+, the file INFO+; `--debug` enables DEBUG in both.
+The path is changed with `--log-file <path>` or the `HR_COMPASS_LOG_FILE` variable; `off` disables the file.
 
-Що логується: завантаження конфігурації й довідника, кожен виклик моделі (модель, спроба, токени, вартість, затримка),
-повтори/відмови/fallback, результат intake, рішення пайплайну (поза темою / уточнення / відповідь, джерела, підсумкова
-вартість), старт і завершення сесії. Кожне питання (або зразок оцінки) має короткий id у квадратних дужках, за яким
-легко зібрати всі рядки одного запиту.
+What is logged: loading of the config and the handbook, every model call (model, attempt, tokens, cost, latency),
+retries/refusals/fallback, the intake result, pipeline decisions (out of scope / clarification / answer, sources, total
+cost), session start and end. Every question (or evaluation sample) has a short id in square brackets, so all lines of
+one request are easy to collect.
 
-Приватність: ключ API не логується взагалі; текст питання потрапляє в лог лише на рівні DEBUG (на INFO — тільки його довжина).
+Privacy: the API key is never logged; the question text gets into the log only at DEBUG level (at INFO — only its length).
 
-## Порівняння моделей
+## Comparing models
 
 ```bash
-make compare MODELS=haiku,deepseek              # або: python -m hr_compass.evaluate --prompt prompts/v2_structured.md --models haiku,deepseek
+make compare MODELS=haiku,deepseek              # or: python -m hr_compass.evaluate --prompt prompts/v2_structured.md --models haiku,deepseek
 ```
 
-Кожна модель проганяється окремо (fallback вимкнено, щоб модель не підмінялася), результати — у `results/runs/`,
-зведена таблиця для `REPORT.md` — `results/runs/<час>_compare_<промпт>.md`.
+Each model is run separately (fallback disabled, so the model is never replaced by another one), results go to
+`results/runs/`, the summary table for `REPORT.md` — to `results/runs/<time>_compare_<prompt>.md`.
 
-## Оцінка промптів через OpenRouter
+## Evaluating prompts via OpenRouter
 
-1. У `.env` вкажіть `OPENROUTER_API_KEY` (єдиний секрет).
-2. Усі інші налаштування — у `config/settings.toml` (модель, паралелізм, патерни надійності нижче).
-3. Додайте питання у `data/golden_set.jsonl` (формат — у коментарях файлу).
-4. Запустіть:
+1. Put `OPENROUTER_API_KEY` into `.env` (the only secret).
+2. All other settings are in `config/settings.toml` (model, concurrency, reliability patterns below).
+3. Add questions to `data/golden_set.jsonl` (the format is described in the file's comments).
+4. Run:
 
 ```bash
 make eval
 python -m hr_compass.evaluate --prompt prompts/v2_structured.md --samples data/golden_set.jsonl --limit 3
 ```
 
-Кожне питання проходить той самий шлях, що й у чаті: intake → контекст → відповідь. `country` / `sub_company` із golden
-set — це профіль співробітника, відомий боту заздалегідь (країна, названа в самому питанні, має пріоритет).
-`expected_kind` (`answer` / `clarification` / `out_of_scope`) перевіряє тип відповіді — колонка «Тип відповіді, %».
-`--no-intake` — викликати модель відповіді напряму (тоді кожна відповідь — `answer`); intake вимикається й автоматично,
-якщо `[structured_output].enabled = false` (напр. для `v1_baseline`). Вартість і токени включають виклик intake.
+Every question goes the same way as in the chat: intake → context → answer. `country` / `sub_company` from the golden
+set is the employee profile known to the bot in advance (a country named in the question itself takes precedence).
+`expected_kind` (`answer` / `clarification` / `out_of_scope`) checks the reply type — the "Reply type, %" column.
+`--no-intake` calls the answer model directly (then every reply is an `answer`); intake is also switched off
+automatically if `[structured_output].enabled = false` (e.g. for `v1_baseline`). Cost and tokens include the intake call.
 
-Результати: `results/runs/<час>_<модель>_<промпт>/results.jsonl` (відповідь, тип відповіді, джерела, впевненість, модель, токени, вартість, затримка) та `summary.json`
-(параметри семплінгу прогону з `[generation]` — `temperature`, `top_p`, `max_tokens`; затримка — середня, p50 і p95 за
-успішними зразками; перцентилі — nearest-rank, тож на малій вибірці p95 ≈ найповільніший запит).
-Код завершення ненульовий, якщо хоч один запит не вдався.
+Results: `results/runs/<time>_<model>_<prompt>/results.jsonl` (answer, reply type, sources, confidence, model, tokens, cost, latency) and `summary.json`
+(sampling parameters of the run from `[generation]` — `temperature`, `top_p`, `max_tokens`; latency — mean, p50 and p95
+over successful samples; percentiles are nearest-rank, so on a small sample p95 ≈ the slowest request).
+The exit code is non-zero if at least one request failed.
 
-### Патерни надійності (секції `config/settings.toml`)
+### Reliability patterns (`config/settings.toml` sections)
 
-| Патерн | Секція | Що робить |
+| Pattern | Section | What it does |
 |---|---|---|
-| Timeout | `[timeout]` | таймаути connect/read/write/pool + жорсткий дедлайн однієї спроби (`attempt_s`) |
-| Retry з backoff | `[retry]` | повтор при 429/5xx/таймаутах: `base_delay_s * multiplier^n`, обмеження `max_delay_s`, jitter, `Retry-After` |
-| Structured output + валідація | `[structured_output]` | `json_schema` у запиті, валідація pydantic (`hr_compass/schema.py`), `max_repair_attempts` запитів на виправлення |
-| Fallback | `[fallback]` | якщо модель вичерпала спроби або віддає невалідний JSON — наступна з `models`; не для `skip_statuses` (401/402/403) |
+| Timeout | `[timeout]` | connect/read/write/pool timeouts + a hard deadline for one attempt (`attempt_s`) |
+| Retry with backoff | `[retry]` | retry on 429/5xx/timeouts: `base_delay_s * multiplier^n`, capped by `max_delay_s`, jitter, `Retry-After` |
+| Structured output + validation | `[structured_output]` | `json_schema` in the request, pydantic validation (`hr_compass/schema.py`), `max_repair_attempts` repair requests |
+| Fallback | `[fallback]` | if a model ran out of attempts or returns invalid JSON — the next one from `models`; not for `skip_statuses` (401/402/403) |
 
-Для вільного тексту (`prompts/v1_baseline.md`) вимкніть `structured_output.enabled`.
+For free text (`prompts/v1_baseline.md`) disable `structured_output.enabled`.

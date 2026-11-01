@@ -102,8 +102,8 @@ def write_run(
 def comparison_table(rows: Sequence[dict]) -> str:
     """Markdown table: one row per run, ready to paste into REPORT.md."""
     lines = [
-        "| Модель | Версія промпту | Семплінг | Ціна, $/1M (вх/вих) | Правильні, % | Тип відповіді, % "
-        "| Вхідні токени | Вихідні токени | p50, с | p95, с | Успішно | Вартість прогону, $ |",
+        "| Model | Prompt version | Sampling | Price, $/1M (in/out) | Correct, % | Reply type, % "
+        "| Input tokens | Output tokens | p50, s | p95, s | Succeeded | Run cost, $ |",
         "|---|---|---|---|---|---|---|---|---|---|---|---|",
     ]
 
@@ -139,7 +139,7 @@ def write_comparison(output_dir: Path, *, prompt: PromptTemplate, rows: Sequence
     base = output_dir / f"{stamp}_compare_{_slug(prompt.name)}"
     base.with_suffix(".json").write_text(json.dumps(list(rows), ensure_ascii=False, indent=2), encoding="utf-8")
     md = base.with_suffix(".md")
-    md.write_text(f"# Порівняння моделей, промпт `{prompt.name}`\n\n{comparison_table(rows)}", encoding="utf-8")
+    md.write_text(f"# Model comparison, prompt `{prompt.name}`\n\n{comparison_table(rows)}", encoding="utf-8")
     return md
 
 

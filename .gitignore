@@ -1,4 +1,4 @@
-# Секрети
+# Secrets
 .env
 .env.*
 !.env.example
@@ -19,10 +19,10 @@ venv/
 .DS_Store
 Thumbs.db
 
-# Тимчасове
+# Temporary
 *.log
 results/tmp/
 
-# Вихідні PDF-довідники: справжня назва компанії й ім'я CEO (у data/raw/ — анонімізовано).
-# Потрібні лише локально для scripts/split_handbook.py.
+# Source PDF handbooks: the real company name and the CEO's name (anonymised in data/raw/).
+# Needed only locally for scripts/split_handbook.py.
 data/*.pdf

@@ -1,6 +1,6 @@
-"""HR Compass — точка входу.
+"""HR Compass — entry point.
 
-Запуск: python main.py  (або make run); одне питання: python main.py "Скільки днів відпустки?"
+Run: python main.py  (or make run); a single question: python main.py "How many vacation days do I get?"
 """
 
 import sys
