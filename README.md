@@ -84,6 +84,10 @@ cp .env.example .env             # put your keys in
 python main.py                   # or make run
 ```
 
+After the one-time setup, `python main.py` works from any new shell, even without activating `.venv`: if the current
+Python has no project dependencies, `main.py` re-runs itself with `.venv`'s Python (and prints the setup steps if there
+is no `.venv` yet).
+
 ## How the service works
 
 ```
