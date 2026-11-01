@@ -5,7 +5,7 @@ SAMPLES ?= data/golden_set.jsonl
 
 MODELS ?= haiku,deepseek
 
-.PHONY: install run test eval compare
+.PHONY: install run test eval compare run-all
 
 install:
 	$(PYTHON) -m pip install -r requirements.txt
@@ -21,3 +21,6 @@ eval:
 
 compare:
 	$(PYTHON) -m hr_compass.evaluate --prompt $(PROMPT) --samples $(SAMPLES) --models $(MODELS)
+
+run-all:
+	$(PYTHON) scripts/run_all.py

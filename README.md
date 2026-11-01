@@ -148,6 +148,22 @@ make compare MODELS=haiku,deepseek              # or: python -m hr_compass.evalu
 Each model is run separately (fallback disabled, so the model is never replaced by another one), results go to
 `results/runs/`, the summary table for `REPORT.md` — to `results/runs/<time>_compare_<prompt>.md`.
 
+## The whole evaluation in one command
+
+```bash
+python scripts/run_all.py            # or make run-all: prompts v2, v3, v4 × models gpt4omini, haiku, deepseek
+python scripts/run_all.py --clean    # first delete previous runs from results/runs/
+python scripts/run_all.py --prompts v3_country_clarification --models deepseek --limit 3   # quick check
+python scripts/run_all.py --rerank   # the same matrix with the reranker
+python scripts/run_all.py --summary-only   # only rebuild results/summary.md from the existing runs
+```
+
+Each prompt is one `hr_compass.evaluate --models ...` call (fallback off, intake on). At the end the script writes
+`results/summary.md` — one row per new run with the report columns (correct, reply type, per country, clarification
+without a country, language = question, tokens, p50/p95, run cost and cost per 1000 questions). Like `main.py`, it
+works without activating `.venv`. `v1_baseline` is not in the default matrix (it needs
+`[structured_output].enabled = false`, pass such a `--config`).
+
 ## Evaluating prompts via OpenRouter
 
 1. Put `OPENROUTER_API_KEY` into `.env` (the only secret).

@@ -148,6 +148,22 @@ make compare MODELS=haiku,deepseek              # або: python -m hr_compass.e
 Кожна модель проганяється окремо (fallback вимкнено, щоб модель не підмінялася), результати — у `results/runs/`,
 зведена таблиця для `REPORT.md` — `results/runs/<час>_compare_<промпт>.md`.
 
+## Уся оцінка однією командою
+
+```bash
+python scripts/run_all.py            # або make run-all: промпти v2, v3, v4 × моделі gpt4omini, haiku, deepseek
+python scripts/run_all.py --clean    # спершу видалити попередні прогони з results/runs/
+python scripts/run_all.py --prompts v3_country_clarification --models deepseek --limit 3   # швидка перевірка
+python scripts/run_all.py --rerank   # та сама матриця з reranker-ом
+python scripts/run_all.py --summary-only   # лише перезібрати results/summary.md з наявних прогонів
+```
+
+Кожен промпт — один виклик `hr_compass.evaluate --models ...` (fallback вимкнено, intake увімкнено). Наприкінці
+скрипт пише `results/summary.md` — по рядку на кожен новий прогін із колонками звіту (правильні, тип відповіді, по
+країнах, уточнення без країни, мова = мова питання, токени, p50/p95, вартість прогону і вартість на 1000 питань). Як і
+`main.py`, працює без активації `.venv`. `v1_baseline` у матрицю за замовчуванням не входить (потребує
+`[structured_output].enabled = false`, передайте такий `--config`).
+
 ## Оцінка промптів через OpenRouter
 
 1. У `.env` вкажіть `OPENROUTER_API_KEY` (єдиний секрет).

@@ -55,6 +55,23 @@ Runs (`results.jsonl`, `summary.json`, `table.md`), all in `results/runs/`:
 - model comparison tables — `20261101T132243Z_compare_v2_structured.md`, `20261101T132436Z_compare_v3_country_clarification.md`;
   the consolidated table above — `results/summary.md`.
 
+Cost per 1000 questions (run cost / 40 × 1000): deepseek-v4.1-flash $1.19 (v2) / $1.13 (v3), gpt-4o-mini $2.44 / $2.38,
+claude-haiku-5.5 $3.19 / $3.05. It is also a column of `results/summary.md`.
+
+### How to reproduce
+One command runs the whole matrix (every prompt × every model) and rebuilds the consolidated table:
+
+```bash
+python scripts/run_all.py --prompts v2_structured,v3_country_clarification   # the six runs of this report
+python scripts/run_all.py                    # default matrix: v2, v3, v4 × gpt4omini, haiku, deepseek (~$0.8)
+python scripts/run_all.py --clean            # delete previous runs from results/runs/ first
+python scripts/run_all.py --summary-only     # only rebuild results/summary.md from the existing runs
+```
+
+Each prompt is one `hr_compass.evaluate --models ...` call (fallback off, intake on, full context unless `--rerank`).
+The script writes `results/summary.md` with one row per new run; it works without activating `.venv`.
+See `README.md` → "The whole evaluation in one command" for all flags.
+
 Notes (observations from `results.jsonl`, not conclusions):
 - **Questions without a profile.** With v2 no model reliably asks for the country: the clarifications that happen
   (haiku 6, deepseek 3) all come from intake; otherwise the bot silently answers for one of the three countries.
