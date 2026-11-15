@@ -93,6 +93,10 @@ async def _run(c: Container, args: argparse.Namespace) -> int:
 
 def chat(c: Container, args: argparse.Namespace) -> int:
     c.settings.require_api_key()   # a clean configuration error before anything is loaded
+    if not c.chunks:   # no chunks.jsonl at all raises a clear FileNotFoundError; an empty one would answer nothing
+        print(f"no documents are indexed in {c.settings.ingest.output_dir}: build the data first with "
+              "`make pipeline` (python main.py run)", file=sys.stderr)
+        return 2
     return asyncio.run(_run(c, args))
 
 

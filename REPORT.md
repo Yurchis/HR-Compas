@@ -300,6 +300,7 @@ $0.0026).
 | deterministic `pass` (facts + cited) | 0.93 (28/30) | 0.07 | 0.00 | q11-haiku, q11-gpt4omini |
 | LLM judge (`judge-v3/correct`) | **0.93 (28/30)** | 0.03 | 0.03 | q23-deepseek, q01-haiku |
 | both: `pass` **and** judge correct | **0.97 (29/30)** | **0.00** | 0.03 | q01-haiku |
+| LLM judge, after fixing the q02 / q23 references (see below) | **1.00 (30/30)** | 0.00 | 0.00 | – |
 
 - **The judge agrees with the person on 93 % of answers.** This is in line with the 0.92 on 90 answers measured for
   judge-v3 in lesson 9, now on this bot's own answers.
@@ -310,6 +311,11 @@ $0.0026).
   problem, not only a judge one.
   - Fix: state only the current rule in the reference, and put the trap in a separate field the judge does not
     read.
+  - **Done** for q02 and q23: `reference` holds only the current answer, and the outdated value moved to a new
+    `trap` field. Re-running `eval calibrate`, $0.0026, the judge failed the archived answer and agreed with the
+    person on **30/30**.
+  - q01-haiku also flipped to "correct", although its reference did not change. The judge is not perfectly stable
+    from run to run, so 0.93–1.00 is the honest range of its agreement on this set.
   - The archived handbooks also say "eligible for remote work following 60 days", so the reference's description of
     them is inaccurate too.
 - **Its false fail (q01-haiku):** a complete answer that adds the weekdays. judge-v3 is strict about extra details.

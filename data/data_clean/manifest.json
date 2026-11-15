@@ -1,0 +1,667 @@
+{
+  "dataset_version": "7a76f068df5c71d27e8c29f4001aa1537acb3d3087ddf7379a6e289160fa4492",
+  "pipeline_version": "ingest-v2",
+  "extract_config": {
+    "raw": false,
+    "strategy": "headings",
+    "chunk_tokens": 120
+  },
+  "created_at": "2026-11-15T18:43:46.984876+00:00",
+  "chunks": 1769,
+  "files": {
+    "ai_course/costa Rica/Contractor Agreement (Costa Rica).docx": {
+      "status": "ok",
+      "title": "CONSULTING AND CONFIDENTIAL SERVICES AGREEMENT",
+      "effective": null,
+      "country": "Costa Rica",
+      "chars": 7565,
+      "pages": 1,
+      "chunks": 19,
+      "access": [
+        "hr"
+      ],
+      "raw_hash": "7778dc138ea6f0e03e474e00c8d05bb30bef15935ab794250557ef9013077d04",
+      "doc_hash": "6eac9d00f565ff0ca6a9b3e1e43f79cf5078ff6c615ddca8cc3e2aab86793ba6"
+    },
+    "ai_course/costa Rica/Costa Rica Team Manual.pdf": {
+      "status": "ok",
+      "title": "– Team Member Manual for Costa Rica Team",
+      "effective": null,
+      "country": "Costa Rica",
+      "chars": 2485,
+      "pages": 2,
+      "chunks": 6,
+      "access": [
+        "all_employees"
+      ],
+      "raw_hash": "c13890d455ae51f3ef51bd7df4f8a0df243dfcd4547379701f618dccbe2b6799",
+      "doc_hash": "b4d137625b86e2136a1290e4ef29c05c006864f1c2e5845a3f44141b9c0ae1d8"
+    },
+    "ai_course/drive-download-20261107T121537Z-1-001/Employment Verification Letter.docx": {
+      "status": "ok",
+      "title": "Employment Verification Letter",
+      "effective": null,
+      "country": null,
+      "chars": 617,
+      "pages": 1,
+      "chunks": 2,
+      "access": [
+        "hr"
+      ],
+      "raw_hash": "f456582b194ddb252814ad047d3ee81cd6c2b41b11e131feff528be82e8fd952",
+      "doc_hash": "a83878ad2d210436216fd28d119cfd6e3a8b37fc60111efd0e9d322a3b9e9a52"
+    },
+    "ai_course/drive-download-20261107T121537Z-1-001/Offer Letter Template.docx": {
+      "status": "ok",
+      "title": "ADDRESS",
+      "effective": null,
+      "country": null,
+      "chars": 2273,
+      "pages": 1,
+      "chunks": 5,
+      "access": [
+        "hr"
+      ],
+      "raw_hash": "ec637ad2cf2b957fff70711c911d0a001883b4185ec51d0f7caa328e4bb19bd4",
+      "doc_hash": "cf04c9bea59a4460e89d8a00ab7bfcbf3afa8be40adb7e834734ad3f2c042a3c"
+    },
+    "ai_course/drive-download-20261107T121537Z-1-001/Promotion Letter.docx": {
+      "status": "ok",
+      "title": "Full Name",
+      "effective": null,
+      "country": null,
+      "chars": 1536,
+      "pages": 1,
+      "chunks": 4,
+      "access": [
+        "hr"
+      ],
+      "raw_hash": "857d883f5fe0b00bc66316339ef1d75f585a01ee77fc40d4434f171b78db3259",
+      "doc_hash": "2451bb7b514e13358f4595c17606fc2b62efbc92f5f3f76041333619d0202408"
+    },
+    "ai_course/HR-Attachment 2_ Competency-Based Interview Guide-071126-121152.pdf": {
+      "status": "ok",
+      "title": "Attachment 2: Competency-Based Interview Guide",
+      "effective": null,
+      "country": null,
+      "chars": 3391,
+      "pages": 3,
+      "chunks": 8,
+      "access": [
+        "all_employees"
+      ],
+      "raw_hash": "8d34a198141b220885c8cef04eabe2811dc1cbb59a1a72856795b13b47b65f9b",
+      "doc_hash": "95d326471d9ae6827958c81be57b47565022da7751e11b329ad2b390be40d01e"
+    },
+    "ai_course/HR-Attachment 3_ Job Description Template-071126-121213.pdf": {
+      "status": "ok",
+      "title": "Attachment 3: Job Description Template",
+      "effective": null,
+      "country": null,
+      "chars": 1051,
+      "pages": 2,
+      "chunks": 7,
+      "access": [
+        "all_employees"
+      ],
+      "raw_hash": "332ca33c2be8dd070b8f13aa160e0492cc32577d39408819455555451b0c9330",
+      "doc_hash": "a3e7fc1d5750482d543acd1f7117c3aff1f82c053dc0e5f41f1336e202ec1f4d"
+    },
+    "ai_course/HR-Bamboo Profile Photo Requirements-071126-120706.pdf": {
+      "status": "ok",
+      "title": "Bamboo Profile Photo Requirements",
+      "effective": null,
+      "country": null,
+      "chars": 978,
+      "pages": 1,
+      "chunks": 4,
+      "access": [
+        "all_employees"
+      ],
+      "raw_hash": "4ed68cb90eebb765b17bc982cb8b65071d52d6e0709876f18b2bfab78b4f59b4",
+      "doc_hash": "5717477315a18370f98f3b8454308005b465c6fecf418a478e125eb01c48f2bb"
+    },
+    "ai_course/HR-Education Time Off-071126-120742.pdf": {
+      "status": "ok",
+      "title": "Education Time Off",
+      "effective": null,
+      "country": null,
+      "chars": 1711,
+      "pages": 1,
+      "chunks": 3,
+      "access": [
+        "all_employees"
+      ],
+      "raw_hash": "8c47974d5ed89f0d1241bf73625dfa3799294c5c983658ff59fa2f6edf883e09",
+      "doc_hash": "2ebee9a5c7cbc5570c3d010d5c8fe898e76bfdf6f49897e6f4a1ee0e8a1c3676"
+    },
+    "ai_course/HR-Hiring Managers_ Responsibilities in the Recruitment Process_ A Structured Overview-071126-121112.pdf": {
+      "status": "ok",
+      "title": "Hiring Managers' Responsibilities in the Recruitment Process: A Structured Overview",
+      "effective": null,
+      "country": null,
+      "chars": 3487,
+      "pages": 3,
+      "chunks": 10,
+      "access": [
+        "all_employees"
+      ],
+      "raw_hash": "9563390224a5d63ea267ea3b560aba39cac4cb5837d52a24bea9a411dd65990d",
+      "doc_hash": "f6e69c821264fb6be5940b04782e77acc1f53b85e52be4da0d024b600b31e271"
+    },
+    "ai_course/HR-Individual Development Plan (IDP) Process_ A Structured Overview-071126-120944.pdf": {
+      "status": "ok",
+      "title": "Individual Development Plan (IDP) Process: A Structured Overview",
+      "effective": null,
+      "country": null,
+      "chars": 3582,
+      "pages": 3,
+      "chunks": 9,
+      "access": [
+        "all_employees"
+      ],
+      "raw_hash": "1411d3bb6ab1830b85f2b9f85468c48848f3bd3f2c002d33b02f8951eee8102c",
+      "doc_hash": "c46559229894768eb89b46c738137b2082409f5363f59b0e70d1a63c148f71f5"
+    },
+    "ai_course/HR-Recruitment Process and Vacancies (Internal Hiring Policy)-071126-121009.pdf": {
+      "status": "ok",
+      "title": "Recruitment Process and Vacancies (Internal Hiring Policy)",
+      "effective": null,
+      "country": null,
+      "chars": 5272,
+      "pages": 4,
+      "chunks": 13,
+      "access": [
+        "all_employees"
+      ],
+      "raw_hash": "81a3e6c8144552ffd745430ec12762d4307651ec0507e775a52481a6c0ef1a88",
+      "doc_hash": "e6088426e2246ec5e6f2be69f12e3ae968b51ed58e23d187840796314d212e10"
+    },
+    "ai_course/HR-Salary Review Process via BambooHR_ A Structured Overview-071126-121239.pdf": {
+      "status": "ok",
+      "title": "Salary Review Process via BambooHR: A Structured Overview",
+      "effective": null,
+      "country": null,
+      "chars": 3463,
+      "pages": 3,
+      "chunks": 10,
+      "access": [
+        "all_employees"
+      ],
+      "raw_hash": "70f59404055ad8c6d0f302465cd5f1d1511646be3439aaabc9a016f22ce3769f",
+      "doc_hash": "1122d27fb758f15dcc4cedfe3331885a62e4f1b5c4b871b3e4af11cf6aaf2370"
+    },
+    "ai_course/Processes-20261107T121659Z-1-001/Processes/It-product HR Procedures Manual.docx": {
+      "status": "ok",
+      "title": "It-product HR Procedures Manual",
+      "effective": null,
+      "country": null,
+      "chars": 6206,
+      "pages": 1,
+      "chunks": 18,
+      "access": [
+        "all_employees"
+      ],
+      "raw_hash": "13d7e5482cab3eda2c705b9adb490b904dad7b922e0731f6257e90f6bed7821c",
+      "doc_hash": "d99eddf1724fc441fb94068121083acffefd3d97f7073c9884343613434d9460"
+    },
+    "ai_course/Processes-20261107T121659Z-1-001/Processes/Onboarding/Vision and Mission.docx": {
+      "status": "ok",
+      "title": "Values and Principles",
+      "effective": null,
+      "country": null,
+      "chars": 9354,
+      "pages": 1,
+      "chunks": 23,
+      "access": [
+        "all_employees"
+      ],
+      "raw_hash": "06823bd61b8ef8ebdca181b454a582c200eca4f366e46d1f67f456c1944c8bc1",
+      "doc_hash": "51de28d1d0c06caa1b9b860584543cb894c9a0c692f8914a0fc760312b5a540b"
+    },
+    "ai_course/Processes-20261107T121659Z-1-001/Processes/PDP&Competency Matrix/PDP Templates/PDP _Name_Data (Template).docx": {
+      "status": "ok",
+      "title": "Personal Development Plan",
+      "effective": null,
+      "country": null,
+      "chars": 750,
+      "pages": 1,
+      "chunks": 4,
+      "access": [
+        "all_employees"
+      ],
+      "raw_hash": "b5aed78690b6d70b653d729db03cf2e5c2a72bf42f7228d06da204aeb0920d13",
+      "doc_hash": "69b859b872cd39075c339696efd94c4962a56859240cbf9b240052efa92abb77"
+    },
+    "ai_course/Processes-20261107T121659Z-1-001/Processes/PDP&Competency Matrix/PDP Templates/PDP_Example_2025.docx": {
+      "status": "ok",
+      "title": "Personal Development Plan",
+      "effective": null,
+      "country": null,
+      "chars": 2143,
+      "pages": 1,
+      "chunks": 8,
+      "access": [
+        "all_employees"
+      ],
+      "raw_hash": "975c5240e496aef3455bc0427b7c2127704c6f34423fff7a85285b3ef5b42fe6",
+      "doc_hash": "f1de815868ae99b88427dd55695c4d0e547f43a66618dbc2e9b18c321b83968a"
+    },
+    "ai_course/Processes-20261107T121659Z-1-001/Processes/Recruitment/Job Description_Template .docx": {
+      "status": "ok",
+      "title": "[Job/Department Title]",
+      "effective": null,
+      "country": null,
+      "chars": 317,
+      "pages": 1,
+      "chunks": 4,
+      "access": [
+        "all_employees"
+      ],
+      "raw_hash": "72b22a705c1f3806cb32780785c814415a94f67204485599835279278fd42650",
+      "doc_hash": "1d34960259184b4e2b7df7edc379e6d77714281b17adca2eb7df012f2d2c005f"
+    },
+    "ai_course/Processes-20261107T121659Z-1-001/Processes/Recruitment/Test Task - Business Process Analyst.docx": {
+      "status": "ok",
+      "title": "Context",
+      "effective": null,
+      "country": null,
+      "chars": 1004,
+      "pages": 1,
+      "chunks": 3,
+      "access": [
+        "all_employees"
+      ],
+      "raw_hash": "95c6ed3dca62112a6f3a83a4df1ba4d03cc860bf85359f8b3364850d994ae545",
+      "doc_hash": "49c56e65501027a3080dbc84f94e865fda31ac78a8647fe1c2edfb19daa1d3d0"
+    },
+    "ai_course/Roles-071126-121045.pdf": {
+      "status": "ok",
+      "title": "Rotation Between Departments/Roles",
+      "effective": null,
+      "country": null,
+      "chars": 2986,
+      "pages": 2,
+      "chunks": 6,
+      "access": [
+        "all_employees"
+      ],
+      "raw_hash": "bd76985a4c5c7bf0a5d143fefc9e1536118a6d2ee13f69901eda95dfcac5828f",
+      "doc_hash": "48a17ed12de133b89c3d35f6bdcd286b9158f5f3908ac171fe4a1e4c6692f2ff"
+    },
+    "ai_course/UA/HR-Attachment 1_ Offer Letter Template (English)-071126-121132.pdf": {
+      "status": "ok",
+      "title": "Attachment 1: Offer Letter Template (English)",
+      "effective": null,
+      "country": "UA",
+      "chars": 1033,
+      "pages": 2,
+      "chunks": 4,
+      "access": [
+        "hr"
+      ],
+      "raw_hash": "e1dc943d543fa9f953b653a5d8cc489084a41b649529da54756a8595fc617d4f",
+      "doc_hash": "fb01cf25b1d8fede60382f19ea33adcfcd723df2bfcb486cc653c10ed802796b"
+    },
+    "ai_course/UA/HR-English Language Program Policy-071126-120805.pdf": {
+      "status": "ok",
+      "title": "English Language Program Policy",
+      "effective": null,
+      "country": "UA",
+      "chars": 1657,
+      "pages": 2,
+      "chunks": 5,
+      "access": [
+        "all_employees"
+      ],
+      "raw_hash": "c8d2560cdbc496a72dcca47316331b93be7f4c80682ca01711845e215e9efdd3",
+      "doc_hash": "9148cafc94b63036d2b3a9b5216de82946e2730ba05738b8f332571324d2810b"
+    },
+    "ai_course/UA/HR-Internal HR & Finance Guidelines for Financial Support to Ukraine-Based Employees-071126-121329.pdf": {
+      "status": "ok",
+      "title": "Internal HR & Finance Guidelines for Financial Support to Ukraine-Based Employees",
+      "effective": null,
+      "country": "UA",
+      "chars": 6075,
+      "pages": 4,
+      "chunks": 13,
+      "access": [
+        "all_employees"
+      ],
+      "raw_hash": "7514bb21c0dc5fe33dc5f1adb2cc3502313ae60b242b656c328e772b4aa09221",
+      "doc_hash": "2e706b5258db993519269062b2043cd56c350b7b9858d7d2ab043f89543e9efc"
+    },
+    "ai_course/UA/HR-Onboarding and Adaptation Process-071126-120547.pdf": {
+      "status": "ok",
+      "title": "Onboarding and Adaptation Process",
+      "effective": null,
+      "country": "UA",
+      "chars": 4685,
+      "pages": 4,
+      "chunks": 12,
+      "access": [
+        "all_employees"
+      ],
+      "raw_hash": "202796aec403ed28a8ffbf7f8eb78e64ef8b7389f53f9ad0e0cebd6f86cc1645",
+      "doc_hash": "b586cc584d65d11a05508b113129df03ddbb010e3c6fe2dfff7f2af6350dc866"
+    },
+    "ai_course/UA/HR-Paid Holidays & Floating Holidays Policy-071126-120838.pdf": {
+      "status": "ok",
+      "title": "Paid Holidays & Floating Holidays Policy",
+      "effective": null,
+      "country": "UA",
+      "chars": 3669,
+      "pages": 2,
+      "chunks": 8,
+      "access": [
+        "all_employees"
+      ],
+      "raw_hash": "ef0f0250da855fea78d95d52b903dbf2fa5da5779a7f196b1057c6f50e1e6e79",
+      "doc_hash": "664771d6cea2064ca5423373806c89a01b9fcc90273a4729398851423d1b5f28"
+    },
+    "ai_course/UA/HR-Paid Vacation-071126-120916.pdf": {
+      "status": "ok",
+      "title": "Paid Vacation",
+      "effective": null,
+      "country": "UA",
+      "chars": 2531,
+      "pages": 2,
+      "chunks": 6,
+      "access": [
+        "all_employees"
+      ],
+      "raw_hash": "a993179a24a611e0464ddad45f7fbc6b876fe15d15287598931d87920a92ee47",
+      "doc_hash": "0157858972eace63368d2c5c26ae22da8a067a321c6261d7e3165a75fc1e7d39"
+    },
+    "ai_course/UA/Processes/Onboarding/Onboarding Process EU_EN.docx": {
+      "status": "ok",
+      "title": "Onboarding and Adaptation Process",
+      "effective": null,
+      "country": "UA",
+      "chars": 4957,
+      "pages": 1,
+      "chunks": 16,
+      "access": [
+        "all_employees"
+      ],
+      "raw_hash": "48d2d3a34a425e888fd4f11da7e8c56ec44350ef2877755831357798cd22fd9e",
+      "doc_hash": "32bfabd826c971781e538d58cf93be9105210348ab30e4712d6c3d4caacb0bcc"
+    },
+    "ai_course/UA/Processes/Onboarding/Welcome Presentation (EU) - 2026.pdf": {
+      "status": "ok",
+      "title": "W",
+      "effective": null,
+      "country": "UA",
+      "chars": 4828,
+      "pages": 13,
+      "chunks": 16,
+      "access": [
+        "all_employees"
+      ],
+      "raw_hash": "6b00e3d4fcb542a9ba4d463ae4eb71c2d62f446aac63443be949791c05eca5a7",
+      "doc_hash": "f01651f8495b5d252754e42ae8ecfb77b94b7d9e8584617eedda5f4f9efcf234"
+    },
+    "ai_course/UA/Processes/PDP&Competency Matrix/PDP Templates/Personal Development Plan Process (PDP) EU_EN.docx": {
+      "status": "ok",
+      "title": "Personal Development Plan (PDP) for the EU Team",
+      "effective": null,
+      "country": "UA",
+      "chars": 7289,
+      "pages": 1,
+      "chunks": 21,
+      "access": [
+        "all_employees"
+      ],
+      "raw_hash": "09fdbdd5d7829da54d2f7090ed397482445880122f23a1989c2fffce66fbaf39",
+      "doc_hash": "64d2a721127439b93643b22ef485359a9d28afb5f72f48bf49cfe13cef8761fe"
+    },
+    "ai_course/UA/Processes/PDP&Competency Matrix/Property Tax/Competency Matrix_Analyst_Property Tax.xlsx": {
+      "status": "unsupported",
+      "raw_hash": "7cd6d4b80bde8bfe62e490d5b13b5b17d90699fc86b864f53814587fd789c7db"
+    },
+    "ai_course/UA/Processes/Recruitment/Recruitment Process EU_EN.docx": {
+      "status": "ok",
+      "title": "Recruitment Process. General Provisions for the EU Team",
+      "effective": null,
+      "country": "UA",
+      "chars": 8805,
+      "pages": 1,
+      "chunks": 27,
+      "access": [
+        "all_employees"
+      ],
+      "raw_hash": "d60e27ed80150150c6552bfbaf0921946bdb5762b353b56be3a2e29b2997abe7",
+      "doc_hash": "898b5d524b44d9eb0b686da1dd8fb9561bc29ed373dc51ab198b163150a0a115"
+    },
+    "ai_course/Usa/Offer Letter Template - Intern.docx": {
+      "status": "ok",
+      "title": "ADDRESS",
+      "effective": null,
+      "country": "USA",
+      "chars": 2152,
+      "pages": 1,
+      "chunks": 4,
+      "access": [
+        "hr"
+      ],
+      "raw_hash": "30cba5a569b16d29d9f75273588703d6afa045edd5e4945cf25b42bbd1e37cb8",
+      "doc_hash": "9ebfbb69a7b013637f8b3dabc2050c7bf74f1886a06dccb7eebce2d920cf081a"
+    },
+    "ai_course/Usa/Policies/Commuter Benefits/Commuter Benefits Policy 5.1.26.docx": {
+      "status": "ok",
+      "title": "Commuter Benefits Policy",
+      "effective": "2026-05-01",
+      "country": "USA",
+      "chars": 2384,
+      "pages": 1,
+      "chunks": 7,
+      "access": [
+        "all_employees"
+      ],
+      "raw_hash": "cfb01147c910f8971ec8d1a90420b6173c6b6314804cae2a87e8aa2d02a88a85",
+      "doc_hash": "053fa4ffe8c80334b127905a6301961c67739b2702d123566fada7e58b8a7be5"
+    },
+    "ai_course/Usa/Policies/Handbook/Archive/DNU - It-product Handbook 2025.pdf": {
+      "status": "ok",
+      "title": "Employee Handbook",
+      "effective": null,
+      "country": "USA",
+      "chars": 139296,
+      "pages": 52,
+      "chunks": 278,
+      "access": [
+        "hr"
+      ],
+      "raw_hash": "7224a9fa6b639f3afca57092f3389649161553fccd911e55ef0a95656d3c97a1",
+      "doc_hash": "ecc251b1662a8a589ce1193ec746eb3efece84521268cbde974290edce581b7a",
+      "near_duplicates": [
+        {
+          "of": "ai_course/Usa/Policies/Handbook/Archive/It-product Handbook_Revised 03.21.25.pdf",
+          "jaccard": 0.942
+        },
+        {
+          "of": "ai_course/Usa/Policies/Handbook/Archive/DNU - It-product Handbook.docx",
+          "jaccard": 0.87
+        },
+        {
+          "of": "ai_course/Usa/Policies/Handbook/Archive/It-product Handbook_Revised 03.21.25.docx",
+          "jaccard": 0.869
+        },
+        {
+          "of": "ai_course/Usa/Policies/Handbook/It-product Handbook (US) 2026.docx",
+          "jaccard": 0.833
+        }
+      ]
+    },
+    "ai_course/Usa/Policies/Handbook/Archive/DNU - It-product Handbook.docx": {
+      "status": "ok",
+      "title": "Employee Handbook",
+      "effective": null,
+      "country": "USA",
+      "chars": 132356,
+      "pages": 1,
+      "chunks": 292,
+      "access": [
+        "hr"
+      ],
+      "raw_hash": "79823b2aeffd4d16c97c770429063a8603437e4b7fdf245776820440032bb83f",
+      "doc_hash": "54ba0991a550c489e872a0e2f37b0ce032a26d10833c7ec22f47a3ce126802fa",
+      "near_duplicates": [
+        {
+          "of": "ai_course/Usa/Policies/Handbook/Archive/It-product Handbook_Revised 03.21.25.docx",
+          "jaccard": 0.999
+        },
+        {
+          "of": "ai_course/Usa/Policies/Handbook/It-product Handbook (US) 2026.docx",
+          "jaccard": 0.956
+        },
+        {
+          "of": "ai_course/Usa/Policies/Handbook/Archive/It-product Handbook_Revised 03.21.25.pdf",
+          "jaccard": 0.887
+        },
+        {
+          "of": "ai_course/Usa/Policies/Handbook/Archive/DNU - It-product Handbook 2025.pdf",
+          "jaccard": 0.87
+        }
+      ]
+    },
+    "ai_course/Usa/Policies/Handbook/Archive/It-product Handbook_Revised 03.21.25.docx": {
+      "status": "ok",
+      "title": "Employee Handbook",
+      "effective": null,
+      "country": "USA",
+      "chars": 132445,
+      "pages": 1,
+      "chunks": 292,
+      "access": [
+        "hr"
+      ],
+      "raw_hash": "1a72755335091668811e1c2546b70d786e6ce31fa60a58e146edb58e432bd24f",
+      "doc_hash": "f1be7096c8e72959101e97ead2c423fed782e24204e2d9565adb66d9a55f363c",
+      "near_duplicates": [
+        {
+          "of": "ai_course/Usa/Policies/Handbook/Archive/DNU - It-product Handbook.docx",
+          "jaccard": 0.999
+        },
+        {
+          "of": "ai_course/Usa/Policies/Handbook/It-product Handbook (US) 2026.docx",
+          "jaccard": 0.955
+        },
+        {
+          "of": "ai_course/Usa/Policies/Handbook/Archive/It-product Handbook_Revised 03.21.25.pdf",
+          "jaccard": 0.888
+        },
+        {
+          "of": "ai_course/Usa/Policies/Handbook/Archive/DNU - It-product Handbook 2025.pdf",
+          "jaccard": 0.869
+        }
+      ]
+    },
+    "ai_course/Usa/Policies/Handbook/Archive/It-product Handbook_Revised 03.21.25.pdf": {
+      "status": "ok",
+      "title": "Employee Handbook",
+      "effective": null,
+      "country": "USA",
+      "chars": 141708,
+      "pages": 53,
+      "chunks": 279,
+      "access": [
+        "hr"
+      ],
+      "raw_hash": "fca2c4b35b75591239c3bf89621d5e0e93fafa442adf4c1c40124c4fc6976086",
+      "doc_hash": "de752afd95d03398423975c16b15d26083596f5d9d01ad351538e111fffd134c",
+      "near_duplicates": [
+        {
+          "of": "ai_course/Usa/Policies/Handbook/Archive/DNU - It-product Handbook 2025.pdf",
+          "jaccard": 0.942
+        },
+        {
+          "of": "ai_course/Usa/Policies/Handbook/Archive/It-product Handbook_Revised 03.21.25.docx",
+          "jaccard": 0.888
+        },
+        {
+          "of": "ai_course/Usa/Policies/Handbook/Archive/DNU - It-product Handbook.docx",
+          "jaccard": 0.887
+        },
+        {
+          "of": "ai_course/Usa/Policies/Handbook/It-product Handbook (US) 2026.docx",
+          "jaccard": 0.85
+        }
+      ]
+    },
+    "ai_course/Usa/Policies/Handbook/Handbook Acknowledgement.pdf": {
+      "status": "ok",
+      "title": "General Handbook Acknowledgment",
+      "effective": null,
+      "country": "USA",
+      "chars": 1564,
+      "pages": 1,
+      "chunks": 4,
+      "access": [
+        "all_employees"
+      ],
+      "raw_hash": "889860e9b32cff2f630e8fc5c00e1654470ab0d0b70ca6e61f506c66909860d4",
+      "doc_hash": "40a39e970d50e7bd0966a6a68085e9146949272db11ff254de69791c98f4a98c"
+    },
+    "ai_course/Usa/Policies/Handbook/It-product Handbook (US) 2026.docx": {
+      "status": "ok",
+      "title": "Employee Handbook",
+      "effective": null,
+      "country": "USA",
+      "chars": 135083,
+      "pages": 1,
+      "chunks": 301,
+      "access": [
+        "all_employees"
+      ],
+      "raw_hash": "ab06b970ba9436106e189b25cdc3b776a20118d79bef025cb1586c0dd29f601a",
+      "doc_hash": "610139dc15b636d3cf671617035d2b497e984df8a92cf64d4bc1cb0c89a7d18c",
+      "near_duplicates": [
+        {
+          "of": "ai_course/Usa/Policies/Handbook/Archive/DNU - It-product Handbook.docx",
+          "jaccard": 0.956
+        },
+        {
+          "of": "ai_course/Usa/Policies/Handbook/Archive/It-product Handbook_Revised 03.21.25.docx",
+          "jaccard": 0.955
+        },
+        {
+          "of": "ai_course/Usa/Policies/Handbook/Archive/It-product Handbook_Revised 03.21.25.pdf",
+          "jaccard": 0.85
+        },
+        {
+          "of": "ai_course/Usa/Policies/Handbook/Archive/DNU - It-product Handbook 2025.pdf",
+          "jaccard": 0.833
+        }
+      ]
+    },
+    "ai_course/Usa/Policies/Paid Safe Sick Leave (NYC)-Mandatory Notice-English.pdf": {
+      "status": "ok",
+      "title": "Notice of Employee Rights: Protected Time Off",
+      "effective": null,
+      "country": "USA",
+      "chars": 2906,
+      "pages": 1,
+      "chunks": 10,
+      "access": [
+        "all_employees"
+      ],
+      "raw_hash": "962c23e162f1a8fc60743f6459d9191900c11204d6bd5fb315b69172e1b8900d",
+      "doc_hash": "4f9179e0e0fd385f729db42b23b70c39b234acc828299da0714677c5177247e7"
+    },
+    "ai_course/Usa/Policies/Vacation Policy/Vacation Policy Overview & FAQ_s 1.1.26.pdf": {
+      "status": "ok",
+      "title": "Vacation Policy Update: Accrual Policy Eff. 1/1/26",
+      "effective": "2026-01-01",
+      "country": "USA",
+      "chars": 3033,
+      "pages": 2,
+      "chunks": 8,
+      "access": [
+        "all_employees"
+      ],
+      "raw_hash": "8bd64f27dd75de0f5469f26fb50364f85ab0fca8f866b263e5e4e674bc3ebf53",
+      "doc_hash": "f0126e57e87cf5bf3abd24552dc60e38f4080d62b4eea9fc4864b9d24618069a"
+    }
+  }
+}

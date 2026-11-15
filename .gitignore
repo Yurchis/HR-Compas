@@ -30,8 +30,12 @@ results/tmp/
 # Source documents and everything derived from them: offer letters, salaries, personal development plans (PII).
 # Never commit them; only the testset quotes and the access rules (no names) are in git.
 data/data_dirty/
-data/data_clean/
 data/experiments/
+# The prepared chunks and the manifest ARE in git (anonymised texts: company and people's names were replaced), so the
+# chat works from a fresh clone (`make run`). The per-document .md texts and everything else stay local.
+data/data_clean/*
+!data/data_clean/chunks.jsonl
+!data/data_clean/manifest.json
 
 # IDE
 .vs/

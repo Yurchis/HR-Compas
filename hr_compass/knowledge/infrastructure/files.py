@@ -14,7 +14,8 @@ def load_chunks(path: Path) -> list[ChunkRecord]:
     """All records of a chunks.jsonl file (or of `<dir>/chunks.jsonl`), in file order."""
     path = path / CHUNKS_FILE if path.is_dir() else path
     if not path.is_file():
-        raise FileNotFoundError(f"no chunks at {path}: run `hr-compass ingest` first")
+        raise FileNotFoundError(f"no chunks at {path}: build them from the documents first with `make pipeline` "
+                                "(python main.py run)")
     return [ChunkRecord.from_dict(json.loads(line))
             for line in path.read_text(encoding="utf-8").splitlines() if line.strip()]
 

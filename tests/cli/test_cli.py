@@ -75,6 +75,22 @@ def test_eval_chunks_prints_and_saves_how_the_corpus_is_cut(project, capsys):
     assert saved["strategy"] == "headings" and saved["chunks"] == 1 and saved["starts_mid_sentence"] == 0
 
 
+def test_ingest_without_documents_stops_and_keeps_the_prepared_chunks(project, capsys):
+    run(project, "--log-file", "off", "ingest")
+    chunks = project.parent / "clean" / "chunks.jsonl"
+    before = chunks.read_text(encoding="utf-8")
+    for doc in (project.parent / "docs").rglob("*.html"):
+        doc.unlink()
+    capsys.readouterr()
+
+    assert run(project, "--log-file", "off", "ingest") == 1
+    assert run(project, "--log-file", "off", "run", "--no-chat") == 1
+
+    out = capsys.readouterr().out
+    assert "no documents in" in out and "stopped: nothing to ingest" in out
+    assert chunks.read_text(encoding="utf-8") == before   # nothing wiped
+
+
 def test_lint_fails_on_a_broken_testset(project, capsys):
     run(project, "--log-file", "off", "ingest")
     testset = project.parent / "testset.json"
@@ -91,9 +107,18 @@ def test_commands_without_data_or_key_fail_cleanly(project, capsys, monkeypatch)
     monkeypatch.setattr("hr_compass.cli.main.load_dotenv", lambda *_: None)
 
     assert run(project, "--log-file", "off", "eval", "lint") == 2   # no chunks yet
-    assert "hr-compass ingest" in capsys.readouterr().err
+    assert "make pipeline" in capsys.readouterr().err
     assert run(project, "--log-file", "off", "chat", "hi") == 2      # no key
     assert "OPENROUTER_API_KEY" in capsys.readouterr().err
+
+
+def test_the_chat_on_an_empty_index_says_how_to_build_it(project, capsys, monkeypatch):
+    monkeypatch.setenv("OPENROUTER_API_KEY", "k")
+    monkeypatch.setattr("hr_compass.cli.main.load_dotenv", lambda *_: None)
+    monkeypatch.setattr(Container, "chunks", property(lambda self: []))
+
+    assert run(project, "--log-file", "off", "chat", "hi") == 2
+    assert "no documents are indexed" in capsys.readouterr().err
 
 
 def _completion(payload: dict) -> dict:
@@ -109,6 +134,7 @@ def test_chat_answers_with_sources_and_logs_json_without_the_key(project, capsys
                    title="Remote Work", country="USA")
     service = SearchService(ListRetriever([record]), AccessPolicy({}), k=5, mode="test")
     monkeypatch.setattr(Container, "search", property(lambda self: service))
+    monkeypatch.setattr(Container, "chunks", property(lambda self: [record]))
     monkeypatch.setattr(Container, "chunks_by_id", property(lambda self: {record.chunk_id: record}))
 
     def handler(request: httpx.Request) -> httpx.Response:
@@ -155,14 +181,14 @@ def test_every_command_is_registered():
 
 
 @pytest.mark.parametrize(("argv", "expected"), [
-    ([], ["run"]),
-    (["How", "many", "days?"], ["run", "How", "many", "days?"]),
-    (["--check", "--no-chat"], ["run", "--check", "--no-chat"]),
-    (["chat"], ["chat"]),
+    ([], ["chat"]),
+    (["How", "many", "days?"], ["chat", "How", "many", "days?"]),
+    (["--debug", "--groups", "hr"], ["chat", "--debug", "--groups", "hr"]),
+    (["run", "--check"], ["run", "--check"]),
     (["ingest", "--full"], ["ingest", "--full"]),
     (["eval", "lint"], ["eval", "lint"]),
 ])
-def test_main_py_runs_the_whole_pipeline_unless_a_command_is_named(argv, expected):
+def test_main_py_starts_the_chat_unless_a_command_is_named(argv, expected):
     assert entry.cli_args(argv) == expected
 
 

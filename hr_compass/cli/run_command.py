@@ -44,7 +44,9 @@ def run(c: Container, args: argparse.Namespace) -> int:
     total = 3
     _step(1, total, "ingest: documents -> chunks")
     use_logs("ingest", args, c.settings, logging.WARNING)
-    data_commands.ingest(c, argparse.Namespace(src=None, full=args.full, raw=False))
+    if data_commands.ingest(c, argparse.Namespace(src=None, full=args.full, raw=False)) != 0:
+        print("stopped: nothing to ingest")
+        return 1
 
     _step(2, total, "index: chunks -> vectors -> search index")
     use_logs("index", args, c.settings, logging.WARNING)
@@ -59,7 +61,7 @@ def run(c: Container, args: argparse.Namespace) -> int:
             return 1
 
     if args.no_chat:
-        print("\nready: `hr-compass chat` (or python main.py) to ask questions")
+        print("\nready: `make run` (python main.py) to ask questions")
         return 0
     _step(3, total, "chat")
     use_logs("chat", args, c.settings, logging.WARNING)

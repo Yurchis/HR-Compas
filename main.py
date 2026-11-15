@@ -1,11 +1,12 @@
 """HR Compass — entry point (one command, as the course asks).
 
-    python main.py                                     documents -> chunks -> index -> the interactive HR bot
-    python main.py "How many vacation days do I get?"  the same, then one question
-    python main.py --check                             + lint the testset and gate the search quality first
-    python main.py chat | ingest | index | search | eval   a single step (hr-compass <command>)
+    python main.py                                     the interactive HR bot on the data already prepared
+    python main.py "How many vacation days do I get?"  one question
+    python main.py run                                 the full RAG pipeline: documents -> chunks -> index -> the bot
+    python main.py run --check                         + lint the testset and gate the search quality first
+    python main.py ingest | index | search | eval      a single step (hr-compass <command>)
 
-The data steps reuse earlier work (unchanged files, cached vectors), so a re-run starts the chat in seconds.
+The chat reads the chunks the pipeline wrote (data/data_clean) and the cached vectors, so it starts in seconds.
 
 If the current Python has no project dependencies (e.g. the system Python in a fresh shell) but `.venv` exists,
 the script re-runs itself with the `.venv` Python, so `python main.py` works without activating the environment.
@@ -42,9 +43,9 @@ def _run_in_venv() -> int:
 
 
 def cli_args(argv: list[str]) -> list[str]:
-    """`main.py [question words] [options]` is `hr-compass run ...`: the whole pipeline, then the chat.
-    A command name (`main.py chat`, `main.py ingest` ...) passes through."""
-    return argv if argv and argv[0] in COMMANDS else ["run", *argv]
+    """`main.py [question words] [options]` is `hr-compass chat ...`: the bot on the data already prepared.
+    A command name (`main.py run` for the full pipeline, `main.py ingest` ...) passes through."""
+    return argv if argv and argv[0] in COMMANDS else ["chat", *argv]
 
 
 if __name__ == "__main__":

@@ -5,11 +5,12 @@ QUERY ?= How many days a week can I work from home?
 GROUPS ?= all_employees
 MODELS ?= gpt4omini,haiku,deepseek
 
-.PHONY: install run test lint pipeline ingest index search lint-testset eval-search gate-search eval-answers compare
+.PHONY: install run test lint pipeline prepare ingest index search lint-testset eval-search gate-search eval-answers compare
 
 install:
 	$(PYTHON) -m pip install -r requirements.txt
 
+# the interactive bot on the data already prepared (data/data_clean); build it first with `make pipeline`
 run:
 	$(PYTHON) main.py
 
@@ -19,8 +20,12 @@ test:
 lint:
 	$(PYTHON) -m ruff check .
 
-# documents -> chunks -> index, then check the testset and the search quality (no chat)
+# the full RAG pipeline: documents -> chunks -> index -> testset lint + search gate -> the interactive bot
 pipeline:
+	$(HR) run --check
+
+# the same without the chat: rebuild and check the data only
+prepare:
 	$(HR) run --no-chat --check
 
 ingest:

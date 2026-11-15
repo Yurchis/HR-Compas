@@ -12,6 +12,11 @@ from hr_compass.knowledge.application.index_check import check_access
 
 def ingest(c: Container, args: argparse.Namespace) -> int:
     source = args.src or c.settings.ingest.source_dir
+    if not source.is_dir() or not any(p.is_file() for p in source.rglob("*")):
+        # an empty input would "remove" every document and wipe the prepared chunks: stop instead
+        print(f"no documents in {source}: put the source files there ([ingest].source_dir), then run again. "
+              f"The data already prepared in {c.settings.ingest.output_dir} is left as it is.")
+        return 1
     result = c.ingest(raw=args.raw).run(source, full=args.full)
     print(f"dataset_version {result.dataset_version[:16]} | {len(result.files)} files {result.statuses} "
           f"| reused {result.reused} | removed {len(result.removed)} | chunks {len(result.records)}")
