@@ -211,8 +211,24 @@ pass by question kind:
 | claude-haiku-5.5 | 1.00 | 1.00 | 0.50 | 1.00 | 0.50 | 1.00 |
 | deepseek-v4.1-flash | 1.00 | 0.75 | 0.50 | 1.00 | 0.50 | 1.00 |
 
-The run cost $0.037 for the three models plus $0.014 for the judge, **$0.051** in total. One answer costs about
-$0.0003–0.0006. Example of an answer with sources: see README, "How a question is answered".
+The run cost $0.037 for the three models plus $0.014 for the judge, **$0.051** in total. Example of an answer with
+sources: see README, "How a question is answered".
+
+**Cost per 1000 questions.** These are the actual OpenRouter costs of this run, scaled: run cost / 26 × 1000. They
+include the intake and the answer call. Search runs on the local models and costs nothing.
+
+| Answer model | $ per question | **$ per 1000 questions** |
+|---|---|---|
+| openai/gpt-4o-mini | 0.00033 | **0.33** |
+| deepseek/deepseek-v4.1-flash | 0.00050 | **0.50** |
+| anthropic/claude-haiku-5.5 | 0.00060 | **0.60** |
+
+Optional extras:
+- **Provider embeddings** (`openai/text-embedding-3-large`, Part A) instead of the local model: about $0.02 once to
+  index the corpus (vectors are cached), plus ~$0.0014 per 1000 questions for embedding the queries.
+- **The LLM judge** (evaluation only, not the chat): gpt-4o-mini, $0.014 for 78 answers, i.e. ~$0.18 per 1000 judged
+  answers (correctness + groundedness).
+- **Embedding model and reranker:** local and free in the shipped configuration.
 
 ## B4. Analysis
 ### "I don't know" instead of invention

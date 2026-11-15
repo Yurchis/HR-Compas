@@ -431,6 +431,20 @@ rotated 5 MB × 5), plus readable text on the console. A file line:
   names) appear only at DEBUG (`-v` / `--debug`); INFO lines carry sizes, hash refs, scores, tokens, cost and timings.
 - `--log-file <path>` or `HR_COMPASS_LOG_FILE` overrides the file; `off` disables it.
 
+## Cost
+
+The shipped configuration uses local models (free) for embeddings and reranking. Only the answer model is paid, via
+OpenRouter. Actual cost per 1000 questions, intake and answer included (REPORT, Part B):
+
+| Answer model | $ per 1000 questions |
+|---|---|
+| `openai/gpt-4o-mini` (default) | 0.33 |
+| `deepseek/deepseek-v4.1-flash` | 0.50 |
+| `anthropic/claude-haiku-5.5` | 0.60 |
+
+Optional: provider embeddings (`[embeddings].provider = "openrouter"`) add about $0.02 once to index the corpus, plus
+~$0.0014 per 1000 questions. The LLM judge, used only in `eval answers --judge`, costs ~$0.18 per 1000 judged answers.
+
 ## Configuration
 
 Everything tunable is in `config/settings.toml`; an unknown key or an invalid value is a startup error.
