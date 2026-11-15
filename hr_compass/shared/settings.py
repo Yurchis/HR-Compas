@@ -198,9 +198,9 @@ class AccessConfig:
 
 @dataclass(frozen=True, slots=True)
 class EvalConfig:
-    testset: Path = Path("data/testset.json")
-    labels: Path = Path("data/labels.json")
-    results_dir: Path = Path("results")
+    testset: Path = Path("evals/testset.json")
+    labels: Path = Path("evals/labels.json")
+    results_dir: Path = Path("evals/results")
     tolerance: float = 0.05
     kinds_min: int = 2
     judge_prompts: str = "judge-v3"

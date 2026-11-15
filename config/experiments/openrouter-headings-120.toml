@@ -15,7 +15,7 @@ dim = 3072
 cache_dir = ".cache/experiments/openrouter"
 
 [eval]
-results_dir = "results/experiments/openrouter-headings-120"
+results_dir = "evals/results/experiments/openrouter-headings-120"
 
 [logging]
 dir = "logs/experiments/openrouter-headings-120"

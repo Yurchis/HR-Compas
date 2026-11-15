@@ -1,6 +1,6 @@
 """The RAG testset: one golden set for retrieval metrics and answer evals, and `lint` that tests it.
 
-A case (data/testset.json):
+A case (evals/testset.json):
 
     {"id": "q01", "kind": "paraphrase", "groups": ["all_employees"],
      "question": "How many days a week can I work from home?",

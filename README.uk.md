@@ -14,12 +14,13 @@ hr_compass/          сервіс, один пакет на bounded context (д�
 config/              settings.toml (усі параметри), access.json (хто що може читати),
                      experiments/ (по конфігу на кожен варіант нарізки: headings / fixed × 120 / 250 токенів)
 prompts/             версії промптів + CHANGELOG.md
-data/                testset.json (golden set); data_clean/chunks.jsonl + manifest.json (знеособлені чанки, у git);
+data/                data_clean/chunks.jsonl + manifest.json (знеособлені чанки, у git);
                      data_dirty/ (вихідні документи) і experiments/ (чанки варіантів нарізки) — у .gitignore
-results/             результати оцінок і baseline; experiments/<варіант>/ (статистика чанків і пошук кожного варіанта)
+evals/               testset.json (golden set), labels.json (ручна розмітка для судді), testset_review.md,
+                     results/ (кожен прогін evals і baseline); README.md — карта scoring-функцій
 tests/               тести, у тій самій структурі, що й пакет
-.github/workflows/   CI: ruff + pytest на кожен push і pull request
-REPORT.md            звіт порівняння моделей
+.github/workflows/   CI: ruff + pytest, а також evals з порогом, на кожен push і pull request
+REPORT.md            метрики пошуку й відповідей, розбір помилок, висновки
 ```
 
 ## Архітектура
@@ -48,10 +49,10 @@ flowchart LR
     AS --> KN
     AS -->|"структурований JSON, повтори, fallback"| OR[("OpenRouter")]
     AS --> R(["відповідь + процитовані чанки"])
-    TS[("data/testset.json")] -->|hr-compass eval| EV["evaluation<br/>lint · recall/MRR · оцінки · суддя · gate"]
+    TS[("evals/testset.json")] -->|hr-compass eval| EV["evaluation<br/>lint · recall/MRR · оцінки · суддя · gate"]
     EV --> KN
     EV --> AS
-    EV --> RES[("results/")]
+    EV --> RES[("evals/results/")]
 ```
 
 ## Встановлення
@@ -96,7 +97,7 @@ make prepare                                          # = python main.py run --n
 ```
 [1/3] ingest   документи -> чанки            незмінені файли використовуються повторно, повторний запуск ~1 с
 [2/3] index    чанки -> вектори -> індекс     вектори з кешу; зупинка, якщо перевірка доступу не пройшла
-      checks   (--check) lint тестового набору + gate якості пошуку проти results/retrieval_baseline.json
+      checks   (--check) lint тестового набору + gate якості пошуку проти evals/results/retrieval_baseline.json
 [3/3] chat     одна відповідь або інтерактивний чат
 ```
 
@@ -308,13 +309,13 @@ hr-compass --config config/experiments/fixed-120.toml eval retrieval --lenient
 
 ```bash
 hr-compass search "DB-450" --groups all_employees,hr --config hybrid+rerank    # make search QUERY="..."
-hr-compass eval retrieval                  # recall@5 / MRR / токени контексту за конфігураціями -> results/retrieval_eval.json
-hr-compass eval chunks                     # як нарізка ріже корпус -> results/chunk_stats.json
+hr-compass eval retrieval                  # recall@5 / MRR / токени контексту за конфігураціями -> evals/results/retrieval_eval.json
+hr-compass eval chunks                     # як нарізка ріже корпус -> evals/results/chunk_stats.json
 hr-compass eval pairs --skip-archived      # семантичні майже-дублікати з різних документів
 ```
 
 Якість пошуку на 23 кейсах з відповіддю (headings-120, локальні ембедінги, ноутбук без GPU, моделі завантажені;
-baseline у `results/retrieval_baseline.json`):
+baseline у `evals/results/retrieval_baseline.json`):
 
 | Конфігурація | recall@5 | MRR | мс/запит | перефразування (11) | точні (4) | крос-мовні (4) | доступ (2) | застарілі (2) |
 |---|---|---|---|---|---|---|---|---|
@@ -353,21 +354,21 @@ dim = 3072
 
 ## Оцінка
 
-`data/testset.json` — golden set: 26 кейсів, у кожного групи користувача `groups`, релевантні чанки `relevant` (цитати,
+`evals/testset.json` — golden set: 26 кейсів, у кожного групи користувача `groups`, релевантні чанки `relevant` (цитати,
 тож розмітка переживає повторну нарізку), факти `must`, які мають бути у відповіді (з кожної групи — один варіант;
 українські варіанти для українських відповідей), і еталонна відповідь `reference`. Види: paraphrase 11, exact 4,
 cross-lingual 4, access 2, stale 2 (архівний довідник каже інше), no_answer 3 (бот має відмовитися).
 
 ```bash
 hr-compass eval lint                                   # перевірити самі тести: без моделі, exit 1, якщо є проблеми
-hr-compass eval retrieval --save-baseline | --gate     # gate якості пошуку (results/retrieval_baseline.json)
+hr-compass eval retrieval --save-baseline | --gate     # gate якості пошуку (evals/results/retrieval_baseline.json)
 hr-compass eval retrieval --lenient                    # інша нарізка: розрізана нею цитата — промах, а не помилка
 hr-compass eval chunks                                 # розміри чанків, початок посеред речення, розрізані таблиці, понад ліміт
 hr-compass eval answers --judge                        # справжній бот на кожному кейсі (викликає модель); make eval-answers
 hr-compass eval answers --models gpt4omini,haiku,deepseek --judge   # таблиця порівняння моделей; make compare
 hr-compass eval answers --repeat 3                     # pass@1, пройшло в кожному прогоні, нестабільні кейси
-hr-compass eval answers --save-baseline | --gate       # gate якості відповідей (results/answers_baseline.json)
-hr-compass eval calibrate                              # суддя проти відповідей, розмічених людьми (data/labels.json)
+hr-compass eval answers --save-baseline | --gate       # gate якості відповідей (evals/results/answers_baseline.json)
+hr-compass eval calibrate                              # суддя проти відповідей, розмічених людьми (evals/labels.json)
 ```
 
 - **chunks** (безкоштовно, без моделі): кількість чанків, медіана / p95 / max токенів, чанки понад
@@ -385,7 +386,7 @@ hr-compass eval calibrate                              # суддя проти �
 - **LLM-суддя** (`prompts/judge-v3/`): коректність проти еталону (оцінює так/ні, перефразування, інші мови) і
   обґрунтованість проти процитованих джерел (ловить відповідь, яка цитує правильний чанк і все одно вигадує правило).
 - **Калібрування судді** (`eval calibrate`, ~$0.003): суддя проти відповідей, які розмітила людина.
-  - `data/labels.json` містить 30 реальних відповідей останнього прогону: кожен кейс один раз, три моделі по черзі,
+  - `evals/labels.json` містить 30 реальних відповідей останнього прогону: кожен кейс один раз, три моделі по черзі,
     плюс 4 кейси, де оцінки розходяться.
   - У файлі є питання, еталон і відповідь. Вердикт судді навмисно не показано, щоб він не впливав на розмітку.
   - Для кожної відповіді постав `"correct"`: `true` або `false`; якщо є сумнів, додай `"note"`.
@@ -474,7 +475,7 @@ python -m ruff check .     # make lint
 | Job | Що запускається | Падає, коли |
 |---|---|---|
 | `tests` | `ruff check` і `pytest` на Python 3.11 і 3.12 (381 тест; 5 пропущено: завантажені моделі, живий суддя) | тест упав або лінтер знайшов помилку |
-| `evals` | справжні evals на закомічених чанках, лише локальні моделі (безкоштовно, без ключа API): `eval lint`, потім `eval retrieval --gate` | тестсет більше не збігається з чанками; recall@5 чи MRR будь-якої конфігурації пошуку впав більш ніж на 0.05 проти `results/retrieval_baseline.json`; питання, яке знаходилося, більше не знаходиться; пошук повернув чанк, який користувач не має права бачити |
+| `evals` | справжні evals на закомічених чанках, лише локальні моделі (безкоштовно, без ключа API): `eval lint`, потім `eval retrieval --gate` | тестсет більше не збігається з чанками; recall@5 чи MRR будь-якої конфігурації пошуку впав більш ніж на 0.05 проти `evals/results/retrieval_baseline.json`; питання, яке знаходилося, більше не знаходиться; пошук повернув чанк, який користувач не має права бачити |
 
 Job `evals` кешує моделі (~300 МБ) і вектори чанків між запусками та зберігає виміряні цифри як артефакт
 `retrieval-eval`.

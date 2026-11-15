@@ -6,7 +6,7 @@
 # evals  - the real evals on the committed chunks (data/data_clean/chunks.jsonl, anonymised), with thresholds:
 #          1. `eval lint`: every testset case still matches the chunks (quotes found, facts in the sources ...);
 #          2. `eval retrieval --gate`: recall@5 / MRR of vector, bm25, hybrid and hybrid+rerank against
-#             results/retrieval_baseline.json. The run FAILS when a metric drops by more than 0.05, a question
+#             evals/results/retrieval_baseline.json. The run FAILS when a metric drops by more than 0.05, a question
 #             that was found is no longer found, or a search returns a chunk the user may not read (leaks).
 #          Local models only (free, no API key); the models and the vector cache are cached between runs.
 #          The answer evals (`eval answers --gate`) call a paid model and stay a local release step.
@@ -81,5 +81,5 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: retrieval-eval
-          path: results/retrieval_eval.json
+          path: evals/results/retrieval_eval.json
           if-no-files-found: ignore

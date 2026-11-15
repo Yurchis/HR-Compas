@@ -21,7 +21,7 @@ Thumbs.db
 
 # Temporary
 *.log
-results/tmp/
+evals/results/tmp/
 
 # Embeddings: the downloaded models and the vector caches (derived, rebuilt by `hr-compass index`)
 .models/

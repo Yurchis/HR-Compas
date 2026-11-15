@@ -14,12 +14,13 @@ hr_compass/          the service, one package per bounded context (see Architect
 config/              settings.toml (every tunable number), access.json (who may read what),
                      experiments/ (one config per chunking variant: headings / fixed × 120 / 250 tokens)
 prompts/             prompt versions + CHANGELOG.md
-data/                testset.json (golden set); data_clean/chunks.jsonl + manifest.json (anonymised chunks, in git);
+data/                data_clean/chunks.jsonl + manifest.json (anonymised chunks, in git);
                      data_dirty/ (source documents) and experiments/ (chunking variants) are git-ignored
-results/             evaluation results and baselines; experiments/<variant>/ (chunk stats + retrieval of each variant)
+evals/               testset.json (golden set), labels.json (hand labels for the judge), testset_review.md,
+                     results/ (every eval run and the baselines); README.md maps the scoring functions
 tests/               tests, mirroring the package
-.github/workflows/   CI: ruff + pytest on every push and pull request
-REPORT.md            model comparison report
+.github/workflows/   CI: ruff + pytest, and the evals with a threshold, on every push and pull request
+REPORT.md            retrieval and answer metrics, error analysis, conclusions
 ```
 
 ## Architecture
@@ -48,10 +49,10 @@ flowchart LR
     AS --> KN
     AS -->|"structured JSON, retries, fallback"| OR[("OpenRouter")]
     AS --> R(["answer + cited chunks"])
-    TS[("data/testset.json")] -->|hr-compass eval| EV["evaluation<br/>lint · recall/MRR · scores · judge · gate"]
+    TS[("evals/testset.json")] -->|hr-compass eval| EV["evaluation<br/>lint · recall/MRR · scores · judge · gate"]
     EV --> KN
     EV --> AS
-    EV --> RES[("results/")]
+    EV --> RES[("evals/results/")]
 ```
 
 ## Setup
@@ -96,7 +97,7 @@ fails. With no documents in `[ingest].source_dir` it stops at once and leaves th
 ```
 [1/3] ingest   documents -> chunks           unchanged files are reused, so a re-run takes about a second
 [2/3] index    chunks -> vectors -> index    vectors come from the cache; stops if the access check fails
-      checks   (--check) testset lint + search quality gate against results/retrieval_baseline.json
+      checks   (--check) testset lint + search quality gate against evals/results/retrieval_baseline.json
 [3/3] chat     one answer, or the interactive chat
 ```
 
@@ -319,13 +320,13 @@ Part A.
 
 ```bash
 hr-compass search "DB-450" --groups all_employees,hr --config hybrid+rerank    # make search QUERY="..."
-hr-compass eval retrieval                  # recall@5 / MRR / context tokens per config -> results/retrieval_eval.json
-hr-compass eval chunks                     # how the chunking cuts the corpus -> results/chunk_stats.json
+hr-compass eval retrieval                  # recall@5 / MRR / context tokens per config -> evals/results/retrieval_eval.json
+hr-compass eval chunks                     # how the chunking cuts the corpus -> evals/results/chunk_stats.json
 hr-compass eval pairs --skip-archived      # semantic near-duplicates from different documents
 ```
 
 Search quality on the 23 answerable cases of the testset (headings-120, local embeddings, CPU laptop, models loaded;
-the baseline in `results/retrieval_baseline.json`):
+the baseline in `evals/results/retrieval_baseline.json`):
 
 | Config | recall@5 | MRR | ms/query | paraphrase (11) | exact (4) | cross-lingual (4) | access (2) | stale (2) |
 |---|---|---|---|---|---|---|---|---|
@@ -364,21 +365,21 @@ and cost).
 
 ## Evaluation
 
-`data/testset.json` is the golden set: 26 cases, each with the user's `groups`, the `relevant` chunks (quotes, so the
+`evals/testset.json` is the golden set: 26 cases, each with the user's `groups`, the `relevant` chunks (quotes, so the
 labels survive re-chunking), the `must` facts an answer has to contain (every group needs one option; Ukrainian
 options for Ukrainian answers) and a `reference` answer. Kinds: paraphrase 11, exact 4, cross-lingual 4, access 2,
 stale 2 (an archived handbook says otherwise), no_answer 3 (the bot must abstain).
 
 ```bash
 hr-compass eval lint                                   # test the tests: no model calls, exit 1 on problems
-hr-compass eval retrieval --save-baseline | --gate     # search quality gate (results/retrieval_baseline.json)
+hr-compass eval retrieval --save-baseline | --gate     # search quality gate (evals/results/retrieval_baseline.json)
 hr-compass eval retrieval --lenient                    # another chunking: a quote it cuts is a miss, not an error
 hr-compass eval chunks                                 # chunk sizes, mid-sentence starts, cut tables, over the limit
 hr-compass eval answers --judge                        # the real bot on every case (calls the model); make eval-answers
 hr-compass eval answers --models gpt4omini,haiku,deepseek --judge   # model comparison table; make compare
 hr-compass eval answers --repeat 3                     # pass@1, passed every run, flaky cases
-hr-compass eval answers --save-baseline | --gate       # answer quality gate (results/answers_baseline.json)
-hr-compass eval calibrate                              # the judge against answers labelled by people (data/labels.json)
+hr-compass eval answers --save-baseline | --gate       # answer quality gate (evals/results/answers_baseline.json)
+hr-compass eval calibrate                              # the judge against answers labelled by people (evals/labels.json)
 ```
 
 - **chunks** (free, no model): chunk count, median / p95 / max tokens, chunks over `[ingest].chunk_tokens`, chunks that
@@ -395,7 +396,7 @@ hr-compass eval calibrate                              # the judge against answe
 - **LLM judge** (`prompts/judge-v3/`): correctness against the reference (grades yes/no, paraphrases, other languages)
   and groundedness against the cited sources (catches an answer that cites the right chunk and still invents a rule).
 - **Judge calibration** (`eval calibrate`, ~$0.003): the judge against answers a person labelled.
-  - `data/labels.json` holds 30 real answers of the last run: every case once, the three models in rotation, plus
+  - `evals/labels.json` holds 30 real answers of the last run: every case once, the three models in rotation, plus
     4 cases where the scores disagree.
   - The file shows the question, the reference and the answer. The judge's verdict is left out on purpose, so it
     cannot bias the labeller.
@@ -485,7 +486,7 @@ failing fails the run:
 | Job | What runs | Fails when |
 |---|---|---|
 | `tests` | `ruff check` and `pytest` on Python 3.11 and 3.12 (381 tests; 5 skip: downloaded models, live judge) | a test fails or the linter complains |
-| `evals` | the real evals on the committed chunks, local models only (free, no API key): `eval lint`, then `eval retrieval --gate` | the testset no longer matches the chunks; recall@5 or MRR of any search configuration drops by more than 0.05 against `results/retrieval_baseline.json`; a question that was found is no longer found; a search returns a chunk the user may not read |
+| `evals` | the real evals on the committed chunks, local models only (free, no API key): `eval lint`, then `eval retrieval --gate` | the testset no longer matches the chunks; recall@5 or MRR of any search configuration drops by more than 0.05 against `evals/results/retrieval_baseline.json`; a question that was found is no longer found; a search returns a chunk the user may not read |
 
 The `evals` job caches the models (~300 MB) and the chunk vectors between runs, and keeps the measured numbers as the
 `retrieval-eval` artifact.

@@ -1,8 +1,8 @@
 # Comparison report — HR Compass
 
 - **Part A — Retrieval (current, 2026-11-15):** a local and a provider embedding model, four chunkings and four
-  search configurations, on the anonymised corpus and `data/testset.json`.
-- **Part B — Answers on the RAG pipeline (current, 2026-11-15):** three answer models on `data/testset.json` with
+  search configurations, on the anonymised corpus and `evals/testset.json`.
+- **Part B — Answers on the RAG pipeline (current, 2026-11-15):** three answer models on `evals/testset.json` with
   per-statement citations (prompt v6), deterministic scores and an LLM judge.
 - **Appendix — Answer models before RAG (historical, 2026-11-01):** the whole handbook in the prompt and the retired
   golden set.
@@ -13,12 +13,12 @@
 | Parameter | Value |
 |---|---|
 | Corpus | `data/data_dirty`: 41 files, of which 40 are indexed (1 XLSX is not supported). Anonymised before indexing: offers, personal PDPs, the contractor agreement and the employee spreadsheets were removed. Company names, people's names, e-mails, phones, the office address and personal payroll amounts were replaced in the rest. Public government contacts were kept |
-| Questions | `data/testset.json`: 26 cases. The 23 answerable ones have known relevant chunks (labelled by quotes, so the labels survive re-chunking): paraphrase 11, exact 4, cross-lingual 4 (Ukrainian question, English document), access 2 (hr-only document), stale 2 (an archived handbook says otherwise). Each question is asked with the groups of its user |
+| Questions | `evals/testset.json`: 26 cases. The 23 answerable ones have known relevant chunks (labelled by quotes, so the labels survive re-chunking): paraphrase 11, exact 4, cross-lingual 4 (Ukrainian question, English document), access 2 (hr-only document), stale 2 (an archived handbook says otherwise). Each question is asked with the groups of its user |
 | Embedding models | **local**: `paraphrase-multilingual-MiniLM-L12-v2` (fastembed, CPU, 384 dims, reads ~128 tokens, free, offline). **provider**: `openai/text-embedding-3-large` via OpenRouter `/embeddings` (3072 dims, reads ~8k tokens) |
 | Chunkings | `headings` (split on headings, whole paragraphs / list items / table rows packed up to the limit) and `fixed` (sliding token window, 20-token overlap), each at 120 and 250 `cl100k` tokens |
 | Search configurations | `vector` (Qdrant, cosine, access filter); `bm25`; `hybrid` (top-20 of both fused by RRF, k = 60); `hybrid+rerank` (the 20 hybrid candidates re-ordered by the local cross-encoder `ms-marco-MiniLM-L-6-v2`) |
 | Metrics | recall@5 (a relevant chunk is in the top 5), MRR (1 / rank of the first relevant chunk), ctx tokens (mean tokens of the top 5, i.e. what the answer model reads), ms/query, leaks (hits the user may not read) |
-| Configs and results | `config/experiments/<variant>.toml` (local) and `openrouter-<variant>.toml` (provider) → `results/experiments/<variant>/retrieval_eval.json` |
+| Configs and results | `config/experiments/<variant>.toml` (local) and `openrouter-<variant>.toml` (provider) → `evals/results/experiments/<variant>/retrieval_eval.json` |
 
 ```bash
 hr-compass --config config/experiments/openrouter-headings-120.toml run --no-chat         # ingest + embed + index
@@ -150,11 +150,11 @@ At 250 tokens, recall with the provider model stays the same (0.96), but the con
 |---|---|
 | Pipeline | the chat's own `AskQuestion` (sequence below) |
 | Retrieval | the shipped default from Part A: local MiniLM + headings-120 + `hybrid+rerank`, top 5, context budget 1500 `o200k` tokens |
-| Questions | `data/testset.json`: 26 cases, 23 answerable plus 3 `no_answer` (the documents do not say; the bot must not invent) |
+| Questions | `evals/testset.json`: 26 cases, 23 answerable plus 3 `no_answer` (the documents do not say; the bot must not invent) |
 | Answer prompt | `prompts/v6_rag_cited.md` (CHANGELOG): only the sources, a `[S1]` label after every statement, "not found" when the sources do not answer |
 | Models | `openai/gpt-4o-mini`, `anthropic/claude-haiku-5.5`, `deepseek/deepseek-v4.1-flash` via OpenRouter, fallback off, `temperature=0` |
 | Judge | `prompts/judge-v3` (gpt-4o-mini). **judge**: correctness against the reference answer. **grounded**: every claim is supported by the cited sources. Calibrated against 30 hand-labelled answers: 0.93 agreement (B4, "Judge calibration") |
-| Command | `hr-compass eval answers --models gpt4omini,haiku,deepseek --judge` → `results/answers/20261115-202124_*` |
+| Command | `hr-compass eval answers --models gpt4omini,haiku,deepseek --judge` → `evals/results/answers/20261115-202124_*` |
 
 The pipeline:
 1. intake (language, scope, country);
@@ -302,7 +302,7 @@ Most failures come from the steps before the answer model, not from the model it
 | judge false negative | q01: the answer has both rules (1 day up to 3 years, 2 days after) but is judged incorrect | haiku, deepseek | judge-v3 is strict on extra details; read the case before acting |
 
 ### Judge calibration
-The judge was checked against **30 answers labelled by hand** (`data/labels.json`, `hr-compass eval calibrate`,
+The judge was checked against **30 answers labelled by hand** (`evals/labels.json`, `hr-compass eval calibrate`,
 $0.0026).
 - **Which answers:** real answers of this run. Every case once with the three models in rotation, plus 4 cases where
   the scores disagree.
@@ -343,7 +343,7 @@ $0.0026).
 - **Limits:** one labeller and 30 answers. One answer is 0.033 of agreement.
 
 ### Characteristic errors: expected → got → why
-Five real answers from the run (`results/answers/20261115-202124_*`), one per kind of failure.
+Five real answers from the run (`evals/results/answers/20261115-202124_*`), one per kind of failure.
 
 **1. Stale trap: an outdated handbook wins** (q23, haiku and deepseek)
 - **Question:** "I joined three months ago. Can I already work from home?"

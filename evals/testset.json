@@ -1,5 +1,5 @@
 {
-  "_comment": "RAG golden set (lessons 7 and 9) over data/data_clean/chunks.jsonl. Format and rules: hr_compass/testset.py. Check it with: python scripts/evals.py --lint. relevant = the chunks that answer the question, as a quote (+ end of the source path), resolved at load time; must = facts the answer must contain, every group needs one option (options in Ukrainian are for answers in Ukrainian); archived copies are never relevant.",
+  "_comment": "RAG golden set over data/data_clean/chunks.jsonl. Format and rules: hr_compass/evaluation/domain/testset.py. Check it with: hr-compass eval lint. relevant = the chunks that answer the question, as a quote (+ end of the source path), resolved at load time; must = facts the answer must contain, every group needs one option (options in Ukrainian are for answers in Ukrainian); reference = only the expected answer (the judge reads it); trap = what an outdated or similar source would say (the judge does not read it); archived copies are never relevant.",
   "cases": [
     {"id": "q01", "kind": "paraphrase", "groups": ["all_employees"],
      "question": "How many days a week can I work from home?",

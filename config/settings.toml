@@ -133,9 +133,9 @@ leadership = ["all_employees"]
 
 # hr-compass eval
 [eval]
-testset = "data/testset.json"
-labels = "data/labels.json"          # answers labelled by people, for `eval calibrate`
-results_dir = "results"
+testset = "evals/testset.json"
+labels = "evals/labels.json"          # answers labelled by people, for `eval calibrate`
+results_dir = "evals/results"
 tolerance = 0.05                     # the gate allows a metric to drop this much
 kinds_min = 2                        # every kind of question needs at least this many cases
 judge_prompts = "judge-v3"           # prompts/<version>/correct.txt, grounded.txt

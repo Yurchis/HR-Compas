@@ -1,6 +1,6 @@
 # Testset review
 
-A person checks `data/testset.json` against the documents. For every case:
+A person checks `evals/testset.json` against the documents. For every case:
 1. the question is natural (an employee would ask it this way);
 2. the **reference** is correct and complete according to the source below;
 3. the **must** facts are really what makes an answer right or wrong;

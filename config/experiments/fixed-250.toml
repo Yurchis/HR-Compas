@@ -12,7 +12,7 @@ chunk_tokens = 250
 cache_dir = ".cache/experiments/fixed-250"
 
 [eval]
-results_dir = "results/experiments/fixed-250"
+results_dir = "evals/results/experiments/fixed-250"
 
 [logging]
 dir = "logs/experiments/fixed-250"
