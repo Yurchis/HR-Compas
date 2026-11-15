@@ -1,9 +1,15 @@
-# CI: the unit and integration tests and the linter on every push and pull request.
+# CI on every push and pull request: two jobs.
 #
-# No documents, models or API keys are needed: the tests run on fakes and tiny fixture corpora. The tests that read
-# the real corpus (data/data_clean, git-ignored: it held personal data) or downloaded models skip themselves.
-# The evals with thresholds (`hr-compass eval retrieval --gate`, `eval answers --gate`) need the corpus and are run
-# locally, see README "Evaluation".
+# tests  - ruff + pytest on Python 3.11 and 3.12. No models or API keys: the tests run on fakes and fixture corpora
+#          (plus the checks of the real testset against the committed chunks). Tests that need downloaded models or
+#          the live judge skip themselves.
+# evals  - the real evals on the committed chunks (data/data_clean/chunks.jsonl, anonymised), with thresholds:
+#          1. `eval lint`: every testset case still matches the chunks (quotes found, facts in the sources ...);
+#          2. `eval retrieval --gate`: recall@5 / MRR of vector, bm25, hybrid and hybrid+rerank against
+#             results/retrieval_baseline.json. The run FAILS when a metric drops by more than 0.05, a question
+#             that was found is no longer found, or a search returns a chunk the user may not read (leaks).
+#          Local models only (free, no API key); the models and the vector cache are cached between runs.
+#          The answer evals (`eval answers --gate`) call a paid model and stay a local release step.
 name: tests
 
 on:
@@ -36,3 +42,44 @@ jobs:
 
       - name: Tests (pytest)
         run: python -m pytest -q
+
+  evals:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install
+        run: python -m pip install -e .
+
+      - name: Cache the local models (embeddings + reranker, ~300 MB)
+        uses: actions/cache@v4
+        with:
+          path: .models
+          key: models-${{ hashFiles('config/settings.toml') }}
+
+      - name: Cache the vectors of the chunks
+        uses: actions/cache@v4
+        with:
+          path: .cache/embeddings
+          key: vectors-${{ hashFiles('data/data_clean/chunks.jsonl', 'config/settings.toml') }}
+          restore-keys: vectors-
+
+      - name: "Eval 1: the testset matches the chunks"
+        run: python -m hr_compass.cli.main eval lint
+
+      - name: "Eval 2: retrieval quality gate (recall@5 / MRR vs baseline, tolerance 0.05, no leaks)"
+        run: python -m hr_compass.cli.main eval retrieval --gate
+
+      - name: Keep the measured numbers
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: retrieval-eval
+          path: results/retrieval_eval.json
+          if-no-files-found: ignore

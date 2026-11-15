@@ -465,12 +465,16 @@ tests skip themselves:
 - tests of the real testset against the corpus, until `hr-compass ingest` has run;
 - live judge tests, unless `HR_COMPASS_LIVE=1`.
 
-**CI** (`.github/workflows/tests.yml`, GitHub Actions) runs `ruff check` and `pytest` on every push and pull request,
-on Python 3.11 and 3.12. A failing test or a lint error fails the run. The CI machine has the committed chunks, so the
-checks of the real testset against them run too. It has no source documents, models or API key: 381 tests pass and
-5 skip (the downloaded-model and live-judge tests), checked on a copy of the repository with only its git files.
+**CI** (`.github/workflows/tests.yml`, GitHub Actions) runs two jobs on every push and pull request. Either one
+failing fails the run:
 
-The evals with thresholds are not in CI: the corpus is git-ignored because it held personal data. Run them locally
-before a release:
-- `hr-compass eval retrieval --gate` (free);
-- `hr-compass eval answers --gate` (paid).
+| Job | What runs | Fails when |
+|---|---|---|
+| `tests` | `ruff check` and `pytest` on Python 3.11 and 3.12 (381 tests; 5 skip: downloaded models, live judge) | a test fails or the linter complains |
+| `evals` | the real evals on the committed chunks, local models only (free, no API key): `eval lint`, then `eval retrieval --gate` | the testset no longer matches the chunks; recall@5 or MRR of any search configuration drops by more than 0.05 against `results/retrieval_baseline.json`; a question that was found is no longer found; a search returns a chunk the user may not read |
+
+The `evals` job caches the models (~300 MB) and the chunk vectors between runs, and keeps the measured numbers as the
+`retrieval-eval` artifact.
+
+The answer evals (`hr-compass eval answers --gate`) call a paid model, so they are not in CI and stay a local release
+step.
