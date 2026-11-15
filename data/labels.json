@@ -1,0 +1,422 @@
+[
+  {
+    "id": "q01-gpt4omini",
+    "case": "q01",
+    "model": "openai/gpt-4o-mini",
+    "question": "How many days a week can I work from home?",
+    "reference": "One day a week (Wednesday or Thursday) with 0-3 years of service, two days a week after 3 years.",
+    "answer": "Employees with 0 – 3 years of service can work from home one day per week, while those with 3 or more years of service can work from home two days per week [1].",
+    "correct": true,
+    "note": "",
+    "found": true,
+    "cited": [
+      "ai_course/Usa/Policies/Handbook/It-product Handbook (US) 2026.docx#105"
+    ]
+  },
+  {
+    "id": "q02-haiku",
+    "case": "q02",
+    "model": "anthropic/claude-haiku-5.5",
+    "question": "How much does the company pay toward my commute if I come to the office three days a week?",
+    "reference": "$75 per month (2-3 office days a week); the archived 2025 handbook still says a flat $132.",
+    "answer": "If you commute to the office 2–3 days per week, the company contributes $75 per month toward your commute [1, 2]. This applies only if you are U.S.-based and assigned to and commute to the New York office at least two days per week [3, 4].",
+    "correct": true,
+    "note": "",
+    "found": true,
+    "cited": [
+      "ai_course/Usa/Policies/Commuter Benefits/Commuter Benefits Policy 5.1.26.docx#2",
+      "ai_course/Usa/Policies/Handbook/It-product Handbook (US) 2026.docx#201",
+      "ai_course/Usa/Policies/Handbook/It-product Handbook (US) 2026.docx#200",
+      "ai_course/Usa/Policies/Commuter Benefits/Commuter Benefits Policy 5.1.26.docx#0"
+    ]
+  },
+  {
+    "id": "q03-deepseek",
+    "case": "q03",
+    "model": "deepseek/deepseek-v4.1-flash",
+    "question": "How long is the probation period for a new hire?",
+    "reference": "3 months; 1 month for Affordable Housing and Property Tax Analysts.",
+    "answer": "The standard adaptation (probation) period for a new hire is 3 months, but for Affordable Housing and Property Tax Analysts it is 1 month [1, 2].",
+    "correct": true,
+    "note": "",
+    "found": true,
+    "cited": [
+      "ai_course/UA/HR-Onboarding and Adaptation Process-071126-120547.pdf#4",
+      "ai_course/UA/Processes/Onboarding/Onboarding Process EU_EN.docx#3"
+    ]
+  },
+  {
+    "id": "q04-gpt4omini",
+    "case": "q04",
+    "model": "openai/gpt-4o-mini",
+    "question": "What should the background of my profile picture look like?",
+    "reference": "A solid neutral background, gray is preferred.",
+    "answer": "The background of your profile picture must be solid and neutral, with gray being preferred [1].",
+    "correct": true,
+    "note": "",
+    "found": true,
+    "cited": [
+      "ai_course/HR-Bamboo Profile Photo Requirements-071126-120706.pdf#2"
+    ]
+  },
+  {
+    "id": "q05-haiku",
+    "case": "q05",
+    "model": "anthropic/claude-haiku-5.5",
+    "question": "What time does the Costa Rica team start and finish the workday?",
+    "reference": "7:00 am to 4:00 pm Costa Rica time, with a 1-hour lunch break.",
+    "answer": "The standard working hours for the Costa Rica team are 7.00 am – 4.00 pm Costa Rica Time, with a 1 hour lunch break [1].",
+    "correct": true,
+    "note": "",
+    "found": true,
+    "cited": [
+      "ai_course/costa Rica/Costa Rica Team Manual.pdf#2"
+    ]
+  },
+  {
+    "id": "q06-deepseek",
+    "case": "q06",
+    "model": "deepseek/deepseek-v4.1-flash",
+    "question": "On which days are the advanced English classes held?",
+    "reference": "The C1-C2 group meets on Monday and Wednesday, 10:00-11:00 Kyiv time.",
+    "answer": "Advanced (C1–C2) English classes are held on Monday & Wednesday [1]. Schedules may be adjusted based on participation and business needs [1].",
+    "correct": true,
+    "note": "",
+    "found": true,
+    "cited": [
+      "ai_course/UA/HR-English Language Program Policy-071126-120805.pdf#1"
+    ]
+  },
+  {
+    "id": "q07-gpt4omini",
+    "case": "q07",
+    "model": "openai/gpt-4o-mini",
+    "question": "What rate am I paid for hours beyond 40 in a week?",
+    "reference": "Non-exempt employees get 1.5 times their normal hourly wage for hours over 40 in a workweek.",
+    "answer": "Any non-exempt employee who works overtime will be compensated at the rate of one and one-half times (1.5) their normal hourly wage for all time worked in excess of 40 hours each week [1].",
+    "correct": true,
+    "note": "",
+    "found": true,
+    "cited": [
+      "ai_course/Usa/Policies/Handbook/It-product Handbook (US) 2026.docx#122"
+    ]
+  },
+  {
+    "id": "q08-haiku",
+    "case": "q08",
+    "model": "anthropic/claude-haiku-5.5",
+    "question": "How many hours of paid sick time do I get each year in New York?",
+    "reference": "40 hours of paid safe and sick time, granted at the start of each calendar year.",
+    "answer": "Employees receive a grant of 40 hours of safe and sick time at the start of each calendar year [1]. Employees may not use more than 40 hours of safe and sick time in any calendar year [2]. Unused time may be carried over to the following year, but usage is still capped at 40 hours per year [3].",
+    "correct": true,
+    "note": "",
+    "found": true,
+    "cited": [
+      "ai_course/Usa/Policies/Handbook/It-product Handbook (US) 2026.docx#149",
+      "ai_course/Usa/Policies/Handbook/It-product Handbook (US) 2026.docx#150",
+      "ai_course/Usa/Policies/Handbook/It-product Handbook (US) 2026.docx#171"
+    ]
+  },
+  {
+    "id": "q09-deepseek",
+    "case": "q09",
+    "model": "deepseek/deepseek-v4.1-flash",
+    "question": "How often is pay reviewed for the Affordable Housing Processing Team?",
+    "reference": "Every 6 months; the hiring manager tracks the cycle and starts the review.",
+    "answer": "For employees in the Affordable Housing Processing Team, salary reviews are conducted every 6 months [1]. The Hiring Manager tracks each employee's 6-month review cycle and initiates the review requests on time [1].",
+    "correct": true,
+    "note": "",
+    "found": true,
+    "cited": [
+      "ai_course/HR-Salary Review Process via BambooHR_ A Structured Overview-071126-121239.pdf#9"
+    ]
+  },
+  {
+    "id": "q10-gpt4omini",
+    "case": "q10",
+    "model": "openai/gpt-4o-mini",
+    "question": "How many floating holidays do employees on the EU team get?",
+    "reference": "Five floating holidays per calendar year.",
+    "answer": "Employees on the EU team get five (5) Floating Holidays per calendar year [1].",
+    "correct": true,
+    "note": "",
+    "found": true,
+    "cited": [
+      "ai_course/UA/HR-Paid Holidays & Floating Holidays Policy-071126-120838.pdf#3"
+    ]
+  },
+  {
+    "id": "q11-haiku",
+    "case": "q11",
+    "model": "anthropic/claude-haiku-5.5",
+    "question": "How much vacation do US employees accrue per year during their first three years?",
+    "reference": "1.77 hours a week, 92 hours (11.5 days) a year for full-time employees.",
+    "answer": "US employees in their first three years are shown two different amounts. The policy update effective 2026-01-01 gives 1.77 hours weekly, which is 11.5 days per year [1]. The same-dated update gives 80 hours (10 days) per year [2]. The older handbook lists 92 hours (11.5 days) per year [3]. Please confirm the correct figure with HR.",
+    "correct": false,
+    "note": "",
+    "found": true,
+    "cited": [
+      "ai_course/Usa/Policies/Vacation Policy/Vacation Policy Overview & FAQ_s 1.1.26.pdf#2",
+      "ai_course/Usa/Policies/Vacation Policy/Vacation Policy Overview & FAQ_s 1.1.26.pdf#1",
+      "ai_course/Usa/Policies/Handbook/It-product Handbook (US) 2026.docx#143"
+    ]
+  },
+  {
+    "id": "q12-deepseek",
+    "case": "q12",
+    "model": "deepseek/deepseek-v4.1-flash",
+    "question": "How many days of annual leave do employees in Ukraine have?",
+    "reference": "24 calendar days of paid annual leave a year.",
+    "answer": "Employees in Ukraine are eligible for twenty-four (24) calendar days of paid annual leave [1]. The paid time off overview for the EU team (full-time) likewise lists 24 days of vacation, accrued on a calendar year [2].",
+    "correct": true,
+    "note": "",
+    "found": true,
+    "cited": [
+      "ai_course/UA/HR-Paid Vacation-071126-120916.pdf#0",
+      "ai_course/UA/Processes/Onboarding/Welcome Presentation (EU) - 2026.pdf#12"
+    ]
+  },
+  {
+    "id": "q13-gpt4omini",
+    "case": "q13",
+    "model": "openai/gpt-4o-mini",
+    "question": "DB-450",
+    "reference": "DB-450 is the short-term disability claim form: get it from HR and send it to NYSIF Disability Benefits Claims.",
+    "answer": "I only answer questions about working at the company. Please contact HR with this one.",
+    "correct": false,
+    "note": "left unlabelled; set to false by Claude: a refusal of an answerable question (DB-450 is in the handbook). Confirm.",
+    "found": false,
+    "cited": []
+  },
+  {
+    "id": "q14-haiku",
+    "case": "q14",
+    "model": "anthropic/claude-haiku-5.5",
+    "question": "form PFL-DC-120",
+    "reference": "PFL-DC-120 is the Paid Family Leave Discrimination Complaint filed with the Workers' Compensation Board.",
+    "answer": "Form PFL-DC-120 is the Paid Family Leave Discrimination Complaint form. An employee uses it to file a PFL discrimination complaint with the Workers' Compensation Board if the Company does not comply with a reinstatement request within 30 days [1].",
+    "correct": true,
+    "note": "",
+    "found": true,
+    "cited": [
+      "ai_course/Usa/Policies/Handbook/It-product Handbook (US) 2026.docx#229"
+    ]
+  },
+  {
+    "id": "q15-deepseek",
+    "case": "q15",
+    "model": "deepseek/deepseek-v4.1-flash",
+    "question": "Vchasno",
+    "reference": "New employees sign the employment contract in Vchasno before their official start date.",
+    "answer": "The employment contract is prepared in Vchasno by the Head of RO or HR once the candidate accepts the offer in writing [1, 2]. All new employees must sign their employment contract via Vchasno prior to their official start date [3, 4].",
+    "correct": true,
+    "note": "",
+    "found": true,
+    "cited": [
+      "ai_course/HR-Hiring Managers_ Responsibilities in the Recruitment Process_ A Structured Overview-071126-121112.pdf#8",
+      "ai_course/UA/Processes/Recruitment/Recruitment Process EU_EN.docx#10",
+      "ai_course/UA/HR-Onboarding and Adaptation Process-071126-120547.pdf#4",
+      "ai_course/UA/Processes/Onboarding/Onboarding Process EU_EN.docx#3"
+    ]
+  },
+  {
+    "id": "q16-gpt4omini",
+    "case": "q16",
+    "model": "openai/gpt-4o-mini",
+    "question": "Speaking Club",
+    "reference": "The English Speaking Club meets on Fridays, 10:00-11:00 Kyiv time.",
+    "answer": "I only answer questions about working at the company. Please contact HR with this one.",
+    "correct": false,
+    "note": "",
+    "found": false,
+    "cited": []
+  },
+  {
+    "id": "q17-haiku",
+    "case": "q17",
+    "model": "anthropic/claude-haiku-5.5",
+    "question": "Скільки днів на тиждень можна працювати з дому?",
+    "reference": "Один день на тиждень при стажі до 3 років, два дні після 3 років.",
+    "answer": "У мене немає цієї інформації: джерела не вказують, скільки днів на тиждень можна працювати з дому. Будь ласка, запитайте про це HR.",
+    "correct": false,
+    "note": "",
+    "found": false,
+    "cited": []
+  },
+  {
+    "id": "q18-deepseek",
+    "case": "q18",
+    "model": "deepseek/deepseek-v4.1-flash",
+    "question": "Скільки днів щорічної відпустки мають працівники в Україні?",
+    "reference": "24 календарні дні оплачуваної щорічної відпустки.",
+    "answer": "Працівники мають право на двадцять чотири (24) календарні дні оплачуваної щорічної відпустки відповідно до українського трудового законодавства [1].",
+    "correct": true,
+    "note": "",
+    "found": true,
+    "cited": [
+      "ai_course/UA/HR-Paid Vacation-071126-120916.pdf#0"
+    ]
+  },
+  {
+    "id": "q19-gpt4omini",
+    "case": "q19",
+    "model": "openai/gpt-4o-mini",
+    "question": "Який фон має бути на фото профілю?",
+    "reference": "Однотонний нейтральний фон, бажано сірий.",
+    "answer": "У мене немає цієї інформації. Ви можете запитати у відділу кадрів.",
+    "correct": false,
+    "note": "",
+    "found": false,
+    "cited": []
+  },
+  {
+    "id": "q20-haiku",
+    "case": "q20",
+    "model": "anthropic/claude-haiku-5.5",
+    "question": "Скільки триває випробувальний термін для нового працівника?",
+    "reference": "3 місяці; для Affordable Housing і Property Tax Analysts — 1 місяць.",
+    "answer": "Стандартний випробувальний термін для нових працівників становить 3 місяці [1, 2]. Для аналітиків з доступного житла (Affordable Housing) та аналітиків з податку на майно (Property Tax Analysts) він становить 1 місяць [1, 2].",
+    "correct": true,
+    "note": "",
+    "found": true,
+    "cited": [
+      "ai_course/UA/HR-Onboarding and Adaptation Process-071126-120547.pdf#4",
+      "ai_course/UA/Processes/Onboarding/Onboarding Process EU_EN.docx#3"
+    ]
+  },
+  {
+    "id": "q21-deepseek",
+    "case": "q21",
+    "model": "deepseek/deepseek-v4.1-flash",
+    "question": "With how many days' notice can either party terminate a contractor agreement?",
+    "reference": "Either party may terminate for any reason with 7 days' prior written notice.",
+    "answer": "Either party may terminate the agreement for any reason upon 7 (seven) days' prior written notice to the other party [1]. If a party has materially breached an obligation and the breach remains uncured for 30 days after written notice, the other party may also terminate [1].",
+    "correct": true,
+    "note": "",
+    "found": true,
+    "cited": [
+      "ai_course/costa Rica/Contractor Agreement (Costa Rica).docx#16"
+    ]
+  },
+  {
+    "id": "q22-gpt4omini",
+    "case": "q22",
+    "model": "openai/gpt-4o-mini",
+    "question": "Do we offer company benefits to interns?",
+    "reference": "No. A temporary intern is not eligible for Company benefits; interns are paid hourly, weekly, and are eligible for overtime.",
+    "answer": "As a temporary intern, you will not be eligible for Company benefits [1].",
+    "correct": true,
+    "note": "",
+    "found": true,
+    "cited": [
+      "ai_course/Usa/Offer Letter Template - Intern.docx#1"
+    ]
+  },
+  {
+    "id": "q23-haiku",
+    "case": "q23",
+    "model": "anthropic/claude-haiku-5.5",
+    "question": "I joined three months ago. Can I already work from home?",
+    "reference": "Yes, one day a week (Wednesday or Thursday); the archived 2025 handbook started remote days only after 1 year.",
+    "answer": "The USA Employee Handbook sets remote-work days only for employees with at least 1 year of service, starting with 1 day per week for 1–3 years [1]. It says nothing about employees with under 1 year, so based on these sources you are not shown as eligible yet [1]. This rule applies to USA employees only, so please ask HR to confirm for your location.",
+    "correct": false,
+    "note": "",
+    "found": true,
+    "cited": [
+      "ai_course/Usa/Policies/Handbook/Archive/It-product Handbook_Revised 03.21.25.pdf#103"
+    ]
+  },
+  {
+    "id": "q24-deepseek",
+    "case": "q24",
+    "model": "deepseek/deepseek-v4.1-flash",
+    "question": "Does the company reimburse a gym membership?",
+    "reference": "The documents do not say: the bot must say it has no information.",
+    "answer": "I don't have information about whether the company reimburses a gym membership. Please ask HR.",
+    "correct": true,
+    "note": "",
+    "found": false,
+    "cited": []
+  },
+  {
+    "id": "q25-gpt4omini",
+    "case": "q25",
+    "model": "openai/gpt-4o-mini",
+    "question": "Do I get a 13th-month salary?",
+    "reference": "The documents do not say: the bot must say it has no information.",
+    "answer": "I do not have this information. Please ask HR.",
+    "correct": true,
+    "note": "",
+    "found": false,
+    "cited": []
+  },
+  {
+    "id": "q26-haiku",
+    "case": "q26",
+    "model": "anthropic/claude-haiku-5.5",
+    "question": "Чи можна приводити собаку в офіс?",
+    "reference": "Документи цього не описують: бот має сказати, що не має такої інформації.",
+    "answer": "У мене немає цієї інформації в джерелах. Будь ласка, запитайте про це HR.",
+    "correct": true,
+    "note": "",
+    "found": false,
+    "cited": []
+  },
+  {
+    "id": "q23-deepseek",
+    "case": "q23",
+    "model": "deepseek/deepseek-v4.1-flash",
+    "question": "I joined three months ago. Can I already work from home?",
+    "reference": "Yes, one day a week (Wednesday or Thursday); the archived 2025 handbook started remote days only after 1 year.",
+    "answer": "No — under the remote work policy, eligibility starts at 1 year of service: 1–3 years of service gives one day per week (Wednesday or Thursday), and 3+ years gives two days per week (Tuesday, Wednesday or Thursday) [1]. With three months of service you do not yet meet the minimum, and the extra remote days also require more than 1 year of service [1].",
+    "correct": false,
+    "note": "",
+    "found": true,
+    "cited": [
+      "ai_course/Usa/Policies/Handbook/Archive/It-product Handbook_Revised 03.21.25.pdf#103"
+    ]
+  },
+  {
+    "id": "q17-gpt4omini",
+    "case": "q17",
+    "model": "openai/gpt-4o-mini",
+    "question": "Скільки днів на тиждень можна працювати з дому?",
+    "reference": "Один день на тиждень при стажі до 3 років, два дні після 3 років.",
+    "answer": "Співробітники можуть працювати з дому до 2 днів на тиждень, якщо у них менше 1 року стажу, до 3 днів на тиждень, якщо стаж від 1 до 3 років, і до 5 днів на тиждень, якщо стаж більше 3 років [1].",
+    "correct": false,
+    "note": "",
+    "found": true,
+    "cited": [
+      "ai_course/Usa/Policies/Handbook/It-product Handbook (US) 2026.docx#106"
+    ]
+  },
+  {
+    "id": "q11-gpt4omini",
+    "case": "q11",
+    "model": "openai/gpt-4o-mini",
+    "question": "How much vacation do US employees accrue per year during their first three years?",
+    "reference": "1.77 hours a week, 92 hours (11.5 days) a year for full-time employees.",
+    "answer": "During their first three years, US employees accrue 11.5 days (80 hours) of vacation per year [1, 2].",
+    "correct": false,
+    "note": "",
+    "found": true,
+    "cited": [
+      "ai_course/Usa/Policies/Vacation Policy/Vacation Policy Overview & FAQ_s 1.1.26.pdf#1",
+      "ai_course/Usa/Policies/Handbook/It-product Handbook (US) 2026.docx#143"
+    ]
+  },
+  {
+    "id": "q01-haiku",
+    "case": "q01",
+    "model": "anthropic/claude-haiku-5.5",
+    "question": "How many days a week can I work from home?",
+    "reference": "One day a week (Wednesday or Thursday) with 0-3 years of service, two days a week after 3 years.",
+    "answer": "Employees with 0 – 3 years of service can work remotely one day per week (Wednesday or Thursday) [1]. Employees with 3+ years of service can work remotely two days per week (Tuesday, Wednesday or Thursday) [1].",
+    "correct": true,
+    "note": "",
+    "found": true,
+    "cited": [
+      "ai_course/Usa/Policies/Handbook/It-product Handbook (US) 2026.docx#105"
+    ]
+  }
+]

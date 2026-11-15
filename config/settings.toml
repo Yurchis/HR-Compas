@@ -1,0 +1,147 @@
+# All OpenRouter client settings. The secret (OPENROUTER_API_KEY) lives only in .env.
+# An unknown key or an invalid value = a startup error.
+
+[openrouter]
+base_url = "https://openrouter.ai/api/v1"
+model = "openai/gpt-4o-mini"        # main model
+concurrency = 4                      # parallel requests
+app_url = ""                         # optional: HTTP-Referer for OpenRouter rankings
+app_title = "HR Compass"
+
+# Model aliases for `--model` / `--models`. Slugs come from https://openrouter.ai/models
+[models]
+gpt4omini = "openai/gpt-4o-mini"          # 128k ctx, Azure/OpenAI providers, supports structured_outputs
+haiku = "anthropic/claude-haiku-5.5"
+deepseek = "deepseek/deepseek-v4.1-flash"
+luna = "openai/gpt-6-luna"                # the catalog also has gpt-6-luna-pro, gpt-5.6-luna (checked 2026-10-27)
+nemotron = "nvidia/nemotron-3.5-super-vl:free"   # NVIDIA chat model, free (not to be confused with the reranker in [rerank])
+
+# Sampling parameters (the same for intake and answer). For reproducible evaluation — temperature = 0.
+# Prices for the report: slug -> [input, output] in $ per 1M tokens (https://openrouter.ai/models).
+# The actual run cost is taken from usage.cost of the OpenRouter response; these prices are only for the comparison table.
+# The key is quoted because the slug contains "/". No price — "—" in the table.
+[pricing]
+"openai/gpt-4o-mini" = [0.15, 0.60]   # checked 2026-10-31: 26554 in + 45 out = $0.0040101, same as usage.cost
+"anthropic/claude-haiku-5.5" = [0.10, 0.50]    # checked 2026-11-01 against https://openrouter.ai/api/v1/models
+"anthropic/claude-sonnet-5.5" = [2.00, 10.00]  # checked 2026-11-01 against https://openrouter.ai/api/v1/models
+"deepseek/deepseek-v4.1-flash" = [0.045, 0.50] # checked 2026-11-01 against https://openrouter.ai/api/v1/models
+"nvidia/llama-nemotron-rerank-vl-1b-v2:free" = [0.0, 0.0]
+"nvidia/nemotron-3.5-super-vl:free" = [0.0, 0.0]
+
+[generation]
+temperature = 0.0                    # [0, 2]: 0 — deterministic, higher — more varied
+top_p = 1.0                          # (0, 1]: nucleus sampling; 1.0 — off. Usually you change either this or temperature
+max_tokens = 1024
+
+# Pattern 1: Timeout
+[timeout]
+connect_s = 5.0                      # establishing the connection
+read_s = 60.0                        # waiting for response bytes
+write_s = 10.0
+pool_s = 5.0
+attempt_s = 90.0                     # hard deadline for one attempt (start to finish)
+
+# Pattern 2: Retry with backoff
+[retry]
+max_retries = 3                      # extra attempts after the first one (2–3 for provider failures)
+base_delay_s = 1.0
+multiplier = 2.0                     # delay = min(max_delay_s, base_delay_s * multiplier**attempt)
+max_delay_s = 30.0
+jitter = true                        # full jitter: a random pause in [0, delay]
+respect_retry_after = true           # honour the Retry-After header
+retry_statuses = [408, 429, 500, 502, 503, 504]   # 400/401/403 — never retried
+
+# Pattern 3: Structured output + validation. Every model call asks for JSON by a pydantic schema
+# (intake, condense, answer, judge); an invalid reply is sent back with the error.
+[structured_output]
+strict = true                        # json_schema.strict in the request
+max_repair_attempts = 1              # how many times to ask the model to fix an invalid reply
+
+# Pattern 4: Fallback
+[fallback]
+enabled = true
+models = ["google/gemini-2.5-flash", "anthropic/claude-haiku-4.5"]   # in turn, if the main model ran out of attempts
+skip_statuses = [400, 401, 402, 403] # fallback is pointless: request error (400), key/access/payment (401-403)
+
+# ---------------------------------------------------------------- the RAG pipeline
+# Relative paths are relative to the project root.
+
+# hr-compass ingest: documents -> normalised text -> chunk records (incremental, see README)
+[ingest]
+source_dir = "data/data_dirty"       # PII: git-ignored
+output_dir = "data/data_clean"       # chunks.jsonl, manifest.json, audit.jsonl, <doc>.md; git-ignored
+strategy = "headings"                # headings: by structure, whole blocks; fixed: a sliding token window (README)
+chunk_tokens = 120                   # max tokens per chunk (whole paragraphs / rows / sentences are never cut)
+fixed_overlap = 20                   # fixed only: tokens shared by neighbouring windows
+tokenizer = "cl100k_base"
+archive_marker = "/Archive/"         # outdated copies: indexed for hr, never a relevant answer in the testset
+
+# The country of a document = the first folder of its path named here; no such folder = company-wide.
+[ingest.countries]
+"Usa" = "USA"
+"UA" = "UA"
+"costa Rica" = "Costa Rica"
+
+# hr-compass index: every chunk -> a vector (computed once, cached by sha256(model + text))
+# provider = "local": fastembed on CPU, free, offline, nothing leaves the machine.
+# provider = "openrouter": the /embeddings endpoint; needs OPENROUTER_API_KEY, and every chunk's text (offer letters,
+#   salaries ...) is sent to the provider once, when it is indexed. For example:
+#     provider = "openrouter"
+#     model = "openai/text-embedding-3-large"   # 3072 dims, reads ~8k tokens, ~$0.13 per 1M tokens
+#     dim = 3072
+# Switching the model re-embeds every chunk (each model has its own cache file); check it with
+# `python main.py --no-chat --check` (the retrieval gate) before keeping it.
+[embeddings]
+provider = "local"
+model = "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"   # 384 dims, reads 128 tokens, uk + en + ru
+dim = 384
+batch_size = 64
+models_dir = ".models"               # downloaded once (~220 MB embedder + ~80 MB reranker); git-ignored
+cache_dir = ".cache/embeddings"      # one <model>.json per model; git-ignored
+
+# Search: vector (Qdrant, cosine) + BM25, fused by rank (RRF), re-ordered by a cross-encoder.
+# Compare the modes with `hr-compass eval retrieval`; the bot uses `mode`.
+[search]
+mode = "hybrid+rerank"               # vector | bm25 | hybrid | hybrid+rerank
+k = 5                                # chunks the bot gets
+candidates = 20                      # chunks each search hands to the fusion / the reranker
+rrf_k = 60                           # RRF: score = sum of 1 / (rrf_k + rank)
+reranker = "local"                   # local (free, CPU) | openrouter (the /rerank endpoint)
+local_rerank_model = "Xenova/ms-marco-MiniLM-L-6-v2"            # English (MS MARCO)
+openrouter_rerank_model = "nvidia/llama-nemotron-rerank-vl-1b-v2:free"
+
+# hr-compass chat: intake -> condense follow-ups -> search -> answer with citations
+[rag]
+prompt = "prompts/v6_rag_cited.md"     # answer prompt: every statement cites its source (CHANGELOG)
+intake = true
+intake_prompt = "prompts/intake_v3_en.md"
+condense = true
+condense_prompt = "prompts/condense_v1.md"
+history_turns = 3                    # earlier exchanges the follow-up rewrite sees
+context_budget = 1500                # max tokens of sources in the prompt
+context_tokenizer = "o200k_base"     # the gpt-4o family tokenizer
+
+# Who may read what: rules in rules_file (path prefix or glob -> groups); a group includes the groups listed here.
+[access]
+rules_file = "config/access.json"
+default_groups = ["all_employees"]   # chat / search without --groups
+
+[access.inherits]
+hr = ["all_employees"]
+managers = ["all_employees"]
+leadership = ["all_employees"]
+
+# hr-compass eval
+[eval]
+testset = "data/testset.json"
+labels = "data/labels.json"          # answers labelled by people, for `eval calibrate`
+results_dir = "results"
+tolerance = 0.05                     # the gate allows a metric to drop this much
+kinds_min = 2                        # every kind of question needs at least this many cases
+judge_prompts = "judge-v3"           # prompts/<version>/correct.txt, grounded.txt
+
+# Log files: logs/<component>.log (ingest, index, search, chat, eval), JSON lines, rotated.
+[logging]
+dir = "logs"
+max_bytes = 5000000
+backup_count = 5

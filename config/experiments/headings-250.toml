@@ -1,0 +1,18 @@
+# Chunking experiment: strategy=headings, 250 tokens. Only what differs from config/settings.toml is set here
+# (the code defaults equal the shipped settings). Run:
+#   hr-compass --config config/experiments/headings-250.toml run --no-chat
+#   hr-compass --config config/experiments/headings-250.toml eval chunks
+#   hr-compass --config config/experiments/headings-250.toml eval retrieval --lenient
+[ingest]
+output_dir = "data/experiments/headings-250"
+strategy = "headings"
+chunk_tokens = 250
+
+[embeddings]
+cache_dir = ".cache/experiments/headings-250"
+
+[eval]
+results_dir = "results/experiments/headings-250"
+
+[logging]
+dir = "logs/experiments/headings-250"

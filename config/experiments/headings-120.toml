@@ -1,0 +1,18 @@
+# Chunking experiment: strategy=headings, 120 tokens. Only what differs from config/settings.toml is set here
+# (the code defaults equal the shipped settings). Run:
+#   hr-compass --config config/experiments/headings-120.toml run --no-chat
+#   hr-compass --config config/experiments/headings-120.toml eval chunks
+#   hr-compass --config config/experiments/headings-120.toml eval retrieval --lenient
+[ingest]
+output_dir = "data/experiments/headings-120"
+strategy = "headings"
+chunk_tokens = 120
+
+[embeddings]
+cache_dir = ".cache/embeddings"   # same texts as the shipped index: reuse its vectors
+
+[eval]
+results_dir = "results/experiments/headings-120"
+
+[logging]
+dir = "logs/experiments/headings-120"

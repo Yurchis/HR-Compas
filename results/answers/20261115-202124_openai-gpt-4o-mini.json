@@ -1,0 +1,586 @@
+{
+  "created_at": "2026-11-15T19:22:16+00:00",
+  "dataset_version": "7a76f068df5c71d27e8c29f4001aa1537acb3d3087ddf7379a6e289160fa4492",
+  "settings_fingerprint": "e1ecf0b768627b02640311a9e5e0c7942f5ad2140c6454762671747be207206e",
+  "model": "openai/gpt-4o-mini",
+  "prompt": "v6_rag_cited",
+  "cases": 26,
+  "metrics": {
+    "pass": 0.7692307692307693,
+    "facts": 0.782608695652174,
+    "cited": 0.7391304347826086,
+    "abstain": 1.0,
+    "false_abstain": 0.17391304347826086,
+    "attributed": 1.0,
+    "judge": 0.7307692307692307,
+    "grounded": 0.8421052631578947,
+    "by_kind": {
+      "access": 1.0,
+      "cross-lingual": 0.5,
+      "exact": 0.25,
+      "no_answer": 1.0,
+      "paraphrase": 1.0,
+      "stale": 0.5
+    },
+    "failed": [
+      "q13",
+      "q15",
+      "q16",
+      "q17",
+      "q19",
+      "q23"
+    ],
+    "errors": [],
+    "cost_usd": 0.008452050000000001,
+    "input_tokens": 48111,
+    "output_tokens": 2059,
+    "latency_p50_s": 3.4055142999859527,
+    "latency_p95_s": 11.170855399977881
+  },
+  "scores": [
+    {
+      "facts": true,
+      "cited": true,
+      "abstain": null,
+      "pass": true,
+      "attributed": true,
+      "judge": true,
+      "judge_reason": "The key fact compared is the number of days employees can work from home based on their years of service. The answer correctly states that employees with 0-3 years can work from home one day a week and those with more than 3 years can work from home two days a week.",
+      "grounded": true,
+      "unsupported": []
+    },
+    {
+      "facts": true,
+      "cited": true,
+      "abstain": null,
+      "pass": true,
+      "attributed": true,
+      "judge": true,
+      "judge_reason": "The key fact compared is the amount the company pays toward the commute for employees coming to the office three days a week, which is $75 per month. The answer correctly states this amount.",
+      "grounded": true,
+      "unsupported": []
+    },
+    {
+      "facts": true,
+      "cited": true,
+      "abstain": null,
+      "pass": true,
+      "attributed": true,
+      "judge": true,
+      "judge_reason": "The key fact is the duration of the probation period for new hires, which is stated as 3 months in both the reference and the answer. The answer correctly reflects this information.",
+      "grounded": true,
+      "unsupported": []
+    },
+    {
+      "facts": true,
+      "cited": true,
+      "abstain": null,
+      "pass": true,
+      "attributed": true,
+      "judge": true,
+      "judge_reason": "The key fact is that the background should be solid and neutral, with gray being preferred. The answer accurately reflects this information.",
+      "grounded": true,
+      "unsupported": []
+    },
+    {
+      "facts": true,
+      "cited": true,
+      "abstain": null,
+      "pass": true,
+      "attributed": true,
+      "judge": true,
+      "judge_reason": "The answer provides the exact working hours of the Costa Rica team, which are from 7:00 am to 4:00 pm, matching the reference.",
+      "grounded": true,
+      "unsupported": []
+    },
+    {
+      "facts": true,
+      "cited": true,
+      "abstain": null,
+      "pass": true,
+      "attributed": true,
+      "judge": true,
+      "judge_reason": "The answer correctly states that the advanced English classes (C1-C2 Group) are held on Monday and Wednesday, which matches the key fact from the reference.",
+      "grounded": true,
+      "unsupported": []
+    },
+    {
+      "facts": true,
+      "cited": true,
+      "abstain": null,
+      "pass": true,
+      "attributed": true,
+      "judge": true,
+      "judge_reason": "The key fact is the overtime rate for non-exempt employees, which is 1.5 times their normal hourly wage for hours over 40 in a week. Both the reference and the answer provide this information accurately.",
+      "grounded": true,
+      "unsupported": []
+    },
+    {
+      "facts": true,
+      "cited": true,
+      "abstain": null,
+      "pass": true,
+      "attributed": true,
+      "judge": true,
+      "judge_reason": "The key fact is the number of hours of paid sick time, which is 40 hours per year. Both the reference and the answer correctly state this fact.",
+      "grounded": false,
+      "unsupported": [
+        "Employees receive a grant of 40 hours of paid safe and sick time at the start of each calendar year"
+      ]
+    },
+    {
+      "facts": true,
+      "cited": true,
+      "abstain": null,
+      "pass": true,
+      "attributed": true,
+      "judge": true,
+      "judge_reason": "The key fact compared is the frequency of pay reviews for the Affordable Housing Processing Team, which is stated as 'every 6 months' in both the reference and the answer.",
+      "grounded": true,
+      "unsupported": []
+    },
+    {
+      "facts": true,
+      "cited": true,
+      "abstain": null,
+      "pass": true,
+      "attributed": true,
+      "judge": true,
+      "judge_reason": "The key fact is the number of floating holidays, which is five. The answer correctly states that employees on the EU team get five floating holidays per calendar year.",
+      "grounded": true,
+      "unsupported": []
+    },
+    {
+      "facts": true,
+      "cited": true,
+      "abstain": null,
+      "pass": true,
+      "attributed": true,
+      "judge": false,
+      "judge_reason": "The key fact compared is the amount of vacation accrued per year, which is stated as 92 hours (11.5 days) in the reference. The answer incorrectly states 80 hours instead of 92 hours.",
+      "grounded": false,
+      "unsupported": [
+        "During their first three years, US employees accrue 11.5 days of vacation per year"
+      ]
+    },
+    {
+      "facts": true,
+      "cited": true,
+      "abstain": null,
+      "pass": true,
+      "attributed": true,
+      "judge": true,
+      "judge_reason": "The key fact compared is the number of days of annual leave for employees in Ukraine, which is 24 calendar days. The answer correctly states this number.",
+      "grounded": true,
+      "unsupported": []
+    },
+    {
+      "facts": false,
+      "cited": false,
+      "abstain": null,
+      "pass": false,
+      "attributed": null,
+      "judge": false,
+      "judge_reason": "The key fact is that DB-450 is the short-term disability claim form, which the assistant did not provide. Instead, the assistant redirected the question to HR without giving the specific information requested.",
+      "grounded": null,
+      "unsupported": []
+    },
+    {
+      "facts": true,
+      "cited": true,
+      "abstain": null,
+      "pass": true,
+      "attributed": true,
+      "judge": true,
+      "judge_reason": "The key fact is that PFL-DC-120 is the Paid Family Leave Discrimination Complaint. The answer correctly identifies the form and its purpose, providing additional context about filing a complaint, which does not contradict the reference.",
+      "grounded": true,
+      "unsupported": []
+    },
+    {
+      "facts": false,
+      "cited": false,
+      "abstain": null,
+      "pass": false,
+      "attributed": null,
+      "judge": false,
+      "judge_reason": "The key fact is that new employees sign the employment contract in Vchasno before their official start date, which the assistant did not provide.",
+      "grounded": null,
+      "unsupported": []
+    },
+    {
+      "facts": false,
+      "cited": false,
+      "abstain": null,
+      "pass": false,
+      "attributed": null,
+      "judge": false,
+      "judge_reason": "The key fact is the meeting time of the English Speaking Club, which is 10:00-11:00 Kyiv time on Fridays. The assistant did not provide this information and redirected the question to HR instead.",
+      "grounded": null,
+      "unsupported": []
+    },
+    {
+      "facts": false,
+      "cited": false,
+      "abstain": null,
+      "pass": false,
+      "attributed": true,
+      "judge": false,
+      "judge_reason": "The key fact compared is the number of days employees can work from home based on their experience. The reference states one day for less than 3 years of experience and two days for more than 3 years, while the answer incorrectly states different limits for various experience levels.",
+      "grounded": true,
+      "unsupported": []
+    },
+    {
+      "facts": true,
+      "cited": true,
+      "abstain": null,
+      "pass": true,
+      "attributed": true,
+      "judge": true,
+      "judge_reason": "The key fact is the number of annual leave days for employees in Ukraine, which is 24 calendar days. The answer correctly states this number.",
+      "grounded": true,
+      "unsupported": []
+    },
+    {
+      "facts": false,
+      "cited": false,
+      "abstain": null,
+      "pass": false,
+      "attributed": null,
+      "judge": false,
+      "judge_reason": "The key fact is that the profile photo should have a solid neutral background, preferably gray. The assistant's answer does not provide this information.",
+      "grounded": null,
+      "unsupported": []
+    },
+    {
+      "facts": true,
+      "cited": true,
+      "abstain": null,
+      "pass": true,
+      "attributed": true,
+      "judge": true,
+      "judge_reason": "The key fact is the duration of the probationary period, which is 3 months for standard employees and 1 month for Affordable Housing and Property Tax Analysts. The answer correctly states both durations.",
+      "grounded": true,
+      "unsupported": []
+    },
+    {
+      "facts": true,
+      "cited": true,
+      "abstain": null,
+      "pass": true,
+      "attributed": true,
+      "judge": true,
+      "judge_reason": "The key fact compared is the notice period for terminating the contractor agreement, which is 7 days. Both the reference and the answer provide the same information regarding the notice period.",
+      "grounded": true,
+      "unsupported": []
+    },
+    {
+      "facts": true,
+      "cited": true,
+      "abstain": null,
+      "pass": true,
+      "attributed": true,
+      "judge": true,
+      "judge_reason": "The key fact is that interns are not eligible for Company benefits, which is correctly stated in the answer.",
+      "grounded": true,
+      "unsupported": []
+    },
+    {
+      "facts": true,
+      "cited": false,
+      "abstain": null,
+      "pass": false,
+      "attributed": true,
+      "judge": false,
+      "judge_reason": "The key fact is that employees can work from home one day a week after one year, and the reference states that remote days only start after 1 year. The assistant incorrectly states that the user qualifies for remote work after three months.",
+      "grounded": false,
+      "unsupported": [
+        "You joined three months ago",
+        "You qualify for this remote work option"
+      ]
+    },
+    {
+      "facts": null,
+      "cited": null,
+      "abstain": true,
+      "pass": true,
+      "attributed": null,
+      "judge": true,
+      "judge_reason": "The reference states that the documents do not provide information on gym membership reimbursement, and the assistant correctly indicates that it does not have this information.",
+      "grounded": null,
+      "unsupported": []
+    },
+    {
+      "facts": null,
+      "cited": null,
+      "abstain": true,
+      "pass": true,
+      "attributed": null,
+      "judge": true,
+      "judge_reason": "The reference states that the documents do not provide information on the 13th-month salary, and the assistant correctly indicates that it does not have this information.",
+      "grounded": null,
+      "unsupported": []
+    },
+    {
+      "facts": null,
+      "cited": null,
+      "abstain": true,
+      "pass": true,
+      "attributed": null,
+      "judge": true,
+      "judge_reason": "The reference states that the documents do not describe whether dogs can be brought to the office, and the assistant correctly indicates that they do not have this information.",
+      "grounded": null,
+      "unsupported": []
+    }
+  ],
+  "answers": [
+    {
+      "id": "q01",
+      "found": true,
+      "answer": "Employees with 0 – 3 years of service can work from home one day per week, while those with 3 or more years of service can work from home two days per week [1].",
+      "cited": [
+        "ai_course/Usa/Policies/Handbook/It-product Handbook (US) 2026.docx#105"
+      ],
+      "attributed": true,
+      "error": null
+    },
+    {
+      "id": "q02",
+      "found": true,
+      "answer": "Employees commuting 2–3 days per week receive $75 per month in commuter benefits [1].",
+      "cited": [
+        "ai_course/Usa/Policies/Commuter Benefits/Commuter Benefits Policy 5.1.26.docx#2"
+      ],
+      "attributed": true,
+      "error": null
+    },
+    {
+      "id": "q03",
+      "found": true,
+      "answer": "The standard adaptation (probation) period is 3 months for new hires [1].",
+      "cited": [
+        "ai_course/UA/HR-Onboarding and Adaptation Process-071126-120547.pdf#4"
+      ],
+      "attributed": true,
+      "error": null
+    },
+    {
+      "id": "q04",
+      "found": true,
+      "answer": "The background of your profile picture must be solid and neutral, with gray being preferred [1].",
+      "cited": [
+        "ai_course/HR-Bamboo Profile Photo Requirements-071126-120706.pdf#2"
+      ],
+      "attributed": true,
+      "error": null
+    },
+    {
+      "id": "q05",
+      "found": true,
+      "answer": "The standard working hours for the Costa Rica team are from 7.00 am to 4.00 pm Costa Rica Time, with a 1-hour lunch break [1].",
+      "cited": [
+        "ai_course/costa Rica/Costa Rica Team Manual.pdf#2"
+      ],
+      "attributed": true,
+      "error": null
+    },
+    {
+      "id": "q06",
+      "found": true,
+      "answer": "The advanced English classes (C1–C2 Group) are held on Monday and Wednesday [1].",
+      "cited": [
+        "ai_course/UA/HR-English Language Program Policy-071126-120805.pdf#1"
+      ],
+      "attributed": true,
+      "error": null
+    },
+    {
+      "id": "q07",
+      "found": true,
+      "answer": "Any non-exempt employee who works overtime will be compensated at the rate of one and one-half times (1.5) their normal hourly wage for all time worked in excess of 40 hours each week [1].",
+      "cited": [
+        "ai_course/Usa/Policies/Handbook/It-product Handbook (US) 2026.docx#122"
+      ],
+      "attributed": true,
+      "error": null
+    },
+    {
+      "id": "q08",
+      "found": true,
+      "answer": "Employees receive a grant of 40 hours of paid safe and sick time at the start of each calendar year [1]. However, they may only use up to 40 hours in each calendar year [2].",
+      "cited": [
+        "ai_course/Usa/Policies/Handbook/It-product Handbook (US) 2026.docx#149",
+        "ai_course/Usa/Policies/Handbook/It-product Handbook (US) 2026.docx#150"
+      ],
+      "attributed": true,
+      "error": null
+    },
+    {
+      "id": "q09",
+      "found": true,
+      "answer": "For employees in the Affordable Housing Processing Team, salary reviews are conducted every 6 months [1].",
+      "cited": [
+        "ai_course/HR-Salary Review Process via BambooHR_ A Structured Overview-071126-121239.pdf#9"
+      ],
+      "attributed": true,
+      "error": null
+    },
+    {
+      "id": "q10",
+      "found": true,
+      "answer": "Employees on the EU team get five (5) Floating Holidays per calendar year [1].",
+      "cited": [
+        "ai_course/UA/HR-Paid Holidays & Floating Holidays Policy-071126-120838.pdf#3"
+      ],
+      "attributed": true,
+      "error": null
+    },
+    {
+      "id": "q11",
+      "found": true,
+      "answer": "During their first three years, US employees accrue 11.5 days (80 hours) of vacation per year [1, 2].",
+      "cited": [
+        "ai_course/Usa/Policies/Vacation Policy/Vacation Policy Overview & FAQ_s 1.1.26.pdf#1",
+        "ai_course/Usa/Policies/Handbook/It-product Handbook (US) 2026.docx#143"
+      ],
+      "attributed": true,
+      "error": null
+    },
+    {
+      "id": "q12",
+      "found": true,
+      "answer": "Employees are eligible for twenty-four (24) calendar days of paid annual leave in accordance with Ukrainian labor legislation [1].",
+      "cited": [
+        "ai_course/UA/HR-Paid Vacation-071126-120916.pdf#0"
+      ],
+      "attributed": true,
+      "error": null
+    },
+    {
+      "id": "q13",
+      "found": false,
+      "answer": "I only answer questions about working at the company. Please contact HR with this one.",
+      "cited": [],
+      "attributed": null,
+      "error": null
+    },
+    {
+      "id": "q14",
+      "found": true,
+      "answer": "Employees may file a PFL discrimination complaint with the Workers’ Compensation Board using the Paid Family Leave Discrimination Complaint (Form PFL-DC-120) if the Company does not comply with their request for reinstatement within 30 days [1].",
+      "cited": [
+        "ai_course/Usa/Policies/Handbook/It-product Handbook (US) 2026.docx#229"
+      ],
+      "attributed": true,
+      "error": null
+    },
+    {
+      "id": "q15",
+      "found": false,
+      "answer": "Я відповідаю лише на питання про роботу в компанії. З цим питанням звернися, будь ласка, до HR.",
+      "cited": [],
+      "attributed": null,
+      "error": null
+    },
+    {
+      "id": "q16",
+      "found": false,
+      "answer": "I only answer questions about working at the company. Please contact HR with this one.",
+      "cited": [],
+      "attributed": null,
+      "error": null
+    },
+    {
+      "id": "q17",
+      "found": true,
+      "answer": "Співробітники можуть працювати з дому до 2 днів на тиждень, якщо у них менше 1 року стажу, до 3 днів на тиждень, якщо стаж від 1 до 3 років, і до 5 днів на тиждень, якщо стаж більше 3 років [1].",
+      "cited": [
+        "ai_course/Usa/Policies/Handbook/It-product Handbook (US) 2026.docx#106"
+      ],
+      "attributed": true,
+      "error": null
+    },
+    {
+      "id": "q18",
+      "found": true,
+      "answer": "Працівники мають право на двадцять чотири (24) календарних дні оплачуваної щорічної відпустки відповідно до українського законодавства про працю [1].",
+      "cited": [
+        "ai_course/UA/HR-Paid Vacation-071126-120916.pdf#0"
+      ],
+      "attributed": true,
+      "error": null
+    },
+    {
+      "id": "q19",
+      "found": false,
+      "answer": "У мене немає цієї інформації. Ви можете запитати у відділу кадрів.",
+      "cited": [],
+      "attributed": null,
+      "error": null
+    },
+    {
+      "id": "q20",
+      "found": true,
+      "answer": "Стандартний випробувальний термін триває 3 місяці [1]. Для аналітиків з доступного житла та податку на майно випробувальний термін становить 1 місяць [2].",
+      "cited": [
+        "ai_course/UA/HR-Onboarding and Adaptation Process-071126-120547.pdf#4",
+        "ai_course/UA/Processes/Onboarding/Onboarding Process EU_EN.docx#3"
+      ],
+      "attributed": true,
+      "error": null
+    },
+    {
+      "id": "q21",
+      "found": true,
+      "answer": "Each party can terminate the contractor agreement with 7 (seven) days' prior written notice to the other party [1].",
+      "cited": [
+        "ai_course/costa Rica/Contractor Agreement (Costa Rica).docx#16"
+      ],
+      "attributed": true,
+      "error": null
+    },
+    {
+      "id": "q22",
+      "found": true,
+      "answer": "As a temporary intern, you will not be eligible for Company benefits [1].",
+      "cited": [
+        "ai_course/Usa/Offer Letter Template - Intern.docx#1"
+      ],
+      "attributed": true,
+      "error": null
+    },
+    {
+      "id": "q23",
+      "found": true,
+      "answer": "Employees with 1 – 3 years of service are eligible to work remotely one day per week (Wednesday or Thursday) [1]. Since you joined three months ago, you qualify for this remote work option [1].",
+      "cited": [
+        "ai_course/Usa/Policies/Handbook/Archive/It-product Handbook_Revised 03.21.25.pdf#103"
+      ],
+      "attributed": true,
+      "error": null
+    },
+    {
+      "id": "q24",
+      "found": false,
+      "answer": "I do not have this information. You can ask HR.",
+      "cited": [],
+      "attributed": null,
+      "error": null
+    },
+    {
+      "id": "q25",
+      "found": false,
+      "answer": "I do not have this information. Please ask HR.",
+      "cited": [],
+      "attributed": null,
+      "error": null
+    },
+    {
+      "id": "q26",
+      "found": false,
+      "answer": "У мене немає цієї інформації. Ви можете запитати у відділу кадрів.",
+      "cited": [],
+      "attributed": null,
+      "error": null
+    }
+  ]
+}

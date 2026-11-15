@@ -1,0 +1,3 @@
+﻿# The dependencies are declared in pyproject.toml; this installs the project with them, plus the dev tools.
+#   pip install -r requirements.txt     (same as: pip install -e ".[dev]")
+-e .[dev]

@@ -1,0 +1,17 @@
+{
+  "created_at": "2026-11-15T18:51:20+00:00",
+  "dataset_version": "16a398fc3e0512ddb58a2ea9f708ce1513464b9620337706b47d5038ed5df9fe",
+  "settings_fingerprint": "a3ac444e716e75e2341a31c0f446f3ffdbcfae01b973e43508cc658a18306c91",
+  "strategy": "headings",
+  "chunk_tokens": 250,
+  "chunks": 1034,
+  "starts_mid_sentence": 47,
+  "cut_tables": 1,
+  "avg_tokens": 144,
+  "median_tokens": 149,
+  "p95_tokens": 246,
+  "max_tokens": 251,
+  "under_20": 19,
+  "no_section": 9,
+  "over_limit": 2
+}

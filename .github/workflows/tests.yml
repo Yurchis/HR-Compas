@@ -1,0 +1,38 @@
+# CI: the unit and integration tests and the linter on every push and pull request.
+#
+# No documents, models or API keys are needed: the tests run on fakes and tiny fixture corpora. The tests that read
+# the real corpus (data/data_clean, git-ignored: it held personal data) or downloaded models skip themselves.
+# The evals with thresholds (`hr-compass eval retrieval --gate`, `eval answers --gate`) need the corpus and are run
+# locally, see README "Evaluation".
+name: tests
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.11", "3.12"]   # 3.11: the course minimum; 3.12: the development version
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+
+      - name: Install
+        run: python -m pip install -e ".[dev]"
+
+      - name: Lint (ruff)
+        run: ruff check .
+
+      - name: Tests (pytest)
+        run: python -m pytest -q

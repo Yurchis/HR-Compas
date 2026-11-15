@@ -1,0 +1,18 @@
+# Chunking experiment: strategy=fixed, 250 tokens. Only what differs from config/settings.toml is set here
+# (the code defaults equal the shipped settings). Run:
+#   hr-compass --config config/experiments/fixed-250.toml run --no-chat
+#   hr-compass --config config/experiments/fixed-250.toml eval chunks
+#   hr-compass --config config/experiments/fixed-250.toml eval retrieval --lenient
+[ingest]
+output_dir = "data/experiments/fixed-250"
+strategy = "fixed"
+chunk_tokens = 250
+
+[embeddings]
+cache_dir = ".cache/experiments/fixed-250"
+
+[eval]
+results_dir = "results/experiments/fixed-250"
+
+[logging]
+dir = "logs/experiments/fixed-250"

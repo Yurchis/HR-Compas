@@ -1,0 +1,21 @@
+# Chunking experiment with the PROVIDER embedding model (OpenRouter, sends chunk texts): strategy=headings, 120 tokens. Only what differs from config/settings.toml is set here
+# (the code defaults equal the shipped settings). Run:
+#   hr-compass --config config/experiments/openrouter-headings-120.toml run --no-chat
+#   hr-compass --config config/experiments/openrouter-headings-120.toml eval chunks
+#   hr-compass --config config/experiments/openrouter-headings-120.toml eval retrieval --lenient
+[ingest]
+output_dir = "data/experiments/headings-120"
+strategy = "headings"
+chunk_tokens = 120
+
+[embeddings]
+provider = "openrouter"
+model = "openai/text-embedding-3-large"
+dim = 3072
+cache_dir = ".cache/experiments/openrouter"
+
+[eval]
+results_dir = "results/experiments/openrouter-headings-120"
+
+[logging]
+dir = "logs/experiments/openrouter-headings-120"

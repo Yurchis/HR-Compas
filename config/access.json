@@ -1,0 +1,12 @@
+{
+  "_comment": "Who may read chunks of each document (source = path relative to the input folder). A key is a path prefix, or with * ? [ a glob over the whole path. The longest matching key wins; a document no key matches gets no groups (nobody sees it). No company or person names here: this file is in git.",
+  "": ["all_employees"],
+  "*Offer Letter*": ["hr"],
+  "*Contractor Agreement*": ["hr"],
+  "*Employment Verification Letter*": ["hr"],
+  "*Promotion Letter*": ["hr"],
+  "*/Recruitment/Job Offers/*": ["hr"],
+  "*/PDP&Competency Matrix/Property Tax/*": ["hr", "managers"],
+  "*/Handbook/Archive/*": ["hr"],
+  "*Senior Leadership*": ["leadership"]
+}
